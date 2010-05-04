@@ -82,9 +82,23 @@ With Web services you can exchange data between different applications and diffe
 
 
 
+\section{Standards}
+\subsection{BPEL}
+\subsubsection{Goals}
+There were ten original design goals associated with BPEL:
+\begin{enumerate}
+\item Define business processes that interact with external entities through Web Service operations defined using WSDL 1.1, and that manifest themselves as Web services defined using WSDL 1.1. The interactions are “abstract” in the sense that the dependence is on portType definitions, not on port definitions.
+\item Define business processes using an XML-based language. Do not define a graphical representation of processes or provide any particular design methodology for processes.
+\item Define a set of Web service orchestration concepts that are meant to be used by both the external (abstract) and internal (executable) views of a business process. Such a business process defines the behavior of a single autonomous entity, typically operating in interaction with other similar peer entities. It is recognized that each usage pattern (i.e. abstract view and executable view) will require a few specialized extensions, but these extensions are to be kept to a minimum and tested against requirements such as import/export and conformance checking that link the two usage patterns.
+\item Provide both hierarchical and graph-like control regimes, and allow their use to be blended as seamlessly as possible. This should reduce the fragmentation of the process modeling space.
+\item Provide data manipulation functions for the simple manipulation of data needed to define process data and control flow.
+\item Support an identification mechanism for process instances that allows the definition of instance identifiers at the application message level. Instance identifiers should be defined by partners and may change.
+\item Support the implicit creation and termination of process instances as the basic lifecycle mechanism. Advanced lifecycle operations such as "suspend" and "resume" may be added in future releases for enhanced lifecycle management.
+\item Define a long-running transaction model that is based on proven techniques like compensation actions and scoping to support failure recovery for parts of long-running business processes.
+\item Use Web Services as the model for process decomposition and assembly.
+\item Build on Web services standards (approved and proposed) as much as possible in a composable and modular manner.
 
-
-
+\end{enumerate}
 
 
 

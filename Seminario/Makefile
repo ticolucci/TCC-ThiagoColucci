@@ -1,10 +1,10 @@
 all: ideias.pdf
 
-ideias.pdf: seminario/ideias.tex
-	pdflatex seminario/ideias.tex
-	pdflatex seminario/ideias.tex
-	pdflatex seminario/ideias.tex
-	pdflatex seminario/ideias.tex
+ideias.pdf: ideias.tex
+	pdflatex ideias.tex
+	pdflatex ideias.tex
+	pdflatex ideias.tex
+	pdflatex ideias.tex
 	rm -f ideias.dvi ideias.aux ideias.log ideias.toc ideias.out
 
 clean:

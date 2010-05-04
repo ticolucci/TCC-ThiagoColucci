@@ -6,8 +6,10 @@ Hora: dia 7/maio, sexta-feira, das 10:00 às 11:30
 Orquestração de Serviços Web - o que é e como implementar?
 Thiago Rodrigues Colucci
 
-Há dez anos atrás, o uso de serviços web não era vantajoso devido à velocidade de banda. Hoje, a conexão com a internet evoluiu de tal maneira que já podemos confiar em sistemas de tempo real baseados nestes serviços, com a vantagem de ter interoperabilidade entre SOs.
+Há dez anos atrás, o uso de serviços web não era vantajoso devido à velocidade de banda. Hoje, a conexão com a Internet evoluiu de tal maneira que já podemos confiar em sistemas de tempo real baseados nestes serviços, com a vantagem de ter interoperabilidade entre SOs.
 
-Orquestração de Serviços Web é o uso de padrões para conectar serviços web, com a finalidade de gerar novos modelos de negócios de alto nível. Tais padrões são fundamentais para garantir que os serviços possam se comunicar.
+Podemos considerar que Orquestração de Serviços Web é o uso de padrões para conectar serviços web, com a finalidade de gerar novos modelos de negócios de alto nível.
+Mais formalmente, Orquestração de Serviços Web descreve como estes serviços podem interagir uns com outros através de troca de mensagens, incluindo logica de negócios e ordem na execução das interações. Estas interações podem aproximar aplicações e/ou organizações e resultar num modelo de negócio de longa vida, transacional e com várias fases.
+
 
 Neste seminário, será dada uma breve introdução sobre serviços web, seguido de uma explicação do que é Orquestração de Serviços Web e padrões para sua implementação, bem como algumas ferramentas para isso.
