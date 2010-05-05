@@ -24,19 +24,37 @@
 
 \newpage
 
-
-\section{Web Services}
-\subsection{What are Web Services?}
+\section{Web Service}
+\subsection{What?}
 \begin{itemize}
 \item Web services are application components
 \item Web services communicate using open protocols
 \item Web services are self-contained and self-describing
-\item Web services can be discovered using UDDI
+\item Web services can be discovered using NEDI
 \item Web services can be used by other applications
 \item XML is the basis for Web services
 \end{itemize}
+\subsection{Why?}
 
-\subsection{How Does it Work?}
+\subsubsection{Interoperability}
+
+When all major platforms could access the Web using Web browsers, different platforms could interact. For these platforms to work together, Web-applications were developed.
+
+Web-applications are simple applications that run on the web. These are built around the Web browser standards and can be used by any browser on any platform.
+
+\subsubsection{Reusable application-components}
+
+There are things applications need very often. So why make these over and over again?
+
+Web services can offer application-components like: currency conversion, weather reports, or even language translation as services.
+
+\subsubsection{Connect existing software}
+
+Web services can help to solve the interoperability problem by giving different applications a way to link their data.
+
+With Web services you can exchange data between different applications and different platforms.
+
+\subsection{How?}
 The basic Web services platform is XML + HTTP.
 
 XML provides a language which can be used between different platforms and programming languages and still express complex messages and functions.
@@ -50,64 +68,82 @@ Web services platform elements:
 \item WSDL (Web Services Description Language)
 \end{itemize}
 
-\subsection{Why Web Services?}
-
-\subsubsection{Interoperability has Highest Priority}
-
-When all major platforms could access the Web using Web browsers, different platforms could interact. For these platforms to work together, Web-applications were developed.
-
-Web-applications are simple applications that run on the web. These are built around the Web browser standards and can be used by any browser on any platform.
-
-\subsubsection{Web Services take Web-applications to the Next Level}
-
-By using Web services, your application can publish its function or message to the rest of the world.
-
-Web services use XML to code and to decode data, and SOAP to transport it (using open protocols).
-
-With Web services, your accounting department's Win 2k server's billing system can connect with your IT supplier's UNIX server.
-
-\subsubsection{Web Services have Two Types of Uses}
-
-\bf{Reusable application-components.}
-
-There are things applications need very often. So why make these over and over again?
-
-Web services can offer application-components like: currency conversion, weather reports, or even language translation as services.
-
-\bf{Connect existing software.}
-
-Web services can help to solve the interoperability problem by giving different applications a way to link their data.
-
-With Web services you can exchange data between different applications and different platforms.
 
 
+\section{Orchestration}
+\subsection{What?}
+Orchestration describes how web services can interact with each other at the message level, including the business logic and execution order of the interactions. These interactions may span applications and/or organizations, and result in a long-lived, transactional, multi-step process model.
 
-\section{Standards}
-\subsection{BPEL}
-\subsubsection{Goals}
-There were ten original design goals associated with BPEL:
-\begin{enumerate}
-\item Define business processes that interact with external entities through Web Service operations defined using WSDL 1.1, and that manifest themselves as Web services defined using WSDL 1.1. The interactions are “abstract” in the sense that the dependence is on portType definitions, not on port definitions.
-\item Define business processes using an XML-based language. Do not define a graphical representation of processes or provide any particular design methodology for processes.
-\item Define a set of Web service orchestration concepts that are meant to be used by both the external (abstract) and internal (executable) views of a business process. Such a business process defines the behavior of a single autonomous entity, typically operating in interaction with other similar peer entities. It is recognized that each usage pattern (i.e. abstract view and executable view) will require a few specialized extensions, but these extensions are to be kept to a minimum and tested against requirements such as import/export and conformance checking that link the two usage patterns.
-\item Provide both hierarchical and graph-like control regimes, and allow their use to be blended as seamlessly as possible. This should reduce the fragmentation of the process modeling space.
-\item Provide data manipulation functions for the simple manipulation of data needed to define process data and control flow.
-\item Support an identification mechanism for process instances that allows the definition of instance identifiers at the application message level. Instance identifiers should be defined by partners and may change.
-\item Support the implicit creation and termination of process instances as the basic lifecycle mechanism. Advanced lifecycle operations such as "suspend" and "resume" may be added in future releases for enhanced lifecycle management.
-\item Define a long-running transaction model that is based on proven techniques like compensation actions and scoping to support failure recovery for parts of long-running business processes.
-\item Use Web Services as the model for process decomposition and assembly.
-\item Build on Web services standards (approved and proposed) as much as possible in a composable and modular manner.
+Orchestration is not defined as a W3C standard. It's standardized by OASIS. The co-chair of the Web Service Choreography working group of W3C (in 2005), Steve Ross-Talbot, said that ``OASIS is a very different kind of organization. By contrast, it's much more vendor-led than the W3C. The W3C is responsible for all the core building blocks of the Web, for Web services and for the semantic Web. All the ancillary things you need to make Web services happen, such as management and orchestration, are in OASIS''.
 
-\end{enumerate}
+But the fact is that the industry is embracing orchestration as the way to specify, generate and control business process built upon web services. This was an initiative of IBM with Microsoft to develop a unified standard for Orchestration.
+
+\subsection{Why?}
+
+The principal motive is to embrace the use of web services and jump to the next level of the Internet. Depending basically on web services, the business process becomes interoperable and scalable. Besides, there's already a lot of open web services available to use, shortening the development time.
+
+\subsection{How?}
+Using open standards to connect web services together.
+Basically in all of the available standards, we first describes the orchestration through a XML document, then we generate an executable process from this file, nad finally we execute the process.
+That's all.
+
+\subsection{Standards}
+Historically (2002), three standards arose from the cooperation between companies (e.g. IBM, Microsoft, Sun, BEA, and others) intrested on the development of the Web:
+
+\paragraph{BPEL4WS} 
+stands for ``Business Process Execution Language for Web Services'', the specification — called BPEL, for short — models the behavior of Web services in a business process interaction. It provides an XML-based grammar for describing the control logic required to coordinate Web services participating in a process flow. The WSDL interface defines the specific operations allowed, and BPEL defines how to sequence them.
+
+\paragraph{BPML} 
+
+\paragraph{WSCI}
+
+\subsubsection{WS-BPEL}
+
+\begin{center}
+  \emph{Image of Comunication with BPEL}
+\end{center}
+
+A \emph{basic activity} is an instruction that interacts with something external to the process itself. In a typical scenario, a BPEL executable process receives a message. Then it might invoke a series of services to gather additional data and subsequently respond to the requestor.
+
+\emph{Structured activities} manage the overall process flow, specifying the sequence for referenced Web services. These activities also support conditional looping and dynamic branching. They are essentially BPEL’s underlying programming logic for BPEL. 
+
+\emph{Variables} and \emph{partnerLinks} are two other important BPEL elements.
+  • A \emph{variable} identifies the specific data exchanged in a message flow. When a BPEL process receives a message, it populates the appropriate variable so that subsequent requests can access the data. Variables are used to manage data persistence across Web services requests.
+  • A \emph{partnerLink} could be any service that the process invokes or any service that invokes the process. Each partnerLink maps to a specific role that it fulfills in the business process.
+
+
+BPEL also provides a robust mechanism for handling transactions and exceptions, building on top of the WS-Coordination and WS-Transaction specifications. Developed jointly by Microsoft, IBM, and BEA, these corollary specifications provide the support necessary to manage and coordinate business activity operations.
+
+To group a set of activities in a single transaction, BPEL uses a \emph{scope} tag. The tag signifies that the enclosed steps should either all complete or all fail. Within this scope, a developer can specify compensation handlers that the BPEL orchestration engine can invoke in case of error.
+
+\subsubsection{Tools}
 
 
 
 \section{Bibliography}
 \begin{itemize}
-\item Web Service Tutorial - http://www.w3schools.com/webservices/
-\item C. Peltz. Web services orchestration: a review of emerging technologies, tools, and standards. Technical Report HP. January, 2003 - http://xml.coverpages.org/HP-WSOrchestration.pdf
-\item Non-intrusive monitoring and service adaptation for WS-BPEL. 17th international conference on World Wide Web, 2008 - http://doi.acm.org/10.1145/1367497.1367607
-\item 
+\item Web Service Tutorial - \verb!http://www.w3schools.com/webservices/!
+
+\item[WSO] C. Peltz. Web services orchestration: a review of emerging technologies, tools, and standards. Technical Report HP. January, 2003
+
+\item[WSOC] C. Peltz. Web Services Orchestration and Choreography. IEEE Computer Society, 20c.03.
+
+\item[NIMSA] Non-intrusive monitoring and service adaptation for WS-BPEL. 17th international conference on World Wide Web, 2008
+
+\item[IWSA] Gottschalk et al. Introduction to Web service architecture. IBM Systems Journal, Vol 41, NO 2, 2002.
+
+\item[WSBCBC] M. Stal. Web Services: Beyond Component-based Computing. Communications of the ACM, Vol 45, NO 10, 2002.
+
+\item[OASIS] OASIS(Organization for the Advancement of Structured Information Standards) - \verb!http://www.oasis-open.org/committees/tc_home.php?wg_abbrev=wsbpel!
+
+\item[BPEL] BPEL - \verb!bpel.xml.org!
+
+\item[W3C] W3C - \verb!www.w3.org/TR!
+
+\item[INTERVIEW] Interview with Steve Ross-Talbot - \verb!http://searchsoa.techtarget.com/news/interview/0,289202,sid26_gci1066118,00.html!
+
+\item[BPSHO] Business Process Spec Handed Off to OASIS, Not W3C - \verb!http://www.internetnews.com/dev-news/article.php/2193071!
+
 \end{itemize}
 
 
