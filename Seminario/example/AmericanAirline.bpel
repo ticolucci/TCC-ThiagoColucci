@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?> 
+
+<!-- Airline -->
+
+<process name="AmericanAirline" 
+         targetNamespace="http://packtpub.com/service/airline/" 
+         xmlns="http://schemas.xmlsoap.org/ws/2003/03/business-process/"
+         xmlns:aln="http://packtpub.com/service/airline/" >
+   
+   <partnerLinks>
+      <partnerLink name="AmericanAirlines" 
+                   partnerLinkType="aln:flightLT"
+                   partnerRole="airlineCustomer"
+                   myRole="airlineService"/>
+                   
+   </partnerLinks>
+
+   <variables>
+      <!-- input -->
+      <variable name="FlightDetails" messageType="aln:FlightTicketRequestMessage"/>
+      <!-- output from American Airlines -->
+      <variable name="FlightResponseAA" messageType="aln:TravelResponseMessage"/>
+   </variables>
+
+   <sequence>
+
+      <!-- Receive the initial request -->
+      <receive partnerLink="AmericanAirlines" 
+               portType="aln:FlightAvailabilityPT" 
+               operation="FlightAvailability" 
+               variable="FlightDetails"
+               createInstance="yes" />
+
+      <!-- Prepare the output -->
+      <assign>
+        <copy>
+          <from>
+            <confirmationData xmlns="http://packtpub.com/service/airline/">
+             <FlightNo>123</FlightNo>
+             <TravelClass>Economy</TravelClass>
+             <Price>120</Price>
+             <DepartureDateTime>2004-01-01</DepartureDateTime>
+             <ReturnDateTime>2004-01-05</ReturnDateTime>
+             <Approved>true</Approved>
+            </confirmationData>
+          </from>
+          <to variable="FlightResponseAA" part="confirmationData" />
+        </copy>
+      </assign>
+      
+      <!-- Make a callback -->
+      <invoke partnerLink="AmericanAirlines" 
+              portType="aln:FlightCallbackPT" 
+              operation="FlightTicketCallback"
+              inputVariable="FlightResponseAA" />
+   </sequence>
+
+</process>

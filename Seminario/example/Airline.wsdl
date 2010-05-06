@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns:xs="http://www.w3.org/2001/XMLSchema"
+             xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+             xmlns:emp="http://packtpub.com/service/employee/"
+             xmlns:tns="http://packtpub.com/service/airline/"
+             targetNamespace="http://packtpub.com/service/airline/"
+             xmlns="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:plnk="http://schemas.xmlsoap.org/ws/2003/05/partner-link/" >
+
+<import namespace="http://packtpub.com/service/employee/"
+        location="./Employee.wsdl"/>
+
+<types>
+  <xs:schema elementFormDefault="qualified"
+             targetNamespace="http://packtpub.com/service/airline/">
+
+    <xs:complexType name="FlightRequestType">
+      <xs:sequence>
+        <xs:element name="OriginFrom" type="xs:string" />
+        <xs:element name="DestinationTo" type="xs:string" />
+        <xs:element name="DesiredDepartureDate" type="xs:date" />
+        <xs:element name="DesiredReturnDate" type="xs:date" />
+      </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="TravelClassType">
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="Economy"/>
+        <xs:enumeration value="Business"/>
+        <xs:enumeration value="First"/>
+      </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="FlightConfirmationType">
+      <xs:sequence>
+        <xs:element name="FlightNo" type="xs:string" />
+        <xs:element name="TravelClass" type="tns:TravelClassType" />
+        <xs:element name="Price" type="xs:float" />
+        <xs:element name="DepartureDateTime" type="xs:dateTime" />
+        <xs:element name="ReturnDateTime" type="xs:dateTime" />
+        <xs:element name="Approved" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+
+  </xs:schema>
+</types>
+
+<message name="FlightTicketRequestMessage">
+  <part name="flightData" type="tns:FlightRequestType" />
+  <part name="travelClass" type="emp:TravelClassType" />
+</message>
+
+<message name="TravelResponseMessage">
+  <part name="confirmationData" type="tns:FlightConfirmationType" />
+</message>
+
+<portType name="FlightAvailabilityPT">
+  <operation name="FlightAvailability">
+    <input message="tns:FlightTicketRequestMessage" />
+  </operation>
+</portType>
+
+<!-- Implemented by the BPEL process -->
+<portType name="FlightCallbackPT">
+  <operation name="FlightTicketCallback">
+    <input message="tns:TravelResponseMessage" />
+  </operation>
+</portType>
+
+<!-- Partner link type -->
+<plnk:partnerLinkType name="flightLT">
+  <plnk:role name="airlineService">
+    <plnk:portType name="tns:FlightAvailabilityPT" />
+  </plnk:role>
+  <plnk:role name="airlineCustomer">
+    <plnk:portType name="tns:FlightCallbackPT" />
+  </plnk:role>
+</plnk:partnerLinkType>
+
+</definitions>
+

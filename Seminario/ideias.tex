@@ -84,40 +84,58 @@ The principal motive is to embrace the use of web services and jump to the next 
 
 \subsection{How?}
 Using open standards to connect web services together.
-Basically in all of the available standards, we first describes the orchestration through a XML document, then we generate an executable process from this file, nad finally we execute the process.
+Basically, we first describes the orchestration through a XML document, then we generate an executable process from this file, nad finally we execute the process.
 That's all.
 
-\subsection{Standards}
+\subsection{Standard}
+\subsubsection{History}
+
 Historically (2002), three standards arose from the cooperation between companies (e.g. IBM, Microsoft, Sun, BEA, and others) intrested on the development of the Web:
 
 \paragraph{BPEL4WS} 
 stands for ``Business Process Execution Language for Web Services'', the specification — called BPEL, for short — models the behavior of Web services in a business process interaction. It provides an XML-based grammar for describing the control logic required to coordinate Web services participating in a process flow. The WSDL interface defines the specific operations allowed, and BPEL defines how to sequence them.
 
-\paragraph{BPML} 
-
 \paragraph{WSCI}
+is the Web Service Choreography Interface. It defines a collaboration extension to WSDL, describing only the observable behavior between Web services. It does not address the definition of executables business process as BPEL does. But choreography is not the theme of this seminar.
+
+\paragraph{BPML} 
+the Business Process Management Language aldo incorporate WSCI support. BPML and WSCI share the same underlying process execution model, so developers can use WSCI to describe public interactions among business process and reserve PBML for developing private implementations.\\ \\
+
+In the begining of 2003, all the companies supporting BPML discontinued it's support, migrating to BPEL4WS. It became a standard by OASIS, whom renamed the standard to WS-BPEL, the change was made to align with others Web Services standards.
+
+Nowadays the main standard is still BPEL, with a lot of tools to deploy it's definition to executable process.
 
 \subsubsection{WS-BPEL}
+Before telling how to use BPEL, we first have to define some therms:
+\begin{itemize}
+\item[basic activity] is an instruction that interacts with something external to the process itself. In a typical scenario, a BPEL executable process receives a message. Then it might invoke a series of services to gather additional data and subsequently respond to the requestor.
+
+\item[structured activities] manage the overall process flow, specifying the sequence for referenced Web services. These activities also support conditional looping and dynamic branching. They are essentially BPEL’s underlying programming logic for BPEL. 
+
+\item[variables] identifies the specific data exchanged in a message flow. When a BPEL process receives a message, it populates the appropriate variable so that subsequent requests can access the data. Variables are used to manage data persistence across Web services requests.
+
+\item[partnerLink] can be any service that the process invokes or any service that invokes the process. Each partnerLink maps to a specific role that it fulfills in the business process.
+
+\item[scope tag] To group a set of activities in a single transaction, BPEL uses a \emph{scope} tag. The tag signifies that the enclosed steps should either all complete or all fail. Within this scope, a developer can specify compensation handlers that the BPEL orchestration engine can invoke in case of error.
+\end{itemize}
+
+Now, with our commands well known, we can analize an BPEL description example.
 
 \begin{center}
-  \emph{Image of Comunication with BPEL}
+  EXPLICAR O WSDL TYPES e MESASGES
+  PROCESSO DO BPEL
+  ->Partner Links
+  ->Variaveis + assign +copy_from_to
+  ->Receive
+  ->Invoke
+  ->Sequence
+  ->Flow
+  ->switch : case : ... : case : otherwise
 \end{center}
 
-A \emph{basic activity} is an instruction that interacts with something external to the process itself. In a typical scenario, a BPEL executable process receives a message. Then it might invoke a series of services to gather additional data and subsequently respond to the requestor.
-
-\emph{Structured activities} manage the overall process flow, specifying the sequence for referenced Web services. These activities also support conditional looping and dynamic branching. They are essentially BPEL’s underlying programming logic for BPEL. 
-
-\emph{Variables} and \emph{partnerLinks} are two other important BPEL elements.
-  • A \emph{variable} identifies the specific data exchanged in a message flow. When a BPEL process receives a message, it populates the appropriate variable so that subsequent requests can access the data. Variables are used to manage data persistence across Web services requests.
-  • A \emph{partnerLink} could be any service that the process invokes or any service that invokes the process. Each partnerLink maps to a specific role that it fulfills in the business process.
-
-
-BPEL also provides a robust mechanism for handling transactions and exceptions, building on top of the WS-Coordination and WS-Transaction specifications. Developed jointly by Microsoft, IBM, and BEA, these corollary specifications provide the support necessary to manage and coordinate business activity operations.
-
-To group a set of activities in a single transaction, BPEL uses a \emph{scope} tag. The tag signifies that the enclosed steps should either all complete or all fail. Within this scope, a developer can specify compensation handlers that the BPEL orchestration engine can invoke in case of error.
 
 \subsubsection{Tools}
-
+Honestly I hadn't 
 
 
 \section{Bibliography}
@@ -143,6 +161,8 @@ To group a set of activities in a single transaction, BPEL uses a \emph{scope} t
 \item[INTERVIEW] Interview with Steve Ross-Talbot - \verb!http://searchsoa.techtarget.com/news/interview/0,289202,sid26_gci1066118,00.html!
 
 \item[BPSHO] Business Process Spec Handed Off to OASIS, Not W3C - \verb!http://www.internetnews.com/dev-news/article.php/2193071!
+
+\item[AHIB] A Hands-on Instruction to BPEL - \verb!http://www.oracle.com/technology/pub/articles/matjaz_bpel1.html!
 
 \end{itemize}
 
