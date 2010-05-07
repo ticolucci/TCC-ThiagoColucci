@@ -99,7 +99,7 @@ stands for ``Business Process Execution Language for Web Services'', the specifi
 is the Web Service Choreography Interface. It defines a collaboration extension to WSDL, describing only the observable behavior between Web services. It does not address the definition of executables business process as BPEL does. But choreography is not the theme of this seminar.
 
 \paragraph{BPML} 
-the Business Process Management Language aldo incorporate WSCI support. BPML and WSCI share the same underlying process execution model, so developers can use WSCI to describe public interactions among business process and reserve PBML for developing private implementations.\\ \\
+the Business Process Management Language also incorporate WSCI support. BPML and WSCI share the same underlying process execution model, so developers can use WSCI to describe public interactions among business process and reserve PBML for developing private implementations.\\ \\
 
 In the beginning of 2003, all the companies supporting BPML discontinued it's support, migrating to BPEL4WS. It became a standard by OASIS, whom renamed the standard to WS-BPEL, the change was made to align with others Web Services standards.
 
@@ -122,6 +122,7 @@ Before telling how to use BPEL, we first have to define some therms:
 Now, with our commands well known, we can analyze an BPEL description example.
 
 \begin{center}
+  \begin{verbatim}
   EXPLICAR O WSDL TYPES e MESASGES
   PROCESSO DO BPEL
   ->Partner Links
@@ -131,17 +132,22 @@ Now, with our commands well known, we can analyze an BPEL description example.
   ->Sequence
   ->Flow
   ->switch : case : ... : case : otherwise
+  \end{verbatim}
 \end{center}
 
 
 \subsubsection{Tools}
 \paragraph{Open Source}
+The main open source project for BPEL is surely Apache ODE (Orchestration Director Engine), which executes as executable process.
+
+Intalio Works is an application that helps you describe a BPEL orchestration, then it uses ODE to deploy the executable. Intalio is build on Eclipse.
 
 \paragraph{Proprietary}
+Oracle BPEL Process Manager are other graphical process creation tools for BPEL.
 
 \section{Bibliography}
 \begin{itemize}
-\item Web Service Tutorial - \verb!http://www.w3schools.com/webservices/!
+\item[WST] Web Service Tutorial - \verb!http://www.w3schools.com/webservices/!
 
 \item[WSO] C. Peltz. Web services orchestration: a review of emerging technologies, tools, and standards. Technical Report HP. January, 2003
 
@@ -165,6 +171,15 @@ Now, with our commands well known, we can analyze an BPEL description example.
 
 \item[AHIB] A Hands-on Instruction to BPEL - \verb!http://www.oracle.com/technology/pub/articles/matjaz_bpel1.html!
 
+\item[OPM] Oracle Process Manager - \verb!http://www.oracle.com/technology/products/ias/bpel/index.html!
+
+\item[WPS] WebSphere Process Server - \verb!http://www-01.ibm.com/software/integration/wps/!
+
+\item[WID] WebSphere Integration Developer - \verb!http://www-01.ibm.com/software/integration/wid/!
+
+\item[ODE] Apache ODE - \verb!http://ode.apache.org/!
+
+\item[INTALIO] Intalio Works - \verb!http://www.intalioworks.com/products/bpm/opensource-edition/#overview!
 \end{itemize}
 
 
