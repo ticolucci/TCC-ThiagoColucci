@@ -1,0 +1,13 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<wsdl:definitions xmlns:ns="http://localhost:8080/JoinerCamelizer" xmlns:diag="http://example.com/JoinerCamelizer" xmlns:JC="http://example.com/JoinerCamelizer/JC" xmlns:JoinerCamelizer="http://example.com/JoinerCamelizer/JoinerCamelizer" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:typens="urn:ActionWebService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:pnlk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:bpdm="http://www.intalio/designer/business-process-data-modeling" targetNamespace="http://example.com/JoinerCamelizer">
+    <wsdl:import namespace="http://example.com/JoinerCamelizer/JoinerCamelizer" location="JoinerCamelizer-JoinerCamelizer.wsdl"/>
+    <wsdl:import namespace="urn:ActionWebService" location="camelizer.wsdl"/>
+    <wsdl:import namespace="urn:ActionWebService" location="joiner.wsdl"/>
+    <pnlk:partnerLinkType name="JoinerCamelizerAndClient">
+        <pnlk:role name="JoinerCamelizer_for_Client" portType="JoinerCamelizer:ForClient"/>
+    </pnlk:partnerLinkType>
+    <pnlk:partnerLinkType name="JoinerCamelizerAndJCForCamelizerCamelizerPortPlk">
+        <pnlk:role name="JC_for_JoinerCamelizer" portType="typens:CamelizerCamelizerPort"/>
+        <pnlk:role name="JoinerCamelizer_for_JC" portType="typens:JoinerJoinerPort"/>
+    </pnlk:partnerLinkType>
+</wsdl:definitions>

@@ -1,0 +1,495 @@
+
+
+Processing ApplicationController#wsdl (for 127.0.0.1 at 2010-07-05 17:20:58) [GET]
+
+NameError (uninitialized constant HelloMessageController::HelloMessageApi):
+  app/controllers/hello_message_controller.rb:3
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (65.9ms)
+Rendered rescues/_request_and_response (2.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#wsdl (for 127.0.0.1 at 2010-07-05 17:29:37) [GET]
+
+NameError (uninitialized constant ActionWebService):
+  app/apis/hello_message_api.rb:1
+  app/controllers/hello_message_controller.rb:3
+
+Rendered rescues/_trace (174.6ms)
+Rendered rescues/_request_and_response (4.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#wsdl (for 127.0.0.1 at 2010-07-05 17:30:31) [GET]
+
+NameError (uninitialized constant ActionWebService):
+  app/apis/hello_message_api.rb:1
+  app/controllers/hello_message_controller.rb:3
+
+Rendered rescues/_trace (209.3ms)
+Rendered rescues/_request_and_response (2.1ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#wsdl (for 127.0.0.1 at 2010-07-05 17:31:04) [GET]
+
+NameError (uninitialized constant ActionWebService::API::Base::Reloadable):
+  /var/lib/gems/1.8/gems/actionwebservice-1.2.6/lib/action_web_service/api.rb:19
+  app/apis/hello_message_api.rb:1
+  app/controllers/hello_message_controller.rb:3
+
+Rendered rescues/_trace (99.8ms)
+Rendered rescues/_request_and_response (4.1ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#wsdl (for 127.0.0.1 at 2010-07-06 14:41:17) [GET]
+
+NameError (uninitialized constant HelloMessageController::HelloMessageApi):
+  app/controllers/hello_message_controller.rb:3
+
+Rendered rescues/_trace (64.0ms)
+Rendered rescues/_request_and_response (3.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#wsdl (for 127.0.0.1 at 2010-07-06 14:41:56) [GET]
+
+NameError (uninitialized constant ActionWebService):
+  app/controllers/hello_message_controller.rb:2
+
+Rendered rescues/_trace (71.2ms)
+Rendered rescues/_request_and_response (0.7ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-06 15:37:44) [GET]
+
+ActionController::RoutingError (No route matches "/hello_message/" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-06 15:37:53) [GET]
+
+ActionController::RoutingError (No route matches "/hello_message/wsdl" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-06 15:37:57) [GET]
+
+ActionController::RoutingError (No route matches "/hello_message/invocation" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-06 15:38:05) [GET]
+
+NoMethodError (undefined method `wsdl_service_name' for FooBarController:Class):
+  app/controllers/foo_bar_controller.rb:3
+
+Rendered rescues/_trace (58.0ms)
+Rendered rescues/_request_and_response (2.7ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#wsdl (for 127.0.0.1 at 2010-07-06 15:38:10) [GET]
+
+NoMethodError (undefined method `wsdl_service_name' for FooBarController:Class):
+  app/controllers/foo_bar_controller.rb:3
+
+Rendered rescues/_trace (62.6ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#invocation (for 127.0.0.1 at 2010-07-06 15:38:16) [GET]
+
+NoMethodError (undefined method `wsdl_service_name' for FooBarController:Class):
+  app/controllers/foo_bar_controller.rb:3
+
+Rendered rescues/_trace (67.0ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-06 15:38:28) [GET]
+
+ActionController::RoutingError (No route matches "/fooBar/invocation" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#api (for 127.0.0.1 at 2010-07-06 15:38:40) [GET]
+
+NoMethodError (undefined method `wsdl_service_name' for FooBarController:Class):
+  app/controllers/foo_bar_controller.rb:3
+
+Rendered rescues/_trace (56.6ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#api (for 127.0.0.1 at 2010-07-06 15:39:12) [GET]
+
+NoMethodError (undefined method `wsdl_service_name' for FooBarController:Class):
+  app/controllers/foo_bar_controller.rb:3
+
+Rendered rescues/_trace (221.1ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#api (for 127.0.0.1 at 2010-07-06 15:39:17) [GET]
+
+NoMethodError (undefined method `web_service_api' for FooBarController:Class):
+  app/controllers/foo_bar_controller.rb:4
+
+Rendered rescues/_trace (62.4ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#api (for 127.0.0.1 at 2010-07-06 15:45:10) [GET]
+
+NoMethodError (undefined method `wsdl_service_name' for FooBarController:Class):
+  app/controllers/foo_bar_controller.rb:3
+
+Rendered rescues/_trace (60.3ms)
+Rendered rescues/_request_and_response (3.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#api (for 127.0.0.1 at 2010-07-06 16:00:01) [GET]
+
+NoMethodError (undefined method `wsdl_service_name' for FooBarController:Class):
+  app/controllers/foo_bar_controller.rb:3
+
+Rendered rescues/_trace (63.1ms)
+Rendered rescues/_request_and_response (3.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#api (for 127.0.0.1 at 2010-07-06 16:00:31) [GET]
+
+NoMethodError (undefined method `wsdl_service_name' for FooBarController:Class):
+  app/controllers/foo_bar_controller.rb:5
+
+Rendered rescues/_trace (72.2ms)
+Rendered rescues/_request_and_response (3.1ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#api (for 127.0.0.1 at 2010-07-06 16:01:01) [GET]
+
+NoMethodError (undefined method `wsdl_service_name' for FooBarController:Class):
+  app/controllers/foo_bar_controller.rb:5
+
+Rendered rescues/_trace (71.0ms)
+Rendered rescues/_request_and_response (2.1ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#api (for 127.0.0.1 at 2010-07-06 16:01:01) [GET]
+
+NoMethodError (undefined method `wsdl_service_name' for FooBarController:Class):
+  app/controllers/foo_bar_controller.rb:5
+
+Rendered rescues/_trace (210.3ms)
+Rendered rescues/_request_and_response (0.9ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#api (for 127.0.0.1 at 2010-07-06 16:03:01) [GET]
+
+NameError (undefined local variable or method `act_as_web_service' for FooBarController:Class):
+  app/controllers/foo_bar_controller.rb:3
+
+Rendered rescues/_trace (48.9ms)
+Rendered rescues/_request_and_response (3.7ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#api (for 127.0.0.1 at 2010-07-06 16:04:42) [GET]
+
+NoMethodError (undefined method `acts_as_web_service' for ActionWebService::ActsAsWebService::ClassMethods:Module):
+  app/controllers/foo_bar_controller.rb:3
+
+Rendered rescues/_trace (65.2ms)
+Rendered rescues/_request_and_response (2.7ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing FooBarController#api (for 127.0.0.1 at 2010-07-06 16:05:13) [GET]
+Completed in 5ms (View: 1, DB: 0) | 500 Internal Server Error [http://localhost/foo_bar/api]
+
+
+Processing FooBarController#wsdl (for 127.0.0.1 at 2010-07-06 16:05:22) [GET]
+
+ActionController::UnknownAction (No action responded to wsdl. Actions: acts_as_web_service, after_invocation, api, before_invocation, foo_bar, invocation, invocation_method_params, invocation_submit, perform_invocation, perform_invocation_with_interception, perform_invocation_without_interception, web_service_dispatching_mode, web_service_dispatching_mode=, web_service_exception_reporting, web_service_exception_reporting=, web_service_inflect_type, web_service_inflect_type=, web_service_object, wsdl_namespace, wsdl_namespace=, wsdl_service_name, and wsdl_service_name=):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing FooBarController#invocation (for 127.0.0.1 at 2010-07-06 16:05:27) [GET]
+Rendering /usr/lib/ruby/gems/1.8/gems/guilleiguaran-actionwebservice-2.3.8/lib/action_web_service/templates/scaffolds/layout.html.erb
+Completed in 19ms (View: 6, DB: 0) | 200 OK [http://localhost/foo_bar/invocation]
+
+
+Processing FooBarController#invocation_method_params (for 127.0.0.1 at 2010-07-06 16:05:31) [GET]
+  Parameters: {"method"=>"FooBar", "service"=>"foo_bar"}
+Rendering /usr/lib/ruby/gems/1.8/gems/guilleiguaran-actionwebservice-2.3.8/lib/action_web_service/templates/scaffolds/layout.html.erb
+Completed in 57ms (View: 2, DB: 0) | 200 OK [http://localhost/foo_bar/invocation_method_params?method=FooBar&service=foo_bar]
+
+
+Processing FooBarController#invocation_submit (for 127.0.0.1 at 2010-07-06 16:05:38) [POST]
+  Parameters: {"commit"=>"Invoke", "service"=>"foo_bar", "method"=>"FooBar", "authenticity_token"=>"CCbVbDKU9w/cI28fzXRnzNGn10fBuvrvBCZncT8x1TM=", "protocol"=>"soap", "method_params"=>{"0"=>"um teste"}}
+
+Web Service Request: FooBar(string=>"um teste") Entrypoint: invocation_submit
+  <?xml version="1.0" encoding="utf-8" ?>
+  <env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:env="http://schemas.xmlsoap.org/soap/envelope/">
+    <env:Body>
+      <n1:FooBar xmlns:n1="urn:ActionWebService"
+          env:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+        <string xsi:type="xsd:string">um teste</string>
+      </n1:FooBar>
+    </env:Body>
+  </env:Envelope>
+
+Web Service Response (0.003103): => "UM TESTE"
+  <?xml version="1.0" encoding="UTF-8" ?>
+  <env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:env="http://schemas.xmlsoap.org/soap/envelope/">
+    <env:Body>
+      <n1:FooBarResponse xmlns:n1="urn:ActionWebService"
+          env:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+        <return xsi:type="xsd:string">UM TESTE</return>
+      </n1:FooBarResponse>
+    </env:Body>
+  </env:Envelope>
+Sending data 
+Rendering /usr/lib/ruby/gems/1.8/gems/guilleiguaran-actionwebservice-2.3.8/lib/action_web_service/templates/scaffolds/layout.html.erb
+Completed in 40ms (View: 1, DB: 0) | 200 OK [http:///foo_bar/invocation_submit]
+
+
+Processing FooBarController#index (for 127.0.0.1 at 2010-07-06 16:07:33) [GET]
+
+ActionController::UnknownAction (No action responded to index. Actions: acts_as_web_service, after_invocation, api, before_invocation, foo_bar, invocation, invocation_method_params, invocation_submit, perform_invocation, perform_invocation_with_interception, perform_invocation_without_interception, web_service_dispatching_mode, web_service_dispatching_mode=, web_service_exception_reporting, web_service_exception_reporting=, web_service_inflect_type, web_service_inflect_type=, web_service_object, wsdl_namespace, wsdl_namespace=, wsdl_service_name, and wsdl_service_name=):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing FooBarController#foo_bar (for 127.0.0.1 at 2010-07-06 16:07:43) [GET]
+
+ArgumentError (wrong number of arguments (0 for 1)):
+  
+
+Rendered rescues/_trace (64.4ms)
+Rendered rescues/_request_and_response (2.1ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing FooBarController#index (for 127.0.0.1 at 2010-07-06 16:07:47) [GET]
+
+ActionController::UnknownAction (No action responded to index. Actions: acts_as_web_service, after_invocation, api, before_invocation, foo_bar, invocation, invocation_method_params, invocation_submit, perform_invocation, perform_invocation_with_interception, perform_invocation_without_interception, web_service_dispatching_mode, web_service_dispatching_mode=, web_service_exception_reporting, web_service_exception_reporting=, web_service_inflect_type, web_service_inflect_type=, web_service_object, wsdl_namespace, wsdl_namespace=, wsdl_service_name, and wsdl_service_name=):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing FooBarController#wsdl_namespace (for 127.0.0.1 at 2010-07-06 16:08:18) [GET]
+
+ActionView::MissingTemplate (Missing template foo_bar/wsdl_namespace.erb in view path app/views):
+  
+
+Rendering rescues/layout (internal_server_error)
+
+
+Processing FooBarController#index (for 127.0.0.1 at 2010-07-06 16:08:23) [GET]
+
+ActionController::UnknownAction (No action responded to index. Actions: acts_as_web_service, after_invocation, api, before_invocation, foo_bar, invocation, invocation_method_params, invocation_submit, perform_invocation, perform_invocation_with_interception, perform_invocation_without_interception, web_service_dispatching_mode, web_service_dispatching_mode=, web_service_exception_reporting, web_service_exception_reporting=, web_service_inflect_type, web_service_inflect_type=, web_service_object, wsdl_namespace, wsdl_namespace=, wsdl_service_name, and wsdl_service_name=):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing FooBarController#wsdl (for 127.0.0.1 at 2010-07-06 16:09:24) [GET]
+
+ActionController::UnknownAction (No action responded to wsdl. Actions: acts_as_web_service, after_invocation, api, before_invocation, foo_bar, invocation, invocation_method_params, invocation_submit, perform_invocation, perform_invocation_with_interception, perform_invocation_without_interception, web_service_dispatching_mode, web_service_dispatching_mode=, web_service_exception_reporting, web_service_exception_reporting=, web_service_inflect_type, web_service_inflect_type=, web_service_object, wsdl_namespace, wsdl_namespace=, wsdl_service_name, and wsdl_service_name=):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing FooBarController#wsdl (for 127.0.0.1 at 2010-07-06 16:13:28) [GET]
+Sending data 
+Completed in 17ms (View: 3, DB: 0) | 200 OK [http://localhost/foo_bar/wsdl]
+
+
+Processing FooBarController#index (for 127.0.0.1 at 2010-07-06 16:13:33) [GET]
+
+ActionController::UnknownAction (No action responded to index. Actions: acts_as_web_service, after_invocation, api, before_invocation, foo_bar, invocation, invocation_method_params, invocation_submit, perform_invocation, perform_invocation_with_interception, perform_invocation_without_interception, web_service_dispatching_mode, web_service_dispatching_mode=, web_service_exception_reporting, web_service_exception_reporting=, web_service_inflect_type, web_service_inflect_type=, web_service_object, wsdl, wsdl_namespace, wsdl_namespace=, wsdl_service_name, and wsdl_service_name=):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing FooBarController#wsdl (for 127.0.0.1 at 2010-07-06 16:13:36) [GET]
+Sending data 
+Completed in 20ms (View: 1, DB: 0) | 200 OK [http://localhost/foo_bar/wsdl]
+
+
+Processing FooBarController#wsdl (for 127.0.0.1 at 2010-07-06 16:13:46) [GET]
+
+ActionController::UnknownAction (No action responded to wsdl. Actions: acts_as_web_service, after_invocation, api, before_invocation, foo_bar, invocation, invocation_method_params, invocation_submit, perform_invocation, perform_invocation_with_interception, perform_invocation_without_interception, web_service_dispatching_mode, web_service_dispatching_mode=, web_service_exception_reporting, web_service_exception_reporting=, web_service_inflect_type, web_service_inflect_type=, web_service_object, wsdl_namespace, wsdl_namespace=, wsdl_service_name, and wsdl_service_name=):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing FooBarController#wsdl (for 127.0.0.1 at 2010-07-06 16:13:52) [GET]
+
+ActionController::UnknownAction (No action responded to wsdl. Actions: acts_as_web_service, after_invocation, api, before_invocation, foo_bar, invocation, invocation_method_params, invocation_submit, perform_invocation, perform_invocation_with_interception, perform_invocation_without_interception, web_service_dispatching_mode, web_service_dispatching_mode=, web_service_exception_reporting, web_service_exception_reporting=, web_service_inflect_type, web_service_inflect_type=, web_service_object, wsdl_namespace, wsdl_namespace=, wsdl_service_name, and wsdl_service_name=):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing FooBarController#wsdl (for 127.0.0.1 at 2010-07-06 16:13:59) [GET]
+
+ActionController::UnknownAction (No action responded to wsdl. Actions: acts_as_web_service, after_invocation, api, before_invocation, foo_bar, invocation, invocation_method_params, invocation_submit, perform_invocation, perform_invocation_with_interception, perform_invocation_without_interception, web_service_dispatching_mode, web_service_dispatching_mode=, web_service_exception_reporting, web_service_exception_reporting=, web_service_inflect_type, web_service_inflect_type=, web_service_object, wsdl_namespace, wsdl_namespace=, wsdl_service_name, and wsdl_service_name=):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing FooBarController#wsdl (for 127.0.0.1 at 2010-07-06 16:14:03) [GET]
+Sending data 
+Completed in 17ms (View: 1, DB: 0) | 200 OK [http://localhost/foo_bar/wsdl]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-06 16:14:09) [GET]
+
+ActionController::RoutingError (No route matches "/foo_bar/wsdl.xml" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing FooBarController#wsdl (for 127.0.0.1 at 2010-07-06 16:14:12) [GET]
+Sending data 
+Completed in 18ms (View: 1, DB: 0) | 200 OK [http://localhost/foo_bar/wsdl]
+
+
+Processing CamelizerController#wsdl (for 127.0.0.1 at 2010-07-13 12:17:46) [GET]
+Sending data 
+Completed in 9ms (View: 1, DB: 0) | 200 OK [http://localhost/camelizer/wsdl]
+
+
+Processing CamelizerController#invocation (for 127.0.0.1 at 2010-07-13 15:02:28) [GET]
+Rendering /usr/lib/ruby/gems/1.8/gems/guilleiguaran-actionwebservice-2.3.8/lib/action_web_service/templates/scaffolds/layout.html.erb
+Completed in 22ms (View: 6, DB: 0) | 200 OK [http://localhost/camelizer/invocation]
+
+
+Processing CamelizerController#invocation_method_params (for 127.0.0.1 at 2010-07-13 15:02:30) [GET]
+  Parameters: {"method"=>"Camelize", "service"=>"camelizer"}
+Rendering /usr/lib/ruby/gems/1.8/gems/guilleiguaran-actionwebservice-2.3.8/lib/action_web_service/templates/scaffolds/layout.html.erb
+Completed in 14ms (View: 1, DB: 0) | 200 OK [http://localhost/camelizer/invocation_method_params?method=Camelize&service=camelizer]
+
+
+Processing CamelizerController#invocation_submit (for 127.0.0.1 at 2010-07-13 15:02:37) [POST]
+  Parameters: {"commit"=>"Invoke", "service"=>"camelizer", "method"=>"Camelize", "authenticity_token"=>"lqc9ZOAhJq/KvjdySYpkUqocW0F/ffXjjLQVDLZTVsY=", "protocol"=>"soap", "method_params"=>{"0"=>"oi_lanche_tudo_bem"}}
+
+Web Service Request: Camelize(string=>"oi_lanche_tudo_bem") Entrypoint: invocation_submit
+  <?xml version="1.0" encoding="utf-8" ?>
+  <env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:env="http://schemas.xmlsoap.org/soap/envelope/">
+    <env:Body>
+      <n1:Camelize xmlns:n1="urn:ActionWebService"
+          env:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+        <string xsi:type="xsd:string">oi_lanche_tudo_bem</string>
+      </n1:Camelize>
+    </env:Body>
+  </env:Envelope>
+
+Web Service Response (0.001851): => "OiLancheTudoBem"
+  <?xml version="1.0" encoding="UTF-8" ?>
+  <env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:env="http://schemas.xmlsoap.org/soap/envelope/">
+    <env:Body>
+      <n1:CamelizeResponse xmlns:n1="urn:ActionWebService"
+          env:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+        <return xsi:type="xsd:string">OiLancheTudoBem</return>
+      </n1:CamelizeResponse>
+    </env:Body>
+  </env:Envelope>
+Sending data 
+Rendering /usr/lib/ruby/gems/1.8/gems/guilleiguaran-actionwebservice-2.3.8/lib/action_web_service/templates/scaffolds/layout.html.erb
+Completed in 31ms (View: 1, DB: 0) | 200 OK [http:///camelizer/invocation_submit]
+
+
+Processing CamelizerController#invocation (for 127.0.0.1 at 2010-07-13 15:37:12) [GET]
+Rendering /usr/lib/ruby/gems/1.8/gems/guilleiguaran-actionwebservice-2.3.8/lib/action_web_service/templates/scaffolds/layout.html.erb
+Completed in 11ms (View: 2, DB: 0) | 200 OK [http://localhost/camelizer/invocation]
+
+
+Processing CamelizerController#invocation_method_params (for 127.0.0.1 at 2010-07-13 15:37:14) [GET]
+  Parameters: {"method"=>"Camelize", "service"=>"camelizer"}
+Rendering /usr/lib/ruby/gems/1.8/gems/guilleiguaran-actionwebservice-2.3.8/lib/action_web_service/templates/scaffolds/layout.html.erb
+Completed in 14ms (View: 2, DB: 0) | 200 OK [http://localhost/camelizer/invocation_method_params?method=Camelize&service=camelizer]
+
+
+Processing CamelizerController#invocation_submit (for 127.0.0.1 at 2010-07-13 15:37:36) [POST]
+  Parameters: {"commit"=>"Invoke", "service"=>"camelizer", "method"=>"Camelize", "authenticity_token"=>"lqc9ZOAhJq/KvjdySYpkUqocW0F/ffXjjLQVDLZTVsY=", "protocol"=>"soap", "method_params"=>{"0"=>"oi_felipe"}}
+
+Web Service Request: Camelize(string=>"oi_felipe") Entrypoint: invocation_submit
+  <?xml version="1.0" encoding="utf-8" ?>
+  <env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:env="http://schemas.xmlsoap.org/soap/envelope/">
+    <env:Body>
+      <n1:Camelize xmlns:n1="urn:ActionWebService"
+          env:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+        <string xsi:type="xsd:string">oi_felipe</string>
+      </n1:Camelize>
+    </env:Body>
+  </env:Envelope>
+
+Web Service Response (0.001769): => "OiFelipe"
+  <?xml version="1.0" encoding="UTF-8" ?>
+  <env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:env="http://schemas.xmlsoap.org/soap/envelope/">
+    <env:Body>
+      <n1:CamelizeResponse xmlns:n1="urn:ActionWebService"
+          env:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+        <return xsi:type="xsd:string">OiFelipe</return>
+      </n1:CamelizeResponse>
+    </env:Body>
+  </env:Envelope>
+Sending data 
+Rendering /usr/lib/ruby/gems/1.8/gems/guilleiguaran-actionwebservice-2.3.8/lib/action_web_service/templates/scaffolds/layout.html.erb
+Completed in 34ms (View: 2, DB: 0) | 200 OK [http:///camelizer/invocation_submit]

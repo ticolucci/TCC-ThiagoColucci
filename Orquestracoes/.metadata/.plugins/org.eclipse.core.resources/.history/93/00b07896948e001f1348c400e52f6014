@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<bpel:process xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:pnlk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ode="http://www.apache.org/ode/type/extension" xmlns:typens="urn:ActionWebService" xmlns:JC="http://example.com/JoinerCamelizer/JC" xmlns:ns="http://localhost:8080/JoinerCamelizer" xmlns:diag="http://example.com/JoinerCamelizer" xmlns:Client="http://example.com/JoinerCamelizer/Client" xmlns:this="http://example.com/JoinerCamelizer/JoinerCamelizer" xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:bpmn="http://www.intalio.com/bpms" xmlns:atomic="http://ode.apache.org/atomicScope" queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0" bpmn:label="JoinerCamelizer" name="JoinerCamelizer" bpmn:id="_oUOK8I6PEd-ZEap_EdYL7A" targetNamespace="http://example.com/JoinerCamelizer/JoinerCamelizer">
+  <bpel:import namespace="http://example.com/JoinerCamelizer" location="JoinerCamelizer.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+  <bpel:import namespace="http://example.com/JoinerCamelizer/JoinerCamelizer" location="JoinerCamelizer-JoinerCamelizer.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+  <bpel:import namespace="urn:ActionWebService" location="camelizer.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+  <bpel:import namespace="urn:ActionWebService" location="joiner.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+  <bpel:partnerLinks>
+    <bpel:partnerLink name="joinerCamelizerAndClientPlkVar" partnerLinkType="diag:JoinerCamelizerAndClient" myRole="JoinerCamelizer_for_Client"/>
+    <bpel:partnerLink name="joinerCamelizerAndJCForCamelizerCamelizerPortPlkVar" partnerLinkType="diag:JoinerCamelizerAndJCForCamelizerCamelizerPortPlk" initializePartnerRole="yes" myRole="JoinerCamelizer_for_JC" partnerRole="JC_for_JoinerCamelizer"/>
+  </bpel:partnerLinks>
+  <bpel:variables>
+    <bpel:variable name="thisReceive_RequestRequestMsg" messageType="this:Receive_RequestRequest"/>
+    <bpel:variable name="thisReceive_RequestResponseMsg" messageType="this:Receive_RequestResponse"/>
+    <bpel:variable name="typensJoinResponseMsg" messageType="typens:JoinResponse"/>
+    <bpel:variable name="typensJoinRequestMsg" messageType="typens:Join"/>
+    <bpel:variable name="typensCamelizeRequestMsg" messageType="typens:Camelize"/>
+    <bpel:variable name="typensCamelizeResponseMsg" messageType="typens:CamelizeResponse"/>
+  </bpel:variables>
+  <bpel:sequence>
+    <bpel:receive partnerLink="joinerCamelizerAndClientPlkVar" portType="this:ForClient" operation="Receive_Request" variable="thisReceive_RequestRequestMsg" createInstance="yes" bpmn:label="Receive Request" name="Receive_Request" bpmn:id="_yTYiwI6PEd-ZEap_EdYL7A"></bpel:receive>
+    <bpel:assign name="init-variables-JoinerCamelizer" bpmn:id="_yTYiwI6PEd-ZEap_EdYL7A">
+      <bpel:copy bpmn:label="$thisReceive_RequestResponseMsg">
+        <bpel:from>
+          <bpel:literal>
+<ns:JCResponse>
+  <ns:name></ns:name>
+</ns:JCResponse></bpel:literal>
+        </bpel:from>
+        <bpel:to>$thisReceive_RequestResponseMsg.body</bpel:to>
+      </bpel:copy>
+      <bpel:copy bpmn:label="$typensJoinRequestMsg">
+        <bpel:from>
+          <bpel:literal><xs:string/></bpel:literal>
+        </bpel:from>
+        <bpel:to>$typensJoinRequestMsg.string</bpel:to>
+      </bpel:copy>
+      <bpel:copy bpmn:label="$typensCamelizeRequestMsg">
+        <bpel:from>
+          <bpel:literal><xs:string/></bpel:literal>
+        </bpel:from>
+        <bpel:to>$typensCamelizeRequestMsg.string</bpel:to>
+      </bpel:copy>
+    </bpel:assign>
+    <bpel:receive partnerLink="joinerCamelizerAndJCForCamelizerCamelizerPortPlkVar" portType="typens:JoinerJoinerPort" operation="Join" variable="typensJoinResponseMsg" bpmn:label="Invoke Joiner" name="Invoke_Joiner" bpmn:id="_oVTJAI6PEd-ZEap_EdYL7A"></bpel:receive>
+    <bpel:reply partnerLink="joinerCamelizerAndJCForCamelizerCamelizerPortPlkVar" portType="typens:JoinerJoinerPort" operation="Join" variable="typensJoinRequestMsg" bpmn:label="Invoke Joiner" name="Invoke_Joiner-1" bpmn:id="_oVTJAI6PEd-ZEap_EdYL7A"></bpel:reply>
+    <bpel:invoke partnerLink="joinerCamelizerAndJCForCamelizerCamelizerPortPlkVar" portType="typens:CamelizerCamelizerPort" operation="Camelize" inputVariable="typensCamelizeRequestMsg" outputVariable="typensCamelizeResponseMsg" bpmn:label="Invoke Camelizer" name="Invoke_Camelizer" bpmn:id="_L-wUwI6QEd-ZEap_EdYL7A"></bpel:invoke>
+    <bpel:reply partnerLink="joinerCamelizerAndClientPlkVar" portType="this:ForClient" operation="Receive_Request" variable="thisReceive_RequestResponseMsg" bpmn:label="Send Response" name="Send_Response" bpmn:id="_ZENdMI6SEd-ZEap_EdYL7A"></bpel:reply>
+  </bpel:sequence>
+</bpel:process>

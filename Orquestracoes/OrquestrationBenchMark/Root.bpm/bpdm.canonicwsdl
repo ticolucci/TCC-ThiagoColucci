@@ -1,0 +1,26 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<wsdl:definitions xmlns:ns="http://bpms.intalio.com/FirstProcess/Time" xmlns:tns="http://localhost:8080/bpms-console" xmlns:diag="http://thisdiagram" xmlns:RootProcess="http://thisdiagram/RootProcess" xmlns:Son="http://thisdiagram/Son" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:pnlk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:bpdm="http://www.intalio/designer/business-process-data-modeling" targetNamespace="http://thisdiagram" bpdm:version="6000089" bpdm:canid="_3p-VkGHwEd-IGN2Wc6SeLw" bpdm:displayName="diag">
+  <pnlk:partnerLinkType name="ClientAndRootProcess" bpdm:poolOneId="_3p_jsGHwEd-IGN2Wc6SeLw" bpdm:poolOneIsExecutable="true" bpdm:poolOneName="RootProcess" bpdm:poolTwoId="_C8JbIGH2Ed-IGN2Wc6SeLw" bpdm:poolTwoIsExecutable="false" bpdm:poolTwoName="Client">
+    <pnlk:role name="RootProcess_for_Client" portType="RootProcess:ForClient" bpdm:thisPoolId="_3p_jsGHwEd-IGN2Wc6SeLw">
+      <wsdl:portType name="ForClient">
+        <wsdl:operation name="ReceiveRequest" bpdm:canid="_SgoSIGH1Ed-IGN2Wc6SeLw._Vm1OEGH1Ed-IGN2Wc6SeLw._kQZqEGH2Ed-IGN2Wc6SeLw.">
+          <wsdl:input message="RootProcess:ReceiveRequestRequest" name="ReceiveRequest" bpdm:canid="_qiIG0GH2Ed-IGN2Wc6SeLw" bpdm:senderId="_kQZqEGH2Ed-IGN2Wc6SeLw" bpdm:receiverId="_SgoSIGH1Ed-IGN2Wc6SeLw" bpdm:senderName="Console Invocation" bpdm:receiverName=" ReceiveRequest   " bpdm:receiverPoolId="_3p_jsGHwEd-IGN2Wc6SeLw" bpdm:dataobjectPointer="project:///Root.xsd?xsdelement={http://bpms.intalio.com/FirstProcess/Time}Request"></wsdl:input>
+          <wsdl:output message="RootProcess:ReceiveRequestResponse" name="ReceiveRequestResponse" bpdm:canid="_raKiEGH2Ed-IGN2Wc6SeLw" bpdm:senderId="_Vm1OEGH1Ed-IGN2Wc6SeLw" bpdm:receiverId="_kQZqEGH2Ed-IGN2Wc6SeLw" bpdm:senderName="EventEndMessage" bpdm:receiverName="Console Invocation" bpdm:receiverPoolId="_C8JbIGH2Ed-IGN2Wc6SeLw" bpdm:dataobjectPointer="project:///Root.xsd?xsdelement={http://bpms.intalio.com/FirstProcess/Time}Response"></wsdl:output>
+        </wsdl:operation>
+      </wsdl:portType>
+    </pnlk:role>
+  </pnlk:partnerLinkType>
+  <pnlk:partnerLinkType name="SonAndRootProcess" bpdm:poolOneId="_qQ_7MGaDEd-drI0Sl4t4-g" bpdm:poolOneIsExecutable="true" bpdm:poolOneName="Son" bpdm:poolTwoId="_3p_jsGHwEd-IGN2Wc6SeLw" bpdm:poolTwoIsExecutable="true" bpdm:poolTwoName="RootProcess">
+    <pnlk:role name="Son_for_RootProcess" portType="Son:ForRootProcess" bpdm:thisPoolId="_qQ_7MGaDEd-drI0Sl4t4-g">
+      <wsdl:portType name="ForRootProcess">
+        <wsdl:operation name="FooBar" bpdm:canid="_0Vfe8GaDEd-drI0Sl4t4-g._lw4a0GH1Ed-IGN2Wc6SeLw." bpdm:dataobjectPointer="project:///OrchestrationBenchmariking.wsdl?wsdloperation={http://localhost:8080/bpms-console}OrchestrationBenchmarking/fooBar">
+          <wsdl:input message="tns:null" name="FooBar" bpdm:canid="_7N4TEGaDEd-drI0Sl4t4-g" bpdm:senderId="_lw4a0GH1Ed-IGN2Wc6SeLw" bpdm:receiverId="_0Vfe8GaDEd-drI0Sl4t4-g" bpdm:senderName="   Invoke  Son" bpdm:receiverName="FooBar" bpdm:receiverPoolId="_qQ_7MGaDEd-drI0Sl4t4-g" bpdm:dataobjectPointer="project:///OrchestrationBenchmariking.wsdl?messageForOperation={http://localhost:8080/bpms-console}OrchestrationBenchmarking/fooBar/input/null"></wsdl:input>
+          <wsdl:output message="tns:null" name="FooBarResponse" bpdm:canid="_7h4NIGaDEd-drI0Sl4t4-g" bpdm:senderId="_0Vfe8GaDEd-drI0Sl4t4-g" bpdm:receiverId="_lw4a0GH1Ed-IGN2Wc6SeLw" bpdm:senderName="FooBar" bpdm:receiverName="   Invoke  Son" bpdm:receiverPoolId="_3p_jsGHwEd-IGN2Wc6SeLw" bpdm:dataobjectPointer="project:///OrchestrationBenchmariking.wsdl?messageForOperation={http://localhost:8080/bpms-console}OrchestrationBenchmarking/fooBar/output/null"></wsdl:output>
+        </wsdl:operation>
+      </wsdl:portType>
+    </pnlk:role>
+  </pnlk:partnerLinkType>
+  <pnlk:partnerLinkType name="SonAndRootProcessForPortTypeOrchestrationBenchmarkingPlk" bpdm:canPlkId="_qQ_7MGaDEd-drI0Sl4t4-g-_3p_jsGHwEd-IGN2Wc6SeLw">
+    <pnlk:role name="Son_for_RootProcess" portType="tns:OrchestrationBenchmarking"></pnlk:role>
+  </pnlk:partnerLinkType>
+</wsdl:definitions>

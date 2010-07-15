@@ -1,0 +1,7 @@
+
+deploy_bundleShouldBeDeployed=true
+deploy_gi_serverUrl=http\://localhost\:8080/gi
+deploy_serverUrl=http\://localhost\:8080/ode
+deploymenttimeout=120
+diagram_baseUri=http\://example.com
+eclipse.preferences.version=1

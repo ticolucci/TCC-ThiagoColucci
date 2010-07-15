@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<bpel:process xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:pnlk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ode="http://www.apache.org/ode/type/extension" xmlns:typens="urn:ActionWebService" xmlns:this="http://example.com/JoinerCamelizer/Joiner" xmlns:diag="http://example.com/JoinerCamelizer" xmlns:JoinerCamelizer="http://example.com/JoinerCamelizer/JoinerCamelizer" xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:bpmn="http://www.intalio.com/bpms" xmlns:atomic="http://ode.apache.org/atomicScope" queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0" bpmn:label="Joiner" name="Joiner" bpmn:id="_4haD4I6SEd-ZEap_EdYL7A" targetNamespace="http://example.com/JoinerCamelizer/Joiner">
+  <bpel:import namespace="http://example.com/JoinerCamelizer" location="JoinerCamelizer.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+  <bpel:import namespace="urn:ActionWebService" location="joiner.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+  <bpel:partnerLinks>
+    <bpel:partnerLink name="joinerCamelizerAndJoinerForJoinerJoinerPortPlkVar" partnerLinkType="diag:JoinerCamelizerAndJoinerForJoinerJoinerPortPlk" initializePartnerRole="yes" partnerRole="JoinerCamelizer_for_Joiner"/>
+  </bpel:partnerLinks>
+  <bpel:variables>
+    <bpel:variable name="typensJoinResponseMsg" messageType="typens:JoinResponse"/>
+    <bpel:variable name="typensJoinRequestMsg" messageType="typens:Join"/>
+  </bpel:variables>
+  <bpel:sequence>
+    <bpel:invoke partnerLink="joinerCamelizerAndJoinerForJoinerJoinerPortPlkVar" portType="typens:JoinerJoinerPort" operation="Join" inputVariable="typensJoinResponseMsg" outputVariable="typensJoinRequestMsg" bpmn:label="Join" name="Join" bpmn:id="_NJosII6TEd-ZEap_EdYL7A"></bpel:invoke>
+  </bpel:sequence>
+</bpel:process>

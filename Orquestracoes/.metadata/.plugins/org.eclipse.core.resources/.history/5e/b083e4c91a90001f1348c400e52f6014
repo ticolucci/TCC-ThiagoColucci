@@ -1,0 +1,7 @@
+#Thu Jul 15 11:10:57 BRT 2010
+deploy.fileRuntimeSelection=JC.xsd\:JoinerCamelizer.bpm\:camelizer.wsdl\:joiner.wsdl\:
+deploy_bundleShouldBeDeployed=true
+deploy_serverUrl=http\://localhost\:8080/ode
+deploymenttimeout=120
+diagram_baseUri=http\://example.com
+eclipse.preferences.version=1

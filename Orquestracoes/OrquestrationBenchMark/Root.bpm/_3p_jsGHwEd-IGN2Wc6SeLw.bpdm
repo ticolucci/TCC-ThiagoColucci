@@ -1,0 +1,73 @@
+﻿<bpel:process xmlns:bpdm="http://www.intalio/designer/business-process-data-modeling" xmlns:mapper="http://www.intalio.com/designer/mapper" xmlns:Son="http://thisdiagram/Son" xmlns:ns="http://bpms.intalio.com/FirstProcess/Time" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:this="http://thisdiagram/RootProcess" xmlns:diag="http://thisdiagram" xmlns:tns="http://localhost:8080/bpms-console" xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:pnlk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ode="http://www.apache.org/ode/type/extension" targetNamespace="http://thisdiagram/RootProcess">
+    <bpdm:dependencies version="6000089">
+        <bpdm:namespaceDefinition bpdm:uri="http://thisdiagram/Son" bpdm:prefix="Son" bpdm:comment="contrib=&apos;partner-pool:///_qQ_7MGaDEd-drI0Sl4t4-g"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://bpms.intalio.com/FirstProcess/Time" bpdm:prefix="ns" bpdm:comment="contrib=&apos;project:///Root.xsd"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://www.w3.org/2001/XMLSchema" bpdm:prefix="xs"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://www.w3.org/2001/XMLSchema-instance" bpdm:prefix="xsi"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://thisdiagram/RootProcess" bpdm:prefix="this" bpdm:type="this_process"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://thisdiagram" bpdm:prefix="diag" bpdm:comment="contrib=&apos;partner-pool:///_C8JbIGH2Ed-IGN2Wc6SeLw"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://localhost:8080/bpms-console" bpdm:prefix="tns" bpdm:comment="contrib=&apos;project:///OrchestrationBenchmariking.wsdl"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://www.w3.org/XML/1998/namespace" bpdm:prefix="xml"></bpdm:namespaceDefinition>
+        <bpdm:namespaceContributor bpdm:url="thisprocess://this-process-types" bpdm:label="process defined this-process-types">
+            <wsdl:portType name="ForClient">
+                <wsdl:operation name="ReceiveRequest" bpdm:source="partner-pool:///_C8JbIGH2Ed-IGN2Wc6SeLw">
+                    <wsdl:input message="this:ReceiveRequestRequest" name="ReceiveRequest"/>
+                    <wsdl:output message="this:ReceiveRequestResponse" name="ReceiveRequestResponse"/>
+                </wsdl:operation>
+            </wsdl:portType>
+            <wsdl:message name="ReceiveRequestRequest" bpdm:source="partner-pool:///_C8JbIGH2Ed-IGN2Wc6SeLw">
+                <wsdl:part name="body" element="ns:Request"/>
+            </wsdl:message>
+            <wsdl:message name="ReceiveRequestResponse" bpdm:source="partner-pool:///_C8JbIGH2Ed-IGN2Wc6SeLw">
+                <wsdl:part name="body" element="ns:Response"/>
+            </wsdl:message>
+            <bpel:binding name="CanonicBindingForClient" type="this:ForClient" bpdm:isSynchronized="true"/>
+        </bpdm:namespaceContributor>
+        <bpdm:namespaceContributor bpdm:url="partner-pool:///_C8JbIGH2Ed-IGN2Wc6SeLw" bpdm:label="Client"/>
+        <bpdm:namespaceContributor bpdm:url="project:///Root.xsd"/>
+        <bpdm:namespaceContributor bpdm:url="partner-pool:///_qQ_7MGaDEd-drI0Sl4t4-g" bpdm:label="Son"/>
+        <bpdm:namespaceContributor bpdm:url="project:///OrchestrationBenchmariking.wsdl"/>
+    </bpdm:dependencies>
+    <bpel:scope bpdm:label="RootProcess" bpdm:ID="_3p_jsGHwEd-IGN2Wc6SeLw">
+        <bpel:partnerLinks>
+            <bpel:partnerLink name="clientAndRootProcessPlkVar" partnerLinkType="diag:ClientAndRootProcess" myRole="RootProcess_for_Client" bpdm:enableSharing="false" bpdm:providedService="this:CanonicServiceForClient" bpdm:providedPort="canonicPort" bpdm:provideSOAPAddress="${deploy_serverUrl}${deploy_baseSoapServicesUrl}/${deploy_bundleNcName}/${diagram_relativeURL}/RootProcess/Client" bpdm:providedIsDefault="true" bpdm:clientTasks="_3p_jsGHwEd-IGN2Wc6SeLw:_Vm1OEGH1Ed-IGN2Wc6SeLw, _3p_jsGHwEd-IGN2Wc6SeLw:_SgoSIGH1Ed-IGN2Wc6SeLw" bpdm:isManaged="true" bpdm:otherPoolId="_C8JbIGH2Ed-IGN2Wc6SeLw"/>
+            <bpel:partnerLink name="sonAndRootProcessForPortTypeOrchestrationBenchmarkingPlkVar" partnerLinkType="diag:SonAndRootProcessForPortTypeOrchestrationBenchmarkingPlk" initializePartnerRole="yes" partnerRole="Son_for_RootProcess" bpdm:invokedService="Son:SonAndRootProcessForPortTypeOrchestrationBenchmarkingPlkService" bpdm:invokedPort="Son_for_RootProcessPort" bpdm:invokedSOAPAddress="${deploy_serverUrl}${deploy_baseSoapServicesUrl}/${deploy_bundleNcName}/${diagram_relativeURL}/FooBarRequest/RootProcess/SonAndRootProcessForPortTypeOrchestrationBenchmarkingPlk" bpdm:invokedIsDefault="true" bpdm:clientTasks="_3p_jsGHwEd-IGN2Wc6SeLw:_lw4a0GH1Ed-IGN2Wc6SeLw" bpdm:isManaged="true" bpdm:otherPoolId="_qQ_7MGaDEd-drI0Sl4t4-g"/>
+        </bpel:partnerLinks>
+        <bpel:variables>
+            <bpel:variable name="thisReceiveRequestRequestMsg" messageType="this:ReceiveRequestRequest" bpdm:id="_qjbHUGH2Ed-IGN2Wc6SeLw" bpdm:messageIds="inc:_qiIG0GH2Ed-IGN2Wc6SeLw"/>
+            <bpel:variable name="thisReceiveRequestResponseMsg" messageType="this:ReceiveRequestResponse" bpdm:id="_raU6IGH2Ed-IGN2Wc6SeLw" bpdm:messageIds=" out:_raKiEGH2Ed-IGN2Wc6SeLw">
+                <bpel:from bpdm:toPart="body">
+                    <bpel:literal bpdm:linkedMessageType="this:ReceiveRequestResponse" bpdm:linkedPart="body"></bpel:literal>
+                </bpel:from>
+            </bpel:variable>
+            <bpel:variable name="tnsFooBarRequestMsg" messageType="tns:getFoo" bpdm:id="_7OAO4GaDEd-drI0Sl4t4-g" bpdm:messageIds=" out:_7N4TEGaDEd-drI0Sl4t4-g">
+                <bpel:from bpdm:toPart="parameters">
+                    <bpel:literal bpdm:linkedMessageType="tns:getFoo" bpdm:linkedPart="parameters"></bpel:literal>
+                </bpel:from>
+            </bpel:variable>
+            <bpel:variable name="tnsFooBarResponseMsg" messageType="tns:getBar" bpdm:id="_7iQAkGaDEd-drI0Sl4t4-g" bpdm:messageIds="inc:_7h4NIGaDEd-drI0Sl4t4-g"/>
+        </bpel:variables>
+        <bpel:sequence>
+            <bpdm:messagingtask eventType="start: message" operation="ReceiveRequest" partnerLink="clientAndRootProcessPlkVar" portType="this:ForClient" isMyRole="true" enableSharing="false" bpdm:label=" ReceiveRequest   " bpdm:ID="_SgoSIGH1Ed-IGN2Wc6SeLw">
+                <bpdm:linkset bpdm:type="incomingMessage" bpdm:bpeltype="receive" bpdm:messageVariable="thisReceiveRequestRequestMsg" bpdm:msgVarScopeId="_3p_jsGHwEd-IGN2Wc6SeLw" bpdm:variableIsManaged="true" bpdm:messageType="this:ReceiveRequestRequest" bpdm:ID="_qiIG0GH2Ed-IGN2Wc6SeLw"></bpdm:linkset>
+            </bpdm:messagingtask>
+            <bpdm:messagingtask operation="fooBar" partnerLink="sonAndRootProcessForPortTypeOrchestrationBenchmarkingPlkVar" portType="tns:OrchestrationBenchmarking" isMyRole="false" enableSharing="false" bpdm:label="   Invoke  Son" bpdm:ID="_lw4a0GH1Ed-IGN2Wc6SeLw">
+                <bpdm:linkset bpdm:type="assignments">
+                    <bpel:copy>
+                        <bpel:from>$thisReceiveRequestRequestMsg.body/ns:foo/text()</bpel:from>
+                        <bpel:to>$tnsFooBarRequestMsg.parameters/text()</bpel:to>
+<mapper:mapperLink>
+  <mapper:vertice id="20286849" targetPath="$tnsFooBarRequestMsg.parameters/text()" targetedBy="19156991-arg0"></mapper:vertice>
+  <mapper:vertice id="19156991" sourcePath="$thisReceiveRequestRequestMsg.body/ns:foo/text()"></mapper:vertice>
+</mapper:mapperLink>
+                    </bpel:copy>
+                </bpdm:linkset>
+                <bpdm:linkset bpdm:type="outgoingMessage" bpdm:bpeltype="invoke-request" bpdm:messageVariable="tnsFooBarRequestMsg" bpdm:msgVarScopeId="_3p_jsGHwEd-IGN2Wc6SeLw" bpdm:variableIsManaged="true" bpdm:messageType="tns:getFoo" bpdm:ID="_7N4TEGaDEd-drI0Sl4t4-g"></bpdm:linkset>
+                <bpdm:linkset bpdm:type="incomingMessage" bpdm:bpeltype="invoke-receive" bpdm:messageVariable="tnsFooBarResponseMsg" bpdm:msgVarScopeId="_3p_jsGHwEd-IGN2Wc6SeLw" bpdm:variableIsManaged="true" bpdm:messageType="tns:getBar" bpdm:ID="_7h4NIGaDEd-drI0Sl4t4-g"></bpdm:linkset>
+            </bpdm:messagingtask>
+            <bpdm:messagingtask eventType="end: message" operation="ReceiveRequest" partnerLink="clientAndRootProcessPlkVar" portType="this:ForClient" isMyRole="true" enableSharing="false" bpdm:label="Message_End_Event" bpdm:ID="_Vm1OEGH1Ed-IGN2Wc6SeLw">
+                <bpdm:linkset bpdm:type="outgoingMessage" bpdm:bpeltype="reply" bpdm:messageVariable="thisReceiveRequestResponseMsg" bpdm:msgVarScopeId="_3p_jsGHwEd-IGN2Wc6SeLw" bpdm:variableIsManaged="true" bpdm:messageType="this:ReceiveRequestResponse" bpdm:ID="_raKiEGH2Ed-IGN2Wc6SeLw"></bpdm:linkset>
+            </bpdm:messagingtask>
+        </bpel:sequence>
+    </bpel:scope>
+</bpel:process>

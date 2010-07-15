@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:BpmnDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:bpmn="http://stp.eclipse.org/bpmn" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmi:id="_oRSLsI6PEd-ZEap_EdYL7A" iD="_oRN6QI6PEd-ZEap_EdYL7A">
+  <pools xmi:type="bpmn:Pool" xmi:id="_oUOK8Y6PEd-ZEap_EdYL7A" iD="_oUOK8I6PEd-ZEap_EdYL7A" name="JoinerCamelizer">
+    <artifacts xmi:type="bpmn:DataObject" xmi:id="_qah6sY6QEd-ZEap_EdYL7A" iD="_qah6sI6QEd-ZEap_EdYL7A">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_qah6so6QEd-ZEap_EdYL7A" source="attachedDataobject">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_qah6s46QEd-ZEap_EdYL7A" key="isBpelDeclaration" value="true"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_qak-Ao6QEd-ZEap_EdYL7A" key="defaultDeclarationName" value="thisReceive_RequestRequestMsg"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_qapPcI6QEd-ZEap_EdYL7A" key="douri2" value="builtin:///diagram?wsdlmessage={http://thisdiagram/JoinerCamelizer}Receive_RequestRequest"/>
+      </eAnnotations>
+      <associations xmi:type="bpmn:Association" xmi:id="_qamMII6QEd-ZEap_EdYL7A" direction="From">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_qanaQI6QEd-ZEap_EdYL7A" source="dataObjectAssociationTypeSource">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_qaooYI6QEd-ZEap_EdYL7A" key="dataObjectAssociationTypeValue" value="incomingMesssageVariable"/>
+        </eAnnotations>
+      </associations>
+    </artifacts>
+    <artifacts xmi:type="bpmn:DataObject" xmi:id="_gYCQIY6SEd-ZEap_EdYL7A" iD="_gYCQII6SEd-ZEap_EdYL7A">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_gYCQIo6SEd-ZEap_EdYL7A" source="attachedDataobject">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_gYCQI46SEd-ZEap_EdYL7A" key="isBpelDeclaration" value="true"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_gYIWwo6SEd-ZEap_EdYL7A" key="defaultDeclarationName" value="thisReceive_RequestResponseMsg"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_gYOdYI6SEd-ZEap_EdYL7A" key="douri2" value="builtin:///diagram?wsdlmessage={http://thisdiagram/JoinerCamelizer}Receive_RequestResponse"/>
+      </eAnnotations>
+      <associations xmi:type="bpmn:Association" xmi:id="_gYKL8I6SEd-ZEap_EdYL7A" direction="To">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_gYMBII6SEd-ZEap_EdYL7A" source="dataObjectAssociationTypeSource">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_gYN2UI6SEd-ZEap_EdYL7A" key="dataObjectAssociationTypeValue" value="outgoingMesssageVariable"/>
+        </eAnnotations>
+      </associations>
+    </artifacts>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_oVTJAY6PEd-ZEap_EdYL7A" iD="_oVTJAI6PEd-ZEap_EdYL7A" outgoingEdges="_9S8noY6PEd-ZEap_EdYL7A" incomingEdges="_5iXR8Y6PEd-ZEap_EdYL7A" name="Invoke Joiner" activityType="Task"/>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_yTYiwY6PEd-ZEap_EdYL7A" iD="_yTYiwI6PEd-ZEap_EdYL7A" associations="_qamMII6QEd-ZEap_EdYL7A" outgoingEdges="_5iXR8Y6PEd-ZEap_EdYL7A" name="Receive Request" activityType="EventStartMessage">
+      <incomingMessages xmi:type="bpmn:MessagingEdge" href="#_qaKuUY6QEd-ZEap_EdYL7A"/>
+    </vertices>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_L-wUwY6QEd-ZEap_EdYL7A" iD="_L-wUwI6QEd-ZEap_EdYL7A" outgoingEdges="_aB8QwY6SEd-ZEap_EdYL7A" incomingEdges="_9S8noY6PEd-ZEap_EdYL7A" name="Invoke Camelizer"/>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_ZENdMY6SEd-ZEap_EdYL7A" iD="_ZENdMI6SEd-ZEap_EdYL7A" associations="_gYKL8I6SEd-ZEap_EdYL7A" incomingEdges="_aB8QwY6SEd-ZEap_EdYL7A" name="Send Response" activityType="EventEndMessage">
+      <outgoingMessages xmi:type="bpmn:MessagingEdge" href="#_gX2C4Y6SEd-ZEap_EdYL7A"/>
+    </vertices>
+    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_5iXR8Y6PEd-ZEap_EdYL7A" iD="_5iXR8I6PEd-ZEap_EdYL7A"/>
+    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_9S8noY6PEd-ZEap_EdYL7A" iD="_9S8noI6PEd-ZEap_EdYL7A"/>
+    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_aB8QwY6SEd-ZEap_EdYL7A" iD="_aB8QwI6SEd-ZEap_EdYL7A"/>
+  </pools>
+  <pools xmi:type="bpmn:Pool" xmi:id="_ZBekMY6QEd-ZEap_EdYL7A" iD="_ZBekMI6QEd-ZEap_EdYL7A" name="Client">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_a7eLsI6QEd-ZEap_EdYL7A" source="executablepool">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_a7eLsY6QEd-ZEap_EdYL7A" key="poolIsExecutable" value="false"/>
+    </eAnnotations>
+    <artifacts xmi:type="bpmn:DataObject" xmi:id="_qaT4QY6QEd-ZEap_EdYL7A" iD="_qaT4QI6QEd-ZEap_EdYL7A">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_qaT4Qo6QEd-ZEap_EdYL7A" source="attachedDataobject">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_qaUfUI6QEd-ZEap_EdYL7A" key="isBpelDeclaration" value="true"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_qaZX0Y6QEd-ZEap_EdYL7A" key="defaultDeclarationName" value="joinerCamelizerReceive_RequestRequestMsg"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_qaeQUI6QEd-ZEap_EdYL7A" key="douri2" value="builtin:///diagram?wsdlmessage={http://thisdiagram/JoinerCamelizer}Receive_RequestRequest"/>
+      </eAnnotations>
+      <associations xmi:type="bpmn:Association" xmi:id="_qaal8I6QEd-ZEap_EdYL7A" direction="To">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_qacbII6QEd-ZEap_EdYL7A" source="dataObjectAssociationTypeSource">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_qadCMI6QEd-ZEap_EdYL7A" key="dataObjectAssociationTypeValue" value="outgoingMesssageVariable"/>
+        </eAnnotations>
+      </associations>
+    </artifacts>
+    <artifacts xmi:type="bpmn:DataObject" xmi:id="_gYRgsI6SEd-ZEap_EdYL7A" iD="_gYQ5oI6SEd-ZEap_EdYL7A">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_gYRgsY6SEd-ZEap_EdYL7A" source="attachedDataobject">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_gYRgso6SEd-ZEap_EdYL7A" key="isBpelDeclaration" value="true"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_gYXAQI6SEd-ZEap_EdYL7A" key="defaultDeclarationName" value="joinerCamelizerReceive_RequestResponseMsg"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_gYeVAI6SEd-ZEap_EdYL7A" key="douri2" value="builtin:///diagram?wsdlmessage={http://thisdiagram/JoinerCamelizer}Receive_RequestResponse"/>
+      </eAnnotations>
+      <associations xmi:type="bpmn:Association" xmi:id="_gYZcgI6SEd-ZEap_EdYL7A" direction="From">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_gYbRsI6SEd-ZEap_EdYL7A" source="dataObjectAssociationTypeSource">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_gYdt8I6SEd-ZEap_EdYL7A" key="dataObjectAssociationTypeValue" value="incomingMesssageVariable"/>
+        </eAnnotations>
+      </associations>
+    </artifacts>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_jg-B4I6QEd-ZEap_EdYL7A" iD="_jg9a0I6QEd-ZEap_EdYL7A" associations="_qaal8I6QEd-ZEap_EdYL7A _gYZcgI6SEd-ZEap_EdYL7A" name="Console Invocation">
+      <outgoingMessages xmi:type="bpmn:MessagingEdge" href="#_qaKuUY6QEd-ZEap_EdYL7A"/>
+      <incomingMessages xmi:type="bpmn:MessagingEdge" href="#_gX2C4Y6SEd-ZEap_EdYL7A"/>
+    </vertices>
+  </pools>
+  <pools xmi:type="bpmn:Pool" xmi:id="_4haD4Y6SEd-ZEap_EdYL7A" iD="_4haD4I6SEd-ZEap_EdYL7A" name="Joiner">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_aV6OQI6VEd-ZEap_EdYL7A" source="executablepool">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_aV6OQY6VEd-ZEap_EdYL7A" key="poolIsExecutable" value="false"/>
+    </eAnnotations>
+  </pools>
+  <messages xmi:type="bpmn:MessagingEdge" xmi:id="_qaKuUY6QEd-ZEap_EdYL7A" iD="_qaKuUI6QEd-ZEap_EdYL7A" source="_jg-B4I6QEd-ZEap_EdYL7A" target="_yTYiwY6PEd-ZEap_EdYL7A">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_eI1DEI6REd-ZEap_EdYL7A" source="attachedDataobject">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_eI1DEY6REd-ZEap_EdYL7A" key="douri" value="project:///JC.xsd?xsdelement={http://localhost:8080/JoinerCamelizer}JCRequest"/>
+    </eAnnotations>
+  </messages>
+  <messages xmi:type="bpmn:MessagingEdge" xmi:id="_gX2C4Y6SEd-ZEap_EdYL7A" iD="_gX2C4I6SEd-ZEap_EdYL7A" source="_ZENdMY6SEd-ZEap_EdYL7A" target="_jg-B4I6QEd-ZEap_EdYL7A">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_iGrjQI6SEd-ZEap_EdYL7A" source="attachedDataobject">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_iGrjQY6SEd-ZEap_EdYL7A" key="douri" value="project:///JC.xsd?xsdelement={http://localhost:8080/JoinerCamelizer}JCResponse"/>
+    </eAnnotations>
+  </messages>
+</bpmn:BpmnDiagram>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
+	xmlns:tns="http://localhost:8080/bpms-console"
+	xmlns:s="http://www.w3.org/2001/XMLSchema"
+	xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+	targetNamespace="http://localhost:8080/bpms-console"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  	A simple WebService For Benchmarking
+  </wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://localhost:8080/bpms-console">
+      <s:element name="getFoo" type="s:string" />
+      <s:element name="getBar" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="getFoo">
+    <wsdl:part name="parameters" element="tns:getFoo" />
+  </wsdl:message>
+  <wsdl:message name="getBar">
+    <wsdl:part name="parameters" element="tns:getBar" />
+  </wsdl:message>
+  <wsdl:portType name="OrchestrationBenchmarking">
+    <wsdl:operation name="fooBar">
+      <wsdl:input message="tns:getFoo" />
+      <wsdl:output message="tns:getBar" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="OrchestrationBenchmarking"
+  	type="tns:OrchestrationBenchmarking">
+  	<soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+  	<wsdl:operation name="fooBar">
+  		<soap:operation
+  			soapAction="http://localhost:8080/bpms-console/fooBar"
+  			style="document" />
+  		<wsdl:input>
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="OrchestrationBenchmarking">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      A simple WebService For Benchmarking
+    </wsdl:documentation>
+    <wsdl:port name="OrchestrationBenchmarkingSoap" binding="tns:OrchestrationBenchmarkingSoap">
+      <soap:address location="http://localhost:8080/bpms-console" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

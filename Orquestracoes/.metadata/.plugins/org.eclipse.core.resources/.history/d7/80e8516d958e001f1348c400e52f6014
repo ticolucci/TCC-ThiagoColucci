@@ -1,0 +1,33 @@
+﻿<bpel:process xmlns:bpdm="http://www.intalio/designer/business-process-data-modeling" xmlns:mapper="http://www.intalio.com/designer/mapper" xmlns:typens="urn:ActionWebService" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:this="http://thisdiagram/Camelizer" xmlns:diag="http://thisdiagram" xmlns:JoinerCamelizer="http://thisdiagram/JoinerCamelizer" xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:pnlk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ode="http://www.apache.org/ode/type/extension" targetNamespace="http://thisdiagram/Camelizer">
+    <bpdm:dependencies version="6000089">
+        <bpdm:namespaceDefinition bpdm:uri="urn:ActionWebService" bpdm:prefix="typens" bpdm:comment="contrib=&apos;project:///camelizer.wsdl"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://www.w3.org/2001/XMLSchema" bpdm:prefix="xs"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://www.w3.org/2001/XMLSchema-instance" bpdm:prefix="xsi"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://thisdiagram/Camelizer" bpdm:prefix="this" bpdm:type="this_process"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://thisdiagram" bpdm:prefix="diag" bpdm:comment="contrib=&apos;partner-pool:///_oUOK8I6PEd-ZEap_EdYL7A"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://thisdiagram/JoinerCamelizer" bpdm:prefix="JoinerCamelizer" bpdm:comment="contrib=&apos;partner-pool:///_oUOK8I6PEd-ZEap_EdYL7A"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://www.w3.org/XML/1998/namespace" bpdm:prefix="xml"></bpdm:namespaceDefinition>
+        <bpdm:namespaceContributor bpdm:url="thisprocess://this-process-types" bpdm:label="process defined this-process-types"></bpdm:namespaceContributor>
+        <bpdm:namespaceContributor bpdm:url="partner-pool:///_oUOK8I6PEd-ZEap_EdYL7A" bpdm:label="JoinerCamelizer"/>
+        <bpdm:namespaceContributor bpdm:url="project:///camelizer.wsdl"/>
+    </bpdm:dependencies>
+    <bpel:scope bpdm:label="Camelizer" bpdm:ID="_TC2s0I6UEd-ZEap_EdYL7A">
+        <bpel:partnerLinks>
+            <bpel:partnerLink name="joinerCamelizerAndCamelizerForCamelizerCamelizerPortPlkVar" partnerLinkType="diag:JoinerCamelizerAndCamelizerForCamelizerCamelizerPortPlk" myRole="Camelizer_for_JoinerCamelizer" bpdm:enableSharing="false" bpdm:providedService="typens:CamelizerService" bpdm:providedPort="CamelizerCamelizerPort" bpdm:provideSOAPAddress="http://localhost:3001/camelizer/api" bpdm:providedIsDefault="true" bpdm:clientTasks="_TC2s0I6UEd-ZEap_EdYL7A:_UUmokI6UEd-ZEap_EdYL7A" bpdm:isManaged="true" bpdm:otherPoolId="_oUOK8I6PEd-ZEap_EdYL7A"/>
+        </bpel:partnerLinks>
+        <bpel:variables>
+            <bpel:variable name="typensCamelizeRequestMsg" messageType="typens:Camelize" binding="typens:CamelizerCamelizerBinding" operation="Camelize" opMsgType="0" bpdm:id="_WWzJ0I6UEd-ZEap_EdYL7A" bpdm:messageIds="inc:_WWGmQI6UEd-ZEap_EdYL7A"/>
+            <bpel:variable name="typensCamelizeResponseMsg" messageType="typens:CamelizeResponse" binding="typens:CamelizerCamelizerBinding" operation="Camelize" opMsgType="1" bpdm:id="_W8ZxQI6UEd-ZEap_EdYL7A" bpdm:messageIds=" out:_W8TqoI6UEd-ZEap_EdYL7A">
+                <bpel:from bpdm:toPart="return">
+                    <bpel:literal bpdm:linkedMessageType="typens:CamelizeResponse" bpdm:linkedPart="return" bpdm:binding="typens:CamelizerCamelizerBinding" bpdm:opMsgType="1" bpdm:operation="Camelize"></bpel:literal>
+                </bpel:from>
+            </bpel:variable>
+        </bpel:variables>
+        <bpel:sequence>
+            <bpdm:messagingtask operation="Camelize" partnerLink="joinerCamelizerAndCamelizerForCamelizerCamelizerPortPlkVar" portType="typens:CamelizerCamelizerPort" isMyRole="true" enableSharing="false" bpdm:label="Camelize" bpdm:ID="_UUmokI6UEd-ZEap_EdYL7A">
+                <bpdm:linkset bpdm:type="incomingMessage" bpdm:bpeltype="receive" bpdm:messageVariable="typensCamelizeRequestMsg" bpdm:msgVarScopeId="_TC2s0I6UEd-ZEap_EdYL7A" bpdm:variableIsManaged="true" bpdm:messageType="typens:Camelize" bpdm:binding="typens:CamelizerCamelizerBinding" bpdm:ID="_WWGmQI6UEd-ZEap_EdYL7A"></bpdm:linkset>
+                <bpdm:linkset bpdm:type="outgoingMessage" bpdm:bpeltype="reply" bpdm:messageVariable="typensCamelizeResponseMsg" bpdm:msgVarScopeId="_TC2s0I6UEd-ZEap_EdYL7A" bpdm:variableIsManaged="true" bpdm:messageType="typens:CamelizeResponse" bpdm:binding="typens:CamelizerCamelizerBinding" bpdm:ID="_W8TqoI6UEd-ZEap_EdYL7A"></bpdm:linkset>
+            </bpdm:messagingtask>
+        </bpel:sequence>
+    </bpel:scope>
+</bpel:process>

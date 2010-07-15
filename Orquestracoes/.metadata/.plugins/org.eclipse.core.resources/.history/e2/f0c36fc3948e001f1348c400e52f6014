@@ -1,0 +1,32 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:pnlk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:this="http://example.com/JoinerCamelizer/JoinerCamelizer" xmlns:JC="http://localhost:3000/joiner" xmlns:Joiner="http://example.com/JoinerCamelizer/Joiner" xmlns:typens="urn:ActionWebService" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Camelizer="http://example.com/JoinerCamelizer/Camelizer" xmlns:ns="http://localhost:8080/JoinerCamelizer" xmlns:diag="http://example.com/JoinerCamelizer" xmlns:Client="http://example.com/JoinerCamelizer/Client" xmlns:xml="http://www.w3.org/XML/1998/namespace" targetNamespace="http://example.com/JoinerCamelizer/JoinerCamelizer">
+    <wsdl:message name="Receive_RequestRequest">
+        <wsdl:part name="body" element="ns:JCRequest"/>
+    </wsdl:message>
+    <wsdl:message name="Receive_RequestResponse">
+        <wsdl:part name="body" element="ns:JCResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="ForClient">
+        <wsdl:operation name="Receive_Request">
+            <wsdl:input message="this:Receive_RequestRequest" name="Receive_Request"/>
+            <wsdl:output message="this:Receive_RequestResponse" name="Receive_RequestResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="CanonicBindingForClient" type="this:ForClient">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="Receive_Request">
+            <soap:operation style="document" soapAction="http://example.com/JoinerCamelizer/JoinerCamelizer/ForClient/Receive_Request"/>
+            <wsdl:input name="Receive_Request">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="Receive_RequestResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="CanonicServiceForClient">
+        <wsdl:port name="canonicPort" binding="this:CanonicBindingForClient">
+            <soap:address location="http://localhost:8080/ode/processes/JoinerCamelizer/JoinerCamelizer/JoinerCamelizer/Client"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

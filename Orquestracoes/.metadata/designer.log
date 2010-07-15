@@ -1,0 +1,269 @@
+11:27:27 [root] WARN - Configured log4j with bundleentry://160/conf/log4j-dist.xml for product.
+11:27:30 [org.apache.commons.httpclient.HttpMethodDirector] INFO - Redirect requested but followRedirects is disabled
+12:02:24 [designer.process.bpeldata.io.util] WARN - Re-generating JoinerCamelizer.bpm/bpdm.canonicwsdl from the bpmn.
+12:02:24 [designer.process.bpeldata.io.util] WARN - Successfully re-generated JoinerCamelizer.bpm/bpdm.canonicwsdl from the bpmn.
+12:09:59 [n3.designer.process.bpeldata.dependencies.impl.canonicalwsdl] WARN - Resetted messages on {null}ForClient.EventStartMessage hashCode 12742101
+12:10:41 [n3.designer.process.bpeldata.dependencies.impl.canonicalwsdl] WARN - Resetted messages on {null}ForClient.EventStartMessage hashCode 26887456
+12:10:58 [n3.designer.process.bpeldata.dependencies.impl.canonicalwsdl] WARN - Resetted messages on {null}ForClient.R hashCode 8991633
+12:15:28 [n3.designer.process.bpeldata.dependencies.impl.canonicalwsdl] WARN - Resetted messages on {null}ForClient.Receive_Request hashCode 33539073
+12:15:35 [n3.designer.process.bpeldata.dependencies.impl.canonicalwsdl] WARN - Resetted messages on {null}ForClient.Receive_Request hashCode 23938122
+12:19:45 [n3.designer.process.bpeldata.dependencies.impl.canonicalwsdl] WARN - Resetted messages on {null}ForClient.Receive_Request hashCode 31771508
+12:19:46 [n3.designer.process.bpeldata.dependencies.impl.canonicalwsdl] WARN - Resetted messages on {null}ForClient.Receive_Request hashCode 9615804
+12:19:59 [n3.designer.process.bpeldata.dependencies.impl.canonicalwsdl] WARN - Resetted messages on {null}ForClient.Receive_Request hashCode 28301881
+12:20:02 [n3.designer.process.bpeldata.dependencies.impl.canonicalwsdl] WARN - Resetted messages on {null}ForClient.Receive_Request hashCode 6844336
+12:20:15 [n3.designer.process.bpeldata.dependencies.impl.canonicalwsdl] WARN - Resetted messages on {null}ForClient.Receive_Request hashCode 6514120
+12:20:17 [n3.designer.process.bpeldata.dependencies.impl.canonicalwsdl] WARN - Resetted messages on {null}ForClient.Receive_Request hashCode 18463868
+12:21:54 [n3.designer.process.bpeldata.dependencies.impl.canonicalwsdl] WARN - Resetted messages on {null}ForClient.Receive_Request hashCode 27494299
+12:22:53 [n3.designer.process.bpeldata.dependencies.impl.canonicalwsdl] WARN - Resetted messages on {null}ForClient.Receive_Request hashCode 30205091
+12:23:04 [n3.designer.process.bpeldata.dependencies.impl.canonicalwsdl] WARN - Resetted messages on {null}ForClient.Receive_Request hashCode 14940643
+12:28:57 [n3.designer.process.bpeldata.dependencies.impl.canonicalwsdl] WARN - Resetted messages on {null}ForJoiner.Invoke_Joiner hashCode 9559267
+12:29:08 [n3.designer.process.bpeldata.dependencies.impl.wsdlmerge] WARN - Refreshing without passing the references...
+12:29:08 [n3.designer.process.bpeldata.dependencies.impl.wsdlmerge] WARN - Refreshing without passing the references...
+12:30:26 [n3.designer.process.bpeldata.dependencies.impl.canonicalwsdl] WARN - Resetted messages on {null}ForJC.Invoke_Joiner hashCode 23567209
+12:30:32 [n3.designer.process.bpeldata.dependencies.impl.canonicalwsdl] WARN - Resetted messages on {null}ForJC.Invoke_Joiner hashCode 2182310
+12:30:32 [n3.designer.process.bpeldata.dependencies.impl.canonicalwsdl] WARN - Resetted messages on {null}ForJoinerCamelizer.Camelize hashCode 3105767
+12:31:29 [n3.designer.process.bpeldata.dependencies.impl.canonicalwsdl] WARN - Resetted messages on {null}ForJC.Invoke_Joiner hashCode 489168
+12:31:29 [n3.designer.process.bpeldata.dependencies.impl.canonicalwsdl] WARN - Resetted messages on {null}ForJoinerCamelizer.Camelize hashCode 8936165
+12:31:34 [n3.designer.process.bpeldata.dependencies.impl.canonicalwsdl] WARN - Resetted messages on {null}ForJC.Invoke_Joiner hashCode 33176296
+12:31:34 [n3.designer.process.bpeldata.dependencies.impl.canonicalwsdl] WARN - Resetted messages on {null}ForJoinerCamelizer.Camelize hashCode 1826112
+12:33:53 [n3.designer.process.bpeldata.dependencies.impl.canonicalwsdl] WARN - Resetted messages on {null}ForJC.Invoke_Joiner hashCode 5609131
+12:33:53 [n3.designer.process.bpeldata.dependencies.impl.canonicalwsdl] WARN - Resetted messages on {null}ForJoinerCamelizer.Camelize hashCode 10705329
+12:33:58 [n3.designer.process.bpeldata.dependencies.impl.canonicalwsdl] WARN - Resetted messages on {null}ForJC.Invoke_Joiner hashCode 23916985
+12:33:58 [n3.designer.process.bpeldata.dependencies.impl.canonicalwsdl] WARN - Resetted messages on {null}ForJoinerCamelizer.Camelize hashCode 16655857
+12:34:56 [designer.process.bpeldata.io.util] WARN - Re-generating JoinerCamelizer.bpm/bpdm.canonicwsdl from the bpmn.
+12:34:56 [designer.process.bpeldata.io.util] WARN - Successfully re-generated JoinerCamelizer.bpm/bpdm.canonicwsdl from the bpmn.
+12:35:31 [n3.designer.process.bpeldata.dependencies.impl.wsdlmerge] WARN - Refreshing without passing the references...
+12:35:31 [n3.designer.process.bpeldata.dependencies.impl.wsdlmerge] WARN - Refreshing without passing the references...
+12:35:49 [n3.designer.process.bpeldata.dependencies.impl.canonicalwsdl] WARN - Resetted messages on {null}ForJoiner.Invoke_Joiner hashCode 15169056
+12:35:49 [n3.designer.process.bpeldata.dependencies.impl.canonicalwsdl] WARN - Resetted messages on {http://thisdiagram/Joiner}ForJoinerCamelizer.Camelize hashCode 28114992
+12:35:49 [n3.designer.process.bpeldata.dependencies.impl.canonicalwsdl] WARN - Resetted messages on {null}ForJoiner.Invoke_Joiner hashCode 28303735
+12:35:49 [n3.designer.process.bpeldata.dependencies.impl.canonicalwsdl] WARN - Resetted messages on {null}ForJoiner.Invoke_Camelizer hashCode 33259727
+12:36:09 [n3.designer.process.bpeldata.dependencies.impl.canonicalwsdl] WARN - Resetted messages on {null}ForJoinerCamelizer.Camelize hashCode 26549028
+12:36:20 [n3.designer.process.bpeldata.dependencies.impl.canonicalwsdl] WARN - Resetted messages on {null}ForJoinerCamelizer.Camelize hashCode 18686326
+12:36:29 [n3.designer.process.bpeldata.dependencies.impl.canonicalwsdl] WARN - Resetted messages on {null}ForJoinerCamelizer.Camelize hashCode 29080310
+12:36:44 [n3.designer.process.bpeldata.dependencies.impl.wsdlmerge] WARN - Refreshing without passing the references...
+12:36:44 [n3.designer.process.bpeldata.dependencies.impl.wsdlmerge] WARN - Refreshing without passing the references...
+12:37:47 [designer.process.bpeldata.io.util] WARN - Re-generating JoinerCamelizer.bpm/bpdm.canonicwsdl from the bpmn.
+12:37:47 [designer.process.bpeldata.io.util] WARN - Successfully re-generated JoinerCamelizer.bpm/bpdm.canonicwsdl from the bpmn.
+12:38:36 [designer.process.bpeldata.io.util] WARN - Re-generating JoinerCamelizer.bpm/bpdm.canonicwsdl from the bpmn.
+12:38:36 [designer.process.bpeldata.io.util] WARN - Successfully re-generated JoinerCamelizer.bpm/bpdm.canonicwsdl from the bpmn.
+12:38:47 [designer.process.bpeldata.io.util] WARN - Re-generating JoinerCamelizer.bpm/bpdm.canonicwsdl from the bpmn.
+12:38:47 [designer.process.bpeldata.io.util] WARN - Successfully re-generated JoinerCamelizer.bpm/bpdm.canonicwsdl from the bpmn.
+12:39:02 [designer.process.bpeldata.io.util] WARN - Re-generating JoinerCamelizer.bpm/bpdm.canonicwsdl from the bpmn.
+12:39:02 [designer.process.bpeldata.io.util] WARN - Successfully re-generated JoinerCamelizer.bpm/bpdm.canonicwsdl from the bpmn.
+12:39:08 [designer.process.bpeldata.io.util] WARN - Re-generating JoinerCamelizer.bpm/bpdm.canonicwsdl from the bpmn.
+12:39:08 [designer.process.bpeldata.io.util] WARN - Successfully re-generated JoinerCamelizer.bpm/bpdm.canonicwsdl from the bpmn.
+12:41:45 [designer.process.bpeldata.io.util] WARN - Re-generating JoinerCamelizer.bpm/bpdm.canonicwsdl from the bpmn.
+12:41:45 [designer.process.bpeldata.io.util] WARN - Successfully re-generated JoinerCamelizer.bpm/bpdm.canonicwsdl from the bpmn.
+12:43:48 [designer.process.bpeldata.io.util] WARN - Re-generating JoinerCamelizer.bpm/bpdm.canonicwsdl from the bpmn.
+12:43:48 [designer.process.bpeldata.io.util] WARN - Successfully re-generated JoinerCamelizer.bpm/bpdm.canonicwsdl from the bpmn.
+12:45:30 [designer.process.bpeldata.io.util] WARN - Re-generating JoinerCamelizer.bpm/bpdm.canonicwsdl from the bpmn.
+12:45:30 [designer.process.bpeldata.io.util] WARN - Successfully re-generated JoinerCamelizer.bpm/bpdm.canonicwsdl from the bpmn.
+12:46:15 [n3.designer.process.bpeldata.dependencies.impl.canonicalwsdl] WARN - Resetted messages on {null}ForJoiner.Invoke_Joiner hashCode 22075097
+12:46:16 [n3.designer.process.bpeldata.dependencies.impl.canonicalwsdl] WARN - Resetted messages on {null}ForJoinerCamelizer.Join hashCode 23594964
+12:46:21 [n3.designer.process.bpeldata.dependencies.impl.canonicalwsdl] WARN - Resetted messages on {http://thisdiagram/Camelizer}ForJoinerCamelizer.Camelize hashCode 1606412
+12:46:21 [n3.designer.process.bpeldata.dependencies.impl.canonicalwsdl] WARN - Resetted messages on {null}ForCamelizer.Invoke_Camelizer hashCode 13841865
+12:46:29 [bpms.designer.diagramstate.wsdl.BPMNWSDLDiagramController] WARN - No task container for org.eclipse.stp.bpmn.impl.PoolImpl@17b59e2 (iD: _4haD4I6SEd-ZEap_EdYL7A) (documentation: null, name: JCWS, ncname: null) (orderedMessages: [])
+12:46:39 [bpms.designer.diagramstate.wsdl.BPMNWSDLDiagramController] WARN - No task container for org.eclipse.stp.bpmn.impl.PoolImpl@17b59e2 (iD: _4haD4I6SEd-ZEap_EdYL7A) (documentation: null, name: Joiner, ncname: null) (orderedMessages: [])
+12:48:26 [bpms.designer.dataobjects.wsdlvalidator] ERROR - L/JoinerCamelizer/camelizer.wsdl does not exist
+12:48:26 [designer.process.bpeldata.io.util] WARN - Re-generating JoinerCamelizer.bpm/bpdm.canonicwsdl from the bpmn.
+12:48:26 [designer.process.bpeldata.io.util] WARN - Successfully re-generated JoinerCamelizer.bpm/bpdm.canonicwsdl from the bpmn.
+12:48:26 [n3.designer.process.bpeldata.dependencies.objecttypes.impl.DependenciesManager] ERROR - Unable to locate the file project:///camelizer.wsdl
+12:48:26 [n3.designer.process.bpeldata.dependencies.objecttypes.impl.DependenciesManager] ERROR - Unable to locate the file project:///camelizer.wsdl
+12:48:26 [n3.designer.process.bpeldata.declarations.io] ERROR - Unable to marshall the literal typens:Camelize.string
+12:48:26 [n3.designer.process.bpeldata.dependencies.objecttypes.impl.DependenciesManager] ERROR - Unable to locate the file project:///camelizer.wsdl
+12:48:32 [designer.process.bpeldata.io.util] WARN - Re-generating JoinerCamelizer.bpm/bpdm.canonicwsdl from the bpmn.
+12:48:32 [designer.process.bpeldata.io.util] WARN - Successfully re-generated JoinerCamelizer.bpm/bpdm.canonicwsdl from the bpmn.
+12:48:32 [designer.process.bpeldata.io.util] WARN - Re-generating JoinerCamelizer.bpm/bpdm.canonicwsdl from the bpmn.
+12:48:33 [designer.process.bpeldata.io.util] WARN - Successfully re-generated JoinerCamelizer.bpm/bpdm.canonicwsdl from the bpmn.
+12:48:46 [designer.process.bpeldata.io.util] WARN - Re-generating JoinerCamelizer.bpm/bpdm.canonicwsdl from the bpmn.
+12:48:46 [designer.process.bpeldata.io.util] WARN - Successfully re-generated JoinerCamelizer.bpm/bpdm.canonicwsdl from the bpmn.
+12:48:46 [n3.designer.process.bpeldata.dependencies.objecttypes.impl.DependenciesManager] ERROR - Unable to locate the file project:///camelizer.wsdl
+12:48:46 [n3.designer.process.bpeldata.dependencies.objecttypes.impl.DependenciesManager] ERROR - Unable to locate the file project:///camelizer.wsdl
+12:49:30 [designer.process.bpeldata.io.util] WARN - Re-generating JoinerCamelizer.bpm/bpdm.canonicwsdl from the bpmn.
+12:49:30 [designer.process.bpeldata.io.util] WARN - Successfully re-generated JoinerCamelizer.bpm/bpdm.canonicwsdl from the bpmn.
+12:49:30 [n3.designer.process.bpeldata.dependencies.objecttypes.impl.DependenciesManager] ERROR - Unable to locate the file project:///camelizer.wsdl
+12:49:30 [n3.designer.process.bpeldata.dependencies.objecttypes.impl.DependenciesManager] ERROR - Unable to locate the file project:///camelizer.wsdl
+12:51:02 [designer.process.bpeldata.io.util] WARN - Re-generating JoinerCamelizer.bpm/bpdm.canonicwsdl from the bpmn.
+12:51:02 [designer.process.bpeldata.io.util] WARN - Successfully re-generated JoinerCamelizer.bpm/bpdm.canonicwsdl from the bpmn.
+12:51:44 [designer.process.bpeldata.io.util] WARN - Re-generating JoinerCamelizer.bpm/bpdm.canonicwsdl from the bpmn.
+12:51:44 [designer.process.bpeldata.io.util] WARN - Successfully re-generated JoinerCamelizer.bpm/bpdm.canonicwsdl from the bpmn.
+12:52:47 [n3.designer.process.bpeldata.dependencies.impl.canonicalwsdl] WARN - Resetted messages on {null}ForJoinerCamelizer.Join hashCode 6347101
+12:52:47 [n3.designer.process.bpeldata.dependencies.impl.canonicalwsdl] WARN - Resetted messages on {null}ForJoinerCamelizer.Join hashCode 22488633
+12:52:47 [n3.designer.process.bpeldata.dependencies.impl.canonicalwsdl] WARN - Resetted messages on {null}ForJoinerCamelizer.Join hashCode 10195589
+12:52:50 [n3.designer.process.bpeldata.dependencies.impl.canonicalwsdl] WARN - Resetted messages on {null}ForJoinerCamelizer.Join hashCode 3764807
+12:52:50 [n3.designer.process.bpeldata.dependencies.impl.canonicalwsdl] WARN - Resetted messages on {null}ForJoinerCamelizer.Join hashCode 26530023
+12:52:50 [n3.designer.process.bpeldata.dependencies.impl.canonicalwsdl] WARN - Resetted messages on {null}ForJoinerCamelizer.Join hashCode 29841949
+12:52:50 [n3.designer.process.bpeldata.dependencies.impl.canonicalwsdl] WARN - Resetted messages on {null}ForJoinerCamelizer.Join hashCode 24899107
+12:52:54 [n3.designer.process.bpeldata.dependencies.impl.canonicalwsdl] WARN - Resetted messages on {null}ForJoinerCamelizer.Camelize hashCode 26774727
+12:52:54 [n3.designer.process.bpeldata.dependencies.impl.canonicalwsdl] WARN - Resetted messages on {null}ForJoinerCamelizer.Camelize hashCode 28799840
+12:52:54 [n3.designer.process.bpeldata.dependencies.impl.canonicalwsdl] WARN - Resetted messages on {null}ForJoinerCamelizer.Camelize hashCode 347507
+12:52:57 [n3.designer.process.bpeldata.dependencies.impl.canonicalwsdl] WARN - Resetted messages on {null}ForJoinerCamelizer.Camelize hashCode 22192883
+12:52:57 [n3.designer.process.bpeldata.dependencies.impl.canonicalwsdl] WARN - Resetted messages on {null}ForJoinerCamelizer.Camelize hashCode 33402699
+12:52:57 [n3.designer.process.bpeldata.dependencies.impl.canonicalwsdl] WARN - Resetted messages on {null}ForJoinerCamelizer.Camelize hashCode 15943400
+12:52:57 [n3.designer.process.bpeldata.dependencies.impl.canonicalwsdl] WARN - Resetted messages on {null}ForJoinerCamelizer.Camelize hashCode 27966124
+12:52:59 [designer.process.bpeldata.io.util] WARN - Re-generating JoinerCamelizer.bpm/bpdm.canonicwsdl from the bpmn.
+12:52:59 [designer.process.bpeldata.io.util] WARN - Successfully re-generated JoinerCamelizer.bpm/bpdm.canonicwsdl from the bpmn.
+14:32:58 [n3.designer.process.bpeldata.expressions.model.ExpressionUnitBuilder] ERROR - Not well handled expresion: root has more than one child: 
+
+<operator proto="SlashExpression($thisReceive_RequestRequestMsg.body, child::element({http://localhost:8080/JoinerCamelizer}string, xs:anyType))">
+   <operator proto="$thisReceive_RequestRequestMsg.body"></operator>
+   <node selected="[ns:string: null]" proto="string"></node>
+</operator>
+14:33:11 [n3.designer.process.bpeldata.expressions.model.ExpressionUnitBuilder] ERROR - Not well handled expresion: root has more than one child: 
+
+<operator proto="SlashExpression($thisReceive_RequestRequestMsg.body, child::element({http://localhost:8080/JoinerCamelizer}string, xs:anyType))">
+   <operator proto="$thisReceive_RequestRequestMsg.body"></operator>
+   <node selected="[ns:string: null]" proto="string"></node>
+</operator>
+14:33:37 [n3.designer.process.bpeldata.expressions.model.ExpressionUnitBuilder] ERROR - Not well handled expresion: root has more than one child: 
+
+<operator proto="SlashExpression($thisReceive_RequestRequestMsg.body, child::element({http://localhost:8080/JoinerCamelizer}string, xs:anyType))">
+   <operator proto="$thisReceive_RequestRequestMsg.body"></operator>
+   <node selected="[ns:string: null]" proto="string"></node>
+</operator>
+14:35:05 [n3.designer.process.bpeldata.expressions.model.ExpressionUnitBuilder] ERROR - Not well handled expresion: root has more than one child: 
+
+<operator proto="SlashExpression($thisReceive_RequestRequestMsg.body, child::element({http://localhost:8080/JoinerCamelizer}string, xs:anyType))">
+   <operator proto="$thisReceive_RequestRequestMsg.body"></operator>
+   <node selected="[ns:string: null]" proto="string"></node>
+</operator>
+14:35:24 [designer.process.bpeldata.io.util] WARN - Re-generating JoinerCamelizer.bpm/bpdm.canonicwsdl from the bpmn.
+14:35:24 [designer.process.bpeldata.io.util] WARN - Successfully re-generated JoinerCamelizer.bpm/bpdm.canonicwsdl from the bpmn.
+14:38:55 [bpms.designer.tokens] INFO - Broadcast Token change(project=JoinerCamelizer): opened_pages = overview use-to-be=
+14:39:44 [bpms.designer.deploy] WARN - Deploying with truststore: /home/ticolucci/Documents/TCC/Orquestracoes/.metadata/.plugins/com.intalio.bpms.designer.deployment/truststore
+14:39:45 [org.apache.commons.httpclient.HttpMethodDirector] INFO - I/O exception (java.net.ConnectException) caught when processing request: Connection refused
+14:39:45 [org.apache.commons.httpclient.HttpMethodDirector] INFO - Retrying request
+14:39:45 [org.apache.commons.httpclient.HttpMethodDirector] INFO - I/O exception (java.net.ConnectException) caught when processing request: Connection refused
+14:39:45 [org.apache.commons.httpclient.HttpMethodDirector] INFO - Retrying request
+14:39:45 [org.apache.commons.httpclient.HttpMethodDirector] INFO - I/O exception (java.net.ConnectException) caught when processing request: Connection refused
+14:39:45 [org.apache.commons.httpclient.HttpMethodDirector] INFO - Retrying request
+14:39:45 [org.apache.axis2.transport.http.HTTPSender] INFO - Unable to sendViaPost to url[http://localhost:8080/ode/services/ProcessManagement]
+java.net.ConnectException: Connection refused
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:310)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:176)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:163)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:384)
+	at java.net.Socket.connect(Socket.java:546)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:616)
+	at org.apache.commons.httpclient.protocol.ReflectionSocketFactory.createSocket(ReflectionSocketFactory.java:139)
+	at org.apache.commons.httpclient.protocol.DefaultProtocolSocketFactory.createSocket(DefaultProtocolSocketFactory.java:124)
+	at org.apache.commons.httpclient.HttpConnection.open(HttpConnection.java:706)
+	at org.apache.commons.httpclient.MultiThreadedHttpConnectionManager$HttpConnectionAdapter.open(MultiThreadedHttpConnectionManager.java:1321)
+	at org.apache.commons.httpclient.HttpMethodDirector.executeWithRetry(HttpMethodDirector.java:386)
+	at org.apache.commons.httpclient.HttpMethodDirector.executeMethod(HttpMethodDirector.java:170)
+	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:396)
+	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:346)
+	at org.apache.axis2.transport.http.AbstractHTTPSender.executeMethod(AbstractHTTPSender.java:550)
+	at org.apache.axis2.transport.http.HTTPSender.sendViaPost(HTTPSender.java:189)
+	at org.apache.axis2.transport.http.HTTPSender.send(HTTPSender.java:75)
+	at org.apache.axis2.transport.http.CommonsHTTPTransportSender.writeMessageWithCommons(CommonsHTTPTransportSender.java:389)
+	at org.apache.axis2.transport.http.CommonsHTTPTransportSender.invoke(CommonsHTTPTransportSender.java:222)
+	at org.apache.axis2.engine.AxisEngine.send(AxisEngine.java:435)
+	at org.apache.axis2.description.OutInAxisOperationClient.send(OutInAxisOperation.java:402)
+	at org.apache.axis2.description.OutInAxisOperationClient.executeImpl(OutInAxisOperation.java:229)
+	at org.apache.axis2.client.OperationClient.execute(OperationClient.java:165)
+	at org.apache.axis2.client.ServiceClient.sendReceive(ServiceClient.java:539)
+	at org.apache.axis2.client.ServiceClient.sendReceive(ServiceClient.java:520)
+	at org.apache.ode.axis2.service.ServiceClientUtil.send(ServiceClientUtil.java:69)
+	at com.intalio.bpms.designer.deployment.tests.OdeConnectionTester.testConnection(OdeConnectionTester.java:104)
+	at com.intalio.bpms.designer.deployment.ui.actions.ServerTestConnectionAction.run(ServerTestConnectionAction.java:87)
+	at org.eclipse.jface.operation.ModalContext.runInCurrentThread(ModalContext.java:458)
+	at org.eclipse.jface.operation.ModalContext.run(ModalContext.java:366)
+	at org.eclipse.jface.dialogs.ProgressMonitorDialog.run(ProgressMonitorDialog.java:507)
+	at com.intalio.bpms.designer.deployment.ui.actions.TestConnectionAction.run(TestConnectionAction.java:109)
+	at com.intalio.bpms.designer.deployment.ui.editor.BpmsOverviewFormPage$OverviewSection$4.linkActivated(BpmsOverviewFormPage.java:247)
+	at org.eclipse.ui.forms.widgets.AbstractHyperlink.handleActivate(AbstractHyperlink.java:227)
+	at org.eclipse.ui.forms.widgets.ImageHyperlink.handleActivate(ImageHyperlink.java:177)
+	at org.eclipse.ui.forms.widgets.AbstractHyperlink.handleMouseUp(AbstractHyperlink.java:320)
+	at org.eclipse.ui.forms.widgets.AbstractHyperlink.access$2(AbstractHyperlink.java:304)
+	at org.eclipse.ui.forms.widgets.AbstractHyperlink$4.handleEvent(AbstractHyperlink.java:119)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1158)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:3401)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3033)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2382)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2346)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2198)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:493)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:288)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:488)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:113)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:193)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:386)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:616)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:549)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:504)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1236)
+14:43:29 [bpms.designer.deploy] WARN - Deploying with truststore: /home/ticolucci/Documents/TCC/Orquestracoes/.metadata/.plugins/com.intalio.bpms.designer.deployment/truststore
+14:43:59 [bpms.designer.tokens] INFO - Broadcast Token change(project=JoinerCamelizer): __currentProfile__ = developement_profile use-to-be=
+14:43:59 [designer.process.bpeldata.io.util] WARN - Re-generating JoinerCamelizer.bpm/bpdm.canonicwsdl from the bpmn.
+14:43:59 [designer.process.bpeldata.io.util] WARN - Successfully re-generated JoinerCamelizer.bpm/bpdm.canonicwsdl from the bpmn.
+14:44:09 [org.apache.ode.bpel.compiler.WSDLRegistry] INFO - WSDL at joiner.wsdl imports several documents in the same namespace (urn:ActionWebService), your documents should all be in different namespaces (its's not nice but will still work).
+14:44:09 [org.apache.ode.bpel.compiler.WSDLRegistry] INFO - WSDL at file:/home/ticolucci/Documents/TCC/Orquestracoes/JoinerCamelizer/build/joiner.wsdl is a duplicate import, your documents should all be in different namespaces (its's not nice but will still work).
+14:44:09 [org.apache.ode.bpel.compiler.WSDLRegistry] INFO - WSDL at file:/home/ticolucci/Documents/TCC/Orquestracoes/JoinerCamelizer/build/JoinerCamelizer-JoinerCamelizer.wsdl is a duplicate import, your documents should all be in different namespaces (its's not nice but will still work).
+14:44:09 [org.apache.ode.bpel.compiler.WSDLRegistry] INFO - WSDL at file:/home/ticolucci/Documents/TCC/Orquestracoes/JoinerCamelizer/build/camelizer.wsdl is a duplicate import, your documents should all be in different namespaces (its's not nice but will still work).
+14:44:09 [org.apache.ode.bpel.compiler.WSDLRegistry] INFO - WSDL at file:/home/ticolucci/Documents/TCC/Orquestracoes/JoinerCamelizer/build/joiner.wsdl is a duplicate import, your documents should all be in different namespaces (its's not nice but will still work).
+14:44:09 [bpms.designer.deploy] WARN - Deploying with truststore: /home/ticolucci/Documents/TCC/Orquestracoes/.metadata/.plugins/com.intalio.bpms.designer.deployment/truststore
+14:44:12 [bpms.designer.deploy] INFO - JoinerCamelizer sucessfully deployed= true
+14:44:12 [bpms.designer.deploy] WARN - Nothing to deploy for tempo assembly.
+14:51:08 [n3.designer.process.bpeldata.expressions.model.ExpressionUnitBuilder] ERROR - Not well handled expresion: root has more than one child: 
+
+<operator proto="SlashExpression($thisReceive_RequestRequestMsg.body, child::element({http://localhost:8080/JoinerCamelizer}string, xs:anyType))">
+   <operator proto="$thisReceive_RequestRequestMsg.body"></operator>
+   <node selected="[ns:string: null]" proto="string"></node>
+</operator>
+14:51:50 [n3.designer.process.bpeldata.expressions.model.ExpressionUnitBuilder] ERROR - Not well handled expresion: root has more than one child: 
+
+<operator proto="SlashExpression($thisReceive_RequestRequestMsg.body, child::element({http://localhost:8080/JoinerCamelizer}string, xs:anyType))">
+   <operator proto="$thisReceive_RequestRequestMsg.body"></operator>
+   <node selected="[ns:string: null]" proto="string"></node>
+</operator>
+14:52:02 [n3.designer.process.bpeldata.expressions.model.ExpressionUnitBuilder] ERROR - Not well handled expresion: root has more than one child: 
+
+<operator proto="SlashExpression($thisReceive_RequestRequestMsg.body, child::element({http://localhost:8080/JoinerCamelizer}string, xs:anyType))">
+   <operator proto="$thisReceive_RequestRequestMsg.body"></operator>
+   <node selected="[ns:string: null]" proto="string"></node>
+</operator>
+14:54:07 [designer.process.bpeldata.io.util] WARN - Re-generating JoinerCamelizer.bpm/bpdm.canonicwsdl from the bpmn.
+14:54:07 [designer.process.bpeldata.io.util] WARN - Successfully re-generated JoinerCamelizer.bpm/bpdm.canonicwsdl from the bpmn.
+14:54:18 [org.apache.ode.bpel.compiler.WSDLRegistry] INFO - WSDL at joiner.wsdl imports several documents in the same namespace (urn:ActionWebService), your documents should all be in different namespaces (its's not nice but will still work).
+14:54:18 [org.apache.ode.bpel.compiler.WSDLRegistry] INFO - WSDL at file:/home/ticolucci/Documents/TCC/Orquestracoes/JoinerCamelizer/build/joiner.wsdl is a duplicate import, your documents should all be in different namespaces (its's not nice but will still work).
+14:54:18 [org.apache.ode.bpel.compiler.WSDLRegistry] INFO - WSDL at file:/home/ticolucci/Documents/TCC/Orquestracoes/JoinerCamelizer/build/JoinerCamelizer-JoinerCamelizer.wsdl is a duplicate import, your documents should all be in different namespaces (its's not nice but will still work).
+14:54:18 [org.apache.ode.bpel.compiler.WSDLRegistry] INFO - WSDL at file:/home/ticolucci/Documents/TCC/Orquestracoes/JoinerCamelizer/build/camelizer.wsdl is a duplicate import, your documents should all be in different namespaces (its's not nice but will still work).
+14:54:18 [org.apache.ode.bpel.compiler.WSDLRegistry] INFO - WSDL at file:/home/ticolucci/Documents/TCC/Orquestracoes/JoinerCamelizer/build/joiner.wsdl is a duplicate import, your documents should all be in different namespaces (its's not nice but will still work).
+14:54:19 [bpms.designer.deploy] WARN - Deploying with truststore: /home/ticolucci/Documents/TCC/Orquestracoes/.metadata/.plugins/com.intalio.bpms.designer.deployment/truststore
+14:54:19 [bpms.designer.deploy] INFO - JoinerCamelizer-2 sucessfully deployed= true
+14:54:19 [bpms.designer.deploy] WARN - Nothing to deploy for tempo assembly.
+15:00:15 [n3.designer.process.bpeldata.expressions.model.ExpressionUnitBuilder] ERROR - Not well handled expresion: root has more than one child: 
+
+<operator proto="SlashExpression($thisReceive_RequestRequestMsg.body, child::element({http://localhost:8080/JoinerCamelizer}string, xs:anyType))">
+   <operator proto="$thisReceive_RequestRequestMsg.body"></operator>
+   <node selected="[ns:string: null]" proto="string"></node>
+</operator>
+15:03:46 [n3.designer.process.bpeldata.expressions.model.ExpressionUnitBuilder] ERROR - Not well handled expresion: root has more than one child: 
+
+<operator proto="SlashExpression($thisReceive_RequestRequestMsg.body, child::element({http://localhost:8080/JoinerCamelizer}string, xs:anyType))">
+   <operator proto="$thisReceive_RequestRequestMsg.body"></operator>
+   <node selected="[ns:string: null]" proto="string"></node>
+</operator>
+15:14:51 [designer.process.bpeldata.io.util] WARN - Re-generating JoinerCamelizer.bpm/bpdm.canonicwsdl from the bpmn.
+15:14:51 [designer.process.bpeldata.io.util] WARN - Successfully re-generated JoinerCamelizer.bpm/bpdm.canonicwsdl from the bpmn.
+15:38:10 [n3.designer.process.bpeldata.expressions.model.ExpressionUnitBuilder] ERROR - Not well handled expresion: root has more than one child: 
+
+<operator proto="SlashExpression($thisReceive_RequestRequestMsg.body, child::element({http://localhost:8080/JoinerCamelizer}string, xs:anyType))">
+   <operator proto="$thisReceive_RequestRequestMsg.body"></operator>
+   <node selected="[ns:string: null]" proto="string"></node>
+</operator>
+11:10:57 [bpms.designer.tokens] INFO - Broadcast Token change(project=JoinerCamelizer): deploy.fileRuntimeSelection = JC.xsd:JoinerCamelizer.bpm:camelizer.wsdl:joiner.wsdl: use-to-be=

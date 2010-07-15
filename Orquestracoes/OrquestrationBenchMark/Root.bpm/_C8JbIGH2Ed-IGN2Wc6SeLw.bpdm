@@ -1,0 +1,33 @@
+﻿<bpel:process xmlns:bpdm="http://www.intalio/designer/business-process-data-modeling" xmlns:mapper="http://www.intalio.com/designer/mapper" xmlns:ns="http://bpms.intalio.com/FirstProcess/Time" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:RootProcess="http://thisdiagram/RootProcess" xmlns:diag="http://thisdiagram" xmlns:this="http://thisdiagram/Client" xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:pnlk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ode="http://www.apache.org/ode/type/extension" targetNamespace="http://thisdiagram/Client">
+    <bpdm:dependencies version="6000089">
+        <bpdm:namespaceDefinition bpdm:uri="http://bpms.intalio.com/FirstProcess/Time" bpdm:prefix="ns" bpdm:comment="contrib=&apos;project:///Root.xsd"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://www.w3.org/2001/XMLSchema" bpdm:prefix="xs"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://www.w3.org/2001/XMLSchema-instance" bpdm:prefix="xsi"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://thisdiagram/RootProcess" bpdm:prefix="RootProcess" bpdm:comment="contrib=&apos;partner-pool:///_3p_jsGHwEd-IGN2Wc6SeLw"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://thisdiagram" bpdm:prefix="diag" bpdm:comment="contrib=&apos;partner-pool:///_3p_jsGHwEd-IGN2Wc6SeLw"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://thisdiagram/Client" bpdm:prefix="this" bpdm:type="this_process"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://www.w3.org/XML/1998/namespace" bpdm:prefix="xml"></bpdm:namespaceDefinition>
+        <bpdm:namespaceContributor bpdm:url="thisprocess://this-process-types" bpdm:label="process defined this-process-types"></bpdm:namespaceContributor>
+        <bpdm:namespaceContributor bpdm:url="partner-pool:///_3p_jsGHwEd-IGN2Wc6SeLw" bpdm:label="RootProcess"/>
+        <bpdm:namespaceContributor bpdm:url="project:///Root.xsd"/>
+    </bpdm:dependencies>
+    <bpel:scope bpdm:label="Client" bpdm:ID="_C8JbIGH2Ed-IGN2Wc6SeLw">
+        <bpel:partnerLinks>
+            <bpel:partnerLink name="clientAndRootProcessPlkVar" partnerLinkType="diag:ClientAndRootProcess" initializePartnerRole="yes" partnerRole="RootProcess_for_Client" bpdm:invokedService="RootProcess:CanonicServiceForClient" bpdm:invokedPort="canonicPort" bpdm:invokedSOAPAddress="${deploy_serverUrl}${deploy_baseSoapServicesUrl}/${deploy_bundleNcName}/${diagram_relativeURL}/RootProcess/Client" bpdm:invokedIsDefault="true" bpdm:clientTasks="_C8JbIGH2Ed-IGN2Wc6SeLw:_kQZqEGH2Ed-IGN2Wc6SeLw" bpdm:isManaged="true" bpdm:otherPoolId="_3p_jsGHwEd-IGN2Wc6SeLw"/>
+        </bpel:partnerLinks>
+        <bpel:variables>
+            <bpel:variable name="rootProcessReceiveRequestRequestMsg" messageType="RootProcess:ReceiveRequestRequest" bpdm:id="_qjD68GH2Ed-IGN2Wc6SeLw" bpdm:messageIds=" out:_qiIG0GH2Ed-IGN2Wc6SeLw">
+                <bpel:from bpdm:toPart="body">
+                    <bpel:literal bpdm:linkedMessageType="RootProcess:ReceiveRequestRequest" bpdm:linkedPart="body"></bpel:literal>
+                </bpel:from>
+            </bpel:variable>
+            <bpel:variable name="rootProcessReceiveRequestResponseMsg" messageType="RootProcess:ReceiveRequestResponse" bpdm:id="_rajjoGH2Ed-IGN2Wc6SeLw" bpdm:messageIds="inc:_raKiEGH2Ed-IGN2Wc6SeLw"/>
+        </bpel:variables>
+        <bpel:sequence>
+            <bpdm:messagingtask operation="ReceiveRequest" partnerLink="clientAndRootProcessPlkVar" portType="RootProcess:ForClient" isMyRole="false" enableSharing="false" bpdm:label="Console Invocation" bpdm:ID="_kQZqEGH2Ed-IGN2Wc6SeLw">
+                <bpdm:linkset bpdm:type="outgoingMessage" bpdm:bpeltype="invoke-request" bpdm:messageVariable="rootProcessReceiveRequestRequestMsg" bpdm:msgVarScopeId="_C8JbIGH2Ed-IGN2Wc6SeLw" bpdm:variableIsManaged="true" bpdm:messageType="RootProcess:ReceiveRequestRequest" bpdm:ID="_qiIG0GH2Ed-IGN2Wc6SeLw"></bpdm:linkset>
+                <bpdm:linkset bpdm:type="incomingMessage" bpdm:bpeltype="invoke-receive" bpdm:messageVariable="rootProcessReceiveRequestResponseMsg" bpdm:msgVarScopeId="_C8JbIGH2Ed-IGN2Wc6SeLw" bpdm:variableIsManaged="true" bpdm:messageType="RootProcess:ReceiveRequestResponse" bpdm:ID="_raKiEGH2Ed-IGN2Wc6SeLw"></bpdm:linkset>
+            </bpdm:messagingtask>
+        </bpel:sequence>
+    </bpel:scope>
+</bpel:process>

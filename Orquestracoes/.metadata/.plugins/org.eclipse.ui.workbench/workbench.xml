@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workbench progressCount="48" version="2.0">
+<workbenchAdvisor/>
+<window height="752" maximized="true" width="1020" x="0" y="24">
+<fastViewData fastViewLocation="1024"/>
+<perspectiveBar>
+<itemSize x="160"/>
+</perspectiveBar>
+<coolbarLayout locked="0">
+<coolItem id="group.file" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="100" y="38"/>
+<coolItem id="additions" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="52" y="38"/>
+<coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="52" y="38"/>
+<coolItem id="org.eclipse.wst.xml.ui.design.DesignToolBar" itemType="typeToolBarContribution" x="122" y="38"/>
+<coolItem id="deploymentToolbar" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="group.nav" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="172" y="38"/>
+<coolItem id="group.editor" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.wst.wsdl.ui.internal.WSDLEditor" itemType="typeToolBarContribution" x="44" y="38"/>
+<coolItem id="org.eclipse.wst.xsd.ui.internal.editor.InternalXSDMultiPageEditor" itemType="typePlaceholder" x="233" y="38"/>
+<coolItem id="group.help" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.ui.workbench.help" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="UserSeparator" itemType="typeSeparator"/>
+<coolItem id="com.intalio.bpms.designer.bpmn.editor" itemType="typeToolBarContribution" x="1015" y="38"/>
+</coolbarLayout>
+<page aggregateWorkingSetId="Aggregate for window 1274626458343" focus="true" label="Workspace - Intalio|Designer">
+<editors>
+<editorArea activeWorkbook="DefaultEditorWorkbook">
+<info part="DefaultEditorWorkbook">
+<folder appearance="1" expanded="2">
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+</presentation>
+</folder>
+</info>
+</editorArea>
+<editor activePart="true" focus="true" id="org.eclipse.wst.wsdl.ui.internal.WSDLEditor" name="OrchestrationBenchmariking.wsdl" partName="OrchestrationBenchmariking.wsdl" path="/home/ticolucci/Documents/TCC/Orquestracoes/OrquestrationBenchMark/OrchestrationBenchmariking.wsdl" title="OrchestrationBenchmariking.wsdl" tooltip="OrquestrationBenchMark/OrchestrationBenchmariking.wsdl" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/OrquestrationBenchMark/OrchestrationBenchmariking.wsdl"/>
+</editor>
+<editor id="com.intalio.bpms.designer.bpmn.editor" name="Root.bpm" partName="Root.bpm" title="Root.bpm" tooltip="OrquestrationBenchMark/Root.bpm" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/OrquestrationBenchMark/Root.bpm/modeler.bpmn_diagram"/>
+</editor>
+</editors>
+<views>
+<view id="org.eclipse.ui.views.PropertySheet" partName="Properties"/>
+<view id="org.eclipse.ui.views.ProblemView" partName="Problems">
+<viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
+<expanded>
+<category IMemento.internal.id="Errors"/>
+</expanded>
+<columnWidths org.eclipse.ui.ide.locationField="73" org.eclipse.ui.ide.markerType="286" org.eclipse.ui.ide.pathField="143" org.eclipse.ui.ide.resourceField="108" org.eclipse.ui.ide.severityAndDescriptionField="350"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.pathField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.locationField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.markerType"/>
+</viewState>
+</view>
+<view id="com.intalio.bpms.designer.bpmn.outline" partName="Outline and Templates">
+<viewState/>
+</view>
+<view id="com.intalio.bpms.designer.dataobjects.ui.dataobjectviewer" partName="Process Explorer">
+<viewState LINK_NAVIGATOR_TO_EDITOR="0" sorter="1">
+<filters>
+<filter element=".*" isEnabled="false"/>
+<filter element="*.class" isEnabled="false"/>
+</filters>
+<expanded>
+<element path="/OrquestrationBenchMark"/>
+<element path="/OrquestrationBenchMark/OrchestrationBenchmariking.wsdl"/>
+<element path="/OrquestrationBenchMark/Root.xsd"/>
+</expanded>
+</viewState>
+</view>
+<view id="org.eclipse.gef.ui.palette_view" partName="Palette">
+<viewState/>
+</view>
+<view id="org.eclipse.ui.views.TaskList" partName="Tasks">
+<viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.completionField" categoryGroup="none" markerContentGenerator="org.eclipse.ui.ide.tasksGenerator" partName="Tasks">
+<columnWidths org.eclipse.ui.ide.completionField="40" org.eclipse.ui.ide.descriptionField="353" org.eclipse.ui.ide.locationField="73" org.eclipse.ui.ide.markerType="224" org.eclipse.ui.ide.pathField="143" org.eclipse.ui.ide.priorityField="19" org.eclipse.ui.ide.resourceField="108"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.completionField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.priorityField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.descriptionField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.pathField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.locationField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.markerType"/>
+</viewState>
+</view>
+<view id="com.intalio.bpms.designer.datamodel.ui.DataEditorView" partName="Data Editor"/>
+<view id="com.intalio.bpms.designer.mapper.ui.views.mapper" partName="Mapper">
+<viewState/>
+</view>
+</views>
+<perspectives activePart="org.eclipse.wst.wsdl.ui.internal.WSDLEditor" activePerspective="com.intalio.bpms.designer.bpmn.eclipse">
+<perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
+<descriptor class="com.intalio.bpms.designer.core.ui.views.IntalioDesignerPerspectiveFactory" id="com.intalio.bpms.designer.bpmn.eclipse" label="Intalio|Designer"/>
+<alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.search.searchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.annotationNavigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.navigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.convertLineDelimitersTo"/>
+<alwaysOnActionSet id="org.eclipse.ui.externaltools.ExternalToolsSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.keyBindings"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.openFiles"/>
+<alwaysOnActionSet id="org.eclipse.ui.NavigateActionSet"/>
+<show_view_action id="com.intalio.bpms.designer.bpmn.outline"/>
+<show_view_action id="org.eclipse.ui.views.PropertySheet"/>
+<show_view_action id="org.eclipse.ui.views.ProblemView"/>
+<show_view_action id="com.intalio.bpms.designer.datamodel.ui.DataEditorView"/>
+<show_view_action id="com.intalio.bpms.designer.dataobjects.ui.dataobjectviewer"/>
+<show_view_action id="com.intalio.bpms.designer.mapper.ui.views.mapper"/>
+<show_view_action id="com.intalio.bpms.designer.mapper.ui.views.MapperPaletteView"/>
+<show_view_action id="org.eclipse.gef.ui.palette_view"/>
+<show_view_action id="org.eclipse.ui.views.TaskList"/>
+<show_view_action id="com.intalio.bpms.connectors.jdbc.views.PropertiesView"/>
+<show_view_action id="com.intalio.bpms.designer.dependencies.depView"/>
+<show_view_action id="com.intalio.bpms.workflow.xforms.editor.FEPalette"/>
+<new_wizard_action id="org.eclipse.ui.wizards.new.folder"/>
+<new_wizard_action id="com.intalio.bpms.workflow.fe.editor.new.file"/>
+<new_wizard_action id="org.eclipse.wst.xsd.ui.internal.wizards.NewXSDWizard"/>
+<new_wizard_action id="com.intalio.bpms.designer.bpmn.newModelwizard"/>
+<new_wizard_action id="com.intalio.bpms.designer.bpmn.wizards.new.project"/>
+<new_wizard_action id="com.intalio.bpms.designer.connectors.rest.newrestwizard"/>
+<new_wizard_action id="com.intalio.bpms.connectors.jdbc.wizards.sql"/>
+<new_wizard_action id="com.intalio.bpms.designer.gi.core.ui.wizard.new.giapplication"/>
+<new_wizard_action id="com.intalio.bpms.workflow.xforms.editor.new.file"/>
+<perspective_action id="com.intalio.bpms.designer.bpmn.eclipse"/>
+<perspective_action id="com.intalio.bpms.designer.bpmn.eclipse.ba"/>
+<perspective_action id="com.intalio.bpms.workflow.xforms.editor.perspective"/>
+<perspective_action id="org.eclipse.datatools.sqltools.sqleditor.perspectives.EditorPerspective"/>
+<view id="com.intalio.bpms.designer.dataobjects.ui.dataobjectviewer"/>
+<view id="org.eclipse.gef.ui.palette_view"/>
+<view id="com.intalio.bpms.designer.bpmn.outline"/>
+<view id="org.eclipse.ui.views.PropertySheet"/>
+<view id="com.intalio.bpms.designer.datamodel.ui.DataEditorView"/>
+<view id="org.eclipse.ui.views.TaskList"/>
+<view id="org.eclipse.ui.views.ProblemView"/>
+<view id="com.intalio.bpms.designer.mapper.ui.views.mapper"/>
+<fastViewBars/>
+<layout>
+<mainWindow>
+<info folder="true" part="topLeft">
+<folder activePageID="com.intalio.bpms.designer.dataobjects.ui.dataobjectviewer" appearance="2" expanded="2">
+<page content="com.intalio.bpms.designer.dataobjects.ui.dataobjectviewer" label="Process Explorer"/>
+<page content="org.eclipse.gef.ui.palette_view" label="Palette"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="stickyFolderRight" ratio="0.7495049" ratioLeft="757" ratioRight="253" relationship="2" relative="topLeft">
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
+<page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
+</folder>
+</info>
+<info part="org.eclipse.ui.editorss" ratio="0.23877068" ratioLeft="303" ratioRight="966" relationship="2" relative="topLeft"/>
+<info folder="true" part="bottom" ratio="0.5777385" ratioLeft="327" ratioRight="239" relationship="4" relative="org.eclipse.ui.editorss">
+<folder activePageID="org.eclipse.ui.views.ProblemView" appearance="2" expanded="2">
+<page content="org.eclipse.ui.views.TaskList" label="Tasks"/>
+<page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
+<page content="com.intalio.bpms.designer.mapper.ui.views.mapper" label="Mapper"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+<part id="2"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="bottomLeft" ratio="0.6" ratioLeft="363" ratioRight="242" relationship="4" relative="topLeft">
+<folder activePageID="com.intalio.bpms.designer.bpmn.outline" appearance="2" expanded="2">
+<page content="com.intalio.bpms.designer.bpmn.outline" label="Outline and Templates"/>
+<page content="org.eclipse.ui.views.PropertySheet" label="Properties"/>
+<page content="com.intalio.bpms.designer.datamodel.ui.DataEditorView" label="Data Editor"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+<part id="2"/>
+</presentation>
+</folder>
+</info>
+</mainWindow>
+</layout>
+</perspective>
+</perspectives>
+<workingSets/>
+<navigationHistory>
+<editors>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.xsd.ui.internal.editor.InternalXSDMultiPageEditor" path="/OrquestrationBenchMark/Root.xsd"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.core.runtime.xml.source" path="/OrquestrationBenchMark/Root.xsd"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.wsdl.ui.internal.WSDLEditor" path="/OrquestrationBenchMark/TimeService.wsdl"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.intalio.bpms.designer.bpmn.editor" path="/OrquestrationBenchMark/Root.bpm/modeler.bpmn_diagram"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.core.runtime.xml.source" path="/OrquestrationBenchMark/TimeService.wsdl"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.xsd.ui.internal.editor.InternalXSDMultiPageEditor" path="/OrquestrationBenchMark/TimeService.wsdl"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.core.runtime.xml.source" path="/OrquestrationBenchMark/OrchestrationBenchmariking.wsdl"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.wsdl.ui.internal.WSDLEditor" path="/OrquestrationBenchMark/OrchestrationBenchmariking.wsdl"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.intalio.bpms.designer.bpmn.editor" path="/OrquestrationBenchMark/Root.bpm/modeler.bpmn_diagram"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.wsdl.ui.internal.WSDLEditor" path="/OrquestrationBenchMark/OrchestrationBenchmariking.wsdl"/>
+</editors>
+<item historyLabel="TimeService.wsdl" index="2"/>
+<item historyLabel="Root.bpm" index="3"/>
+<item historyLabel="Root.xsd" index="0">
+<position/>
+</item>
+<item historyLabel="Root.bpm" index="3"/>
+<item historyLabel="TimeService.wsdl" index="2"/>
+<item historyLabel="Root.bpm" index="3"/>
+<item historyLabel="Root.xsd" index="0">
+<position path=""/>
+</item>
+<item historyLabel="Root.xsd" index="1">
+<position info="not_deleted" x="40" y="0"/>
+</item>
+<item historyLabel="Root.xsd" index="0">
+<position path=""/>
+</item>
+<item historyLabel="Root.xsd" index="0">
+<position path="element[@name=&apos;Request&apos;]"/>
+</item>
+<item historyLabel="TimeService.wsdl" index="2"/>
+<item historyLabel="Root.bpm" index="3"/>
+<item historyLabel="TimeService.wsdl" index="2">
+<position info="not_deleted" x="1883" y="0"/>
+</item>
+<item historyLabel="TimeService.wsdl" index="4">
+<position info="not_deleted" x="1020" y="0"/>
+</item>
+<item historyLabel="TimeService.wsdl" index="4">
+<position info="not_deleted" x="40" y="0"/>
+</item>
+<item historyLabel="TimeService.wsdl" index="4">
+<position info="not_deleted" x="1026" y="0"/>
+</item>
+<item historyLabel="TimeService.wsdl" index="4">
+<position/>
+</item>
+<item historyLabel="Inline Schema of TimeService.wsdl" index="4">
+<position/>
+</item>
+<item historyLabel="TimeService.wsdl" index="5">
+<position path="element[@name=&apos;getCityTime&apos;]"/>
+</item>
+<item historyLabel="TimeService.wsdl" index="2">
+<position info="not_deleted" x="972" y="0"/>
+</item>
+<item historyLabel="TimeService.wsdl" index="4">
+<position/>
+</item>
+<item historyLabel="Inline Schema of TimeService.wsdl" index="5">
+<position path="element[@name=&apos;getCityTime&apos;]"/>
+</item>
+<item historyLabel="TimeService.wsdl" index="2">
+<position info="not_deleted" x="972" y="0"/>
+</item>
+<item historyLabel="TimeService.wsdl" index="4">
+<position/>
+</item>
+<item historyLabel="TimeService.wsdl" index="4">
+<position info="not_deleted" x="1022" y="34"/>
+</item>
+<item historyLabel="TimeService.wsdl" index="4">
+<position info="not_deleted" x="1973" y="0"/>
+</item>
+<item historyLabel="TimeService.wsdl" index="4">
+<position info="not_deleted" x="1188" y="90"/>
+</item>
+<item historyLabel="TimeService.wsdl" index="4">
+<position info="not_deleted" x="1349" y="0"/>
+</item>
+<item historyLabel="TimeService.wsdl" index="4">
+<position info="not_deleted" x="667" y="49"/>
+</item>
+<item historyLabel="Root.bpm" index="3"/>
+<item historyLabel="TimeService.wsdl" index="2">
+<position info="not_deleted" x="667" y="49"/>
+</item>
+<item historyLabel="TimeService.wsdl" index="4">
+<position info="not_deleted" x="1064" y="0"/>
+</item>
+<item historyLabel="TimeService.wsdl" index="4">
+<position info="not_deleted" x="1026" y="0"/>
+</item>
+<item historyLabel="TimeService.wsdl" index="4">
+<position info="not_deleted" x="1064" y="0"/>
+</item>
+<item historyLabel="OrchestrationBenchmariking.wsdl" index="6">
+<position info="not_deleted" x="1064" y="0"/>
+</item>
+<item historyLabel="OrchestrationBenchmariking.wsdl" index="6">
+<position info="not_deleted" x="40" y="0"/>
+</item>
+<item historyLabel="OrchestrationBenchmariking.wsdl" index="6">
+<position info="not_deleted" x="1064" y="0"/>
+</item>
+<item historyLabel="OrchestrationBenchmariking.wsdl" index="6">
+<position info="not_deleted" x="1680" y="0"/>
+</item>
+<item historyLabel="OrchestrationBenchmariking.wsdl" index="6">
+<position info="not_deleted" x="1190" y="0"/>
+</item>
+<item historyLabel="OrchestrationBenchmariking.wsdl" index="6">
+<position info="not_deleted" x="1680" y="0"/>
+</item>
+<item historyLabel="OrchestrationBenchmariking.wsdl" index="6">
+<position info="not_deleted" x="1190" y="0"/>
+</item>
+<item historyLabel="OrchestrationBenchmariking.wsdl" index="6">
+<position info="not_deleted" x="1680" y="0"/>
+</item>
+<item historyLabel="OrchestrationBenchmariking.wsdl" index="6">
+<position info="not_deleted" x="1190" y="0"/>
+</item>
+<item historyLabel="Root.bpm" index="3"/>
+<item historyLabel="OrchestrationBenchmariking.wsdl" index="7"/>
+<item historyLabel="Root.bpm" index="3"/>
+<item historyLabel="OrchestrationBenchmariking.wsdl" index="7"/>
+<item historyLabel="Root.bpm" index="3"/>
+<item historyLabel="Root.bpm" index="8"/>
+<item active="true" historyLabel="OrchestrationBenchmariking.wsdl" index="9"/>
+</navigationHistory>
+<input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
+</page>
+<workbenchWindowAdvisor/>
+<actionBarAdvisor/>
+<trimLayout>
+<trimArea IMemento.internal.id="128">
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.WorkbenchWindow.topBar"/>
+</trimArea>
+<trimArea IMemento.internal.id="1024">
+<trimItem IMemento.internal.id="org.eclise.ui.internal.FastViewBar"/>
+<trimItem IMemento.internal.id="org.eclipse.jface.action.StatusLineManager"/>
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.progress.ProgressRegion"/>
+</trimArea>
+</trimLayout>
+</window>
+<mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.xsd.ui.internal.editor.InternalXSDMultiPageEditor" name="Inline Schema of TimeService.wsdl" tooltip="Target Namespace: http://localhost:8080/bpms-console">
+<persistable path="/OrquestrationBenchMark/TimeService.wsdl"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.xsd.ui.internal.editor.InternalXSDMultiPageEditor" name="Root.xsd" tooltip="OrquestrationBenchMark/Root.xsd">
+<persistable path="/OrquestrationBenchMark/Root.xsd"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.intalio.bpms.designer.bpmn.editor" name="Root.bpm" tooltip="OrquestrationBenchMark/Root.bpm">
+<persistable path="/OrquestrationBenchMark/Root.bpm/modeler.bpmn_diagram"/>
+</file>
+</mruList>
+</workbench>

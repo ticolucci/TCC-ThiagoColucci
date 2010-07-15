@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;JoinerCamelizer/GetTime.xsd&apos; to &apos;JC.xsd&apos;" description="Rename resource &apos;GetTime.xsd&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="GetTime.xsd" name="JC.xsd" stamp="1279034100044" updateReferences="true"/>&#x0A;&#x0A;<refactoring comment="Rename resource &apos;JoinerCamelizer/camelizerwsdl&apos; to &apos;camelizer.wsdl&apos;" description="Rename resource &apos;camelizerwsdl&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="camelizerwsdl" name="camelizer.wsdl" stamp="1279036261860" updateReferences="true"/>
+</session>
