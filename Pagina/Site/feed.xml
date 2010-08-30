@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ <id>urn:iweb:A4808A6A-9F5C-4F7F-B01D-82F9A42A0D7B</id>
+ <title>Page list Atom feed</title>
+ <updated>2010-08-30T11:16:54-03:00</updated>
+ <link rel="self" href="feed.xml"/>
+ <generator>iWeb</generator>
+ <author>
+  <name>iWeb</name>
+ </author>
+ <entry>
+  <id>urn:iweb:E5CC0F47-54A4-40F4-A543-8CD99B0F0B06</id>
+  <title>TCC</title>
+  <title xmlns="urn:iweb:">TCC</title>
+  <in-navbar xmlns="urn:iweb:">E5CC0F47-54A4-40F4-A543-8CD99B0F0B06</in-navbar>
+  <link rel="alternate" href="TCC.html"/>
+  <updated>2010-08-30T11:16:54.001-03:00</updated>
+  <content>TCC</content>
+ </entry>
+</feed>

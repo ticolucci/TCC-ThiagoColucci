@@ -66,6 +66,11 @@
 			</arguments>
 		</buildCommand>
 		<buildCommand>
+			<name>org.eclipse.stp.bpmn.validation.BatchValidationBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
 			<name>com.intalio.bpms.workflow.xforms.builder.WorkflowIntegratorAndPipaDescriptorBuilder</name>
 			<arguments>
 			</arguments>
@@ -82,11 +87,6 @@
 		</buildCommand>
 		<buildCommand>
 			<name>com.intalio.bpms.designer.svg.svgbuilder</name>
-			<arguments>
-			</arguments>
-		</buildCommand>
-		<buildCommand>
-			<name>org.eclipse.stp.bpmn.validation.BatchValidationBuilder</name>
 			<arguments>
 			</arguments>
 		</buildCommand>

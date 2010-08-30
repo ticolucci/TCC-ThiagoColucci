@@ -1,8 +1,0 @@
-﻿<?xml version='1.0' encoding='utf-8'?>
-<dd:process xmlns:typens="urn:ActionWebService" xmlns:dd="http://www.apache.org/ode/schemas/dd/2007/03" xmlns:JoinerCamelizer="http://example.com/JoinerCamelizer/JoinerCamelizer" xmlns:diag="http://example.com/JoinerCamelizer" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:this="http://example.com/JoinerCamelizer/Joiner" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="this:Joiner" fileName="JoinerCamelizer-Joiner.bpel">
-  <dd:property name="PATH">JoinerCamelizer</dd:property>
-  <dd:property name="SVG">JoinerCamelizer.svg</dd:property>
-  <dd:invoke partnerLink="joinerCamelizerAndJoinerForJoinerJoinerPortPlkVar">
-    <dd:service name="typens:JoinerService" port="JoinerJoinerPort"/>
-  </dd:invoke>
-</dd:process>

@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;OrquestrationBenchMark/GetTime.xsd&apos; to &apos;Root.xsd&apos;" description="Rename resource &apos;GetTime.xsd&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="GetTime.xsd" name="Root.xsd" stamp="1274130413427" updateReferences="true"/>
-</session>

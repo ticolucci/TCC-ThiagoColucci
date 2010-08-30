@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;OrquestrationBenchMark/TimeService.wsdl&apos; to &apos;OrchestrationBenchmariking.wsdl&apos;" description="Rename resource &apos;TimeService.wsdl&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="TimeService.wsdl" name="OrchestrationBenchmariking.wsdl" stamp="1274630057934" updateReferences="true"/>
-</session>
