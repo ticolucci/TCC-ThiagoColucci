@@ -1,5 +1,4 @@
 \documentclass[11pt,a4paper]{article}
-\usepackage[brazil]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 
@@ -27,69 +26,19 @@
 
 \textbf{Advisor:} Prof. Dr. Fabio Kon
 
+{\large THIS DOCUMENT IS IN DEVELOPMENT, THE SECTIONS LEFT IN PORTUGUESE SHOULD BE IGNORED}
+
 \section{Introduction}
-O trabalho auxiliará no desenvolvimento do projeto Baile, do Instituto de Matemática e Estatística da Universidade de São Paulo (IME-USP) em parceria com a Hewlett-Packard (HP) dos Estados Unidos, bem como no projeto CHOReOS, do IME-USP em parceria com um consórcio europeu. 
 
-O Baile tem como objetivo estudar os problemas relacionados ao desenvolvimento de coreografias em ambientes de grande escala, em particular no contexto de Computação em Nuvem. O maior objetivo do CHOReOS, para a USP, será a implementação de um Middleware Orientado a Serviço para a ``Internet do Futuro'', uma Internet com escala ultra grande (\textit{Ultra-Large Scale}), heterogênea e dinâmica. 
+With the development of the Internet, we've been able to use a lot of Web Applications (as ``Gmail'', ``Google Docs'' and ``Amazon.com''). Those applications use a lot of web services for decoupling it's parts. Now that we have plenty of services to use, we need some technic to compose those web services into new ones with higher level of abstraction. In this context arose the Orchestration and the Choreography of Web services, technics to create services using only description languages and pre-existing web services.
 
-Este trabalho ajudará nos estudos dos problemas para o Baile e também mostrará quão escalável as técnicas atuais de coreografia e orquestração são, auxiliando o CHOReOS a entender o atual estado da arte destas técnicas de composição de serviços.
+Business process built using compositions become interoperable and scalable, by the fact that they depend basically upon web services. Besides, there's already a lot of open web services available to use, shortening the development time.
 
-\section{Objetivos}
-O maior objetivo do trabalho é realizar experimentos preliminares de avaliação de desempenho de composições de serviços web e sua escalabilidade nas nuvens da Amazon. Com isto poderemos prosseguir, nos próximos anos, o desenvolvimento do Middleware para o CHOReOS e também especificar melhor os métodos e arcabouços para Verificação e Validação de coreografias de grande escala.
+With the grown importance of those compositions technics, this work will study a little of the differences between them and also evaluate large scale synthetical compositions. This evaluation assist the development of the project \emph{Baile}, Institute of Mathematics and Statistics from University of São Paulo (IME-USP) in partnership with Hewlett-Packard (HP) of the United States, as well as the project \emph{CHOReOS}, IME-USP in partnership with a European consortium.
 
-Para efetuar tais experimentos, será necessário o desenvolvimento de um pequeno arcabouço que permita a realização de experimentos de grande escala de orquestração e coreografias. 
+Baile’s main goal is to study the problems related to the development of choreography in large scale environments, particularly in the context of Cloud Computing. The ultimate goal of CHOReOS, for USP, will be to implement a Service Oriented Middleware for the ``Internet of the Future'', an \emph{Ultra-Large Scale internet}, heterogeneous and dynamic.
 
-As composições utilizadas nos testes serão geradas automaticamente. No caso das orquestrações serão simples árvores com uma quantidade aleatória de níveis e quantidades aleatórias de filhos em cada nó. Já as coreografias serão modeladas como \textit{workflows}.
-
-
-
-\section{Web Service}
-\subsection{What?}
-\begin{itemize}
-\item Web services are application components
-\item Web services communicate using open protocols
-\item Web services are self-contained and self-describing
-\item Web services can be discovered using NEDI
-\item Web services can be used by other applications
-\item XML is the basis for Web services
-\end{itemize}
-\subsection{Why?}
-
-\subsubsection{Interoperability}
-
-When all major platforms could access the Web using Web browsers, different platforms could interact. For these platforms to work together, Web-applications were developed.
-
-Web-applications are simple applications that run on the web. These are built around the Web browser standards and can be used by any browser on any platform.
-
-\subsubsection{Reusable application-components}
-
-There are things applications need very often. So why make these over and over again?
-
-Web services can offer application-components like: currency conversion, weather reports, or even language translation as services.
-
-\subsubsection{Connect existing software}
-
-Web services can help to solve the interoperability problem by giving different applications a way to link their data.
-
-With Web services you can exchange data between different applications and different platforms.
-
-\subsection{How?}
-The basic Web services platform is XML + HTTP.
-
-XML provides a language which can be used between different platforms and programming languages and still express complex messages and functions.
-
-The HTTP protocol is the most used Internet protocol.
-
-Web services platform elements:
-\begin{itemize}
-\item SOAP (Simple Object Access Protocol)
-\item UDDI (Universal Description, Discovery and Integration)
-\item WSDL (Web Services Description Language)
-\end{itemize}
-
-
-\subsection{Why Composition:}
-The main objective is to embrace the use of web services and jump to the next level of the Internet. Depending basically on web services, the business process becomes interoperable and scalable. Besides, there's already a lot of open web services available to use, shortening the development time.
+Also, by creating those compositions, this work will help in studying the problems for Baile and show how scalable the current techniques of choreography and orchestration are, later helping CHOReOS to understand the current state of the art of these techniques of composition of web services.
 
 
 
@@ -98,12 +47,60 @@ The main objective is to embrace the use of web services and jump to the next le
 
 
 
-Breve explicação dos motivos de se fazer composição de serviços web.
 
 
 
 
-\section{Conceitos e tecnologias estudadas}
+
+
+\section{Concepts and Used Technologies}
+In this section we'll describe and explain the main technologies used in this work.
+
+\subsection{Web Service}
+Web services are application components, that communicate using open protocols using XML as the basis for the message exchange. The great thing about these components is that they can be used by other applications with total decoupling.
+
+Those characteristics of web services allow them to be interoperable, reusable and also connect existing software. \textbf{[WST]}
+
+\paragraph{Interoperability}
+When all major platforms could access the Web using Web browsers, different platforms could interact. For these platforms to work together, Web-applications were developed. Web-applications are simple applications that run on the web. These are built around the Web browser standards and can be used by any browser on any platform.
+
+\paragraph{Reusable application-components}
+There are things applications need very often. So why make these over and over again? Web services can offer application-components like: currency conversion, weather reports, or even language translation as services.
+
+\paragraph{Connect existing software}
+Web services can help to solve the interoperability problem by giving different applications a way to link their data. With Web services we can exchange data between different applications and different platforms.
+
+The basic Web services platform is XML with HTTP. XML provides a language which can be used between different platforms and programming languages and still express complex messages and functions. The HTTP protocol is the most used Internet protocol, this way we don't get bothered with small things like firewall.
+
+
+\subsection{Orchestration}
+Orchestration describes how web services can interact with each other at the message level, including the business logic and execution order of the interactions. These interactions may span applications and/or organizations, and result in a long-lived, transactional, multi-step process model.
+
+Orchestration is not defined as a W3C standard. It's standardized by OASIS. The co-chair of the Web Service Choreography working group of W3C (in 2005), Steve Ross-Talbot, said that ``OASIS is a very different kind of organization. By contrast, it's much more vendor-led than the W3C. The W3C is responsible for all the core building blocks of the Web, for Web services and for the semantic Web. All the ancillary things you need to make Web services happen, such as management and orchestration, are in OASIS''. \textbf{[INTERVIEW]}
+
+But the fact is that the industry is embracing orchestration as the way to specify, generate and control business process built upon web services. This was an initiative of IBM with Microsoft to develop a unified standard for Orchestration.
+
+Using open standards to connect web services together. Basically, we first describes the orchestration through a XML document, then we generate an executable process from this file, and finally we execute the process. A good analogy would be a \emph{C} program, with only the main function (orchestration definition) that uses a lot of functions (operations) of included libraries (partner web services). The hole logic is embedded in this one description, a center node. 
+
+Historically (2002), three standards arose from the cooperation between companies (e.g. IBM, Microsoft, Sun, BEA, and others) interested on the development of the Web:
+
+\paragraph{BPEL4WS} 
+stands for ``Business Process Execution Language for Web Services'', the specification — called BPEL, for short — models the behavior of Web services in a business process interaction. It provides an XML-based grammar for describing the control logic required to coordinate Web services participating in a process flow. The WSDL interface defines the specific operations allowed, and BPEL defines how to sequence them.
+
+\paragraph{WSCI}
+is the ``Web Service Choreography Interface''. It defines a collaboration extension to WSDL, describing only the observable behavior between Web services. It does not address the definition of executables business process as BPEL does. We'll describe choreographies later.
+
+\paragraph{BPML} 
+the ``Business Process Management Language'' also incorporate WSCI support. BPML and WSCI share the same underlying process execution model, so developers can use WSCI to describe public interactions among business process and reserve BPML for developing private implementations.
+
+In the beginning of 2003, all the companies supporting BPML discontinued it's support, migrating to BPEL4WS. It became a standard by OASIS, whom renamed the standard to WS-BPEL, the change was made to align with others Web Services standards.
+
+Nowadays the main standard is still BPEL, with a lot of tools to write it's definition and deploy to executable process.
+
+
+
+
+
 Explicação do que são serviços web, como os implementamos, definições de orquestração, coreografias, computação nas nuvens e a ``Internet do Futuro''. Com isto o leitor compreenderá as demais seções sem dificuldades.
 
 
@@ -125,8 +122,6 @@ Nesta seção estarão, basicamente, os resultados dos testes.
 
 
 
- 
-\section{Bibliografia}
 
 
 
@@ -145,79 +140,6 @@ Nesta seção estarão, basicamente, os resultados dos testes.
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\section{Orchestration}
-\subsection{What?}
-Orchestration describes how web services can interact with each other at the message level, including the business logic and execution order of the interactions. These interactions may span applications and/or organizations, and result in a long-lived, transactional, multi-step process model.
-
-Orchestration is not defined as a W3C standard. It's standardized by OASIS. The co-chair of the Web Service Choreography working group of W3C (in 2005), Steve Ross-Talbot, said that ``OASIS is a very different kind of organization. By contrast, it's much more vendor-led than the W3C. The W3C is responsible for all the core building blocks of the Web, for Web services and for the semantic Web. All the ancillary things you need to make Web services happen, such as management and orchestration, are in OASIS''.
-
-But the fact is that the industry is embracing orchestration as the way to specify, generate and control business process built upon web services. This was an initiative of IBM with Microsoft to develop a unified standard for Orchestration.
-
-\subsection{Why?}
-
-
-\subsection{How?}
-Using open standards to connect web services together.
-Basically, we first describes the orchestration through a XML document, then we generate an executable process from this file, and finally we execute the process.
-That's all.
-
-\subsection{Standard}
-\subsubsection{History}
-
-Historically (2002), three standards arose from the cooperation between companies (e.g. IBM, Microsoft, Sun, BEA, and others) interested on the development of the Web:
-
-\paragraph{BPEL4WS} 
-stands for ``Business Process Execution Language for Web Services'', the specification — called BPEL, for short — models the behavior of Web services in a business process interaction. It provides an XML-based grammar for describing the control logic required to coordinate Web services participating in a process flow. The WSDL interface defines the specific operations allowed, and BPEL defines how to sequence them.
-
-\paragraph{WSCI}
-is the Web Service Choreography Interface. It defines a collaboration extension to WSDL, describing only the observable behavior between Web services. It does not address the definition of executables business process as BPEL does. But choreography is not the theme of this seminar.
-
-\paragraph{BPML} 
-the Business Process Management Language also incorporate WSCI support. BPML and WSCI share the same underlying process execution model, so developers can use WSCI to describe public interactions among business process and reserve PBML for developing private implementations.\\ \\
-
-In the beginning of 2003, all the companies supporting BPML discontinued it's support, migrating to BPEL4WS. It became a standard by OASIS, whom renamed the standard to WS-BPEL, the change was made to align with others Web Services standards.
-
-Nowadays the main standard is still BPEL, with a lot of tools to deploy it's definition to executable process.
-
-\subsubsection{WS-BPEL}
-Before telling how to use BPEL, we first have to define some therms:
-\begin{itemize}
-\item[basic activity] is an instruction that interacts with something external to the process itself. In a typical scenario, a BPEL executable process receives a message. Then it might invoke a series of services to gather additional data and subsequently respond to the requestor.
-
-\item[structured activities] manage the overall process flow, specifying the sequence for referenced Web services. These activities also support conditional looping and dynamic branching. They are essentially BPEL’s underlying programming logic for BPEL. 
-
-\item[variables] identifies the specific data exchanged in a message flow. When a BPEL process receives a message, it populates the appropriate variable so that subsequent requests can access the data. Variables are used to manage data persistence across Web services requests.
-
-\item[partnerLink] can be any service that the process invokes or any service that invokes the process. Each partnerLink maps to a specific role that it fulfills in the business process.
-
-\item[scope tag] To group a set of activities in a single transaction, BPEL uses a \emph{scope} tag. The tag signifies that the enclosed steps should either all complete or all fail. Within this scope, a developer can specify compensation handlers that the BPEL orchestration engine can invoke in case of error.
-\end{itemize}
-
-Now, with our commands well known, we can analyze an BPEL description example.
-
-\subsubsection{Tools}
-\paragraph{Open Source}
-The main open source project for BPEL is surely Apache ODE (Orchestration Director Engine), which executes as executable process.
-
-Intalio Works is an application that helps you describe a BPEL orchestration, then it uses ODE to deploy the executable. Intalio is build on Eclipse.
-
-\paragraph{Proprietary}
-Oracle BPEL Process Manager are other graphical process creation tools for BPEL.
 
 \section{Bibliography}
 \begin{itemize}
@@ -245,15 +167,6 @@ Oracle BPEL Process Manager are other graphical process creation tools for BPEL.
 
 \item[AHIB] A Hands-on Instruction to BPEL - \verb!http://www.oracle.com/technology/pub/articles/matjaz_bpel1.html!
 
-\item[OPM] Oracle Process Manager - \verb!http://www.oracle.com/technology/products/ias/bpel/index.html!
-
-\item[WPS] WebSphere Process Server - \verb!http://www-01.ibm.com/software/integration/wps/!
-
-\item[WID] WebSphere Integration Developer - \verb!http://www-01.ibm.com/software/integration/wid/!
-
-\item[ODE] Apache ODE - \verb!http://ode.apache.org/!
-
-\item[INTALIO] Intalio Works - \verb!http://www.intalioworks.com/products/bpm/opensource-edition/#overview!
 \end{itemize}
 
 

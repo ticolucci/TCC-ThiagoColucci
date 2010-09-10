@@ -493,3 +493,93 @@ Web Service Response (0.001769): => "OiFelipe"
 Sending data 
 Rendering /usr/lib/ruby/gems/1.8/gems/guilleiguaran-actionwebservice-2.3.8/lib/action_web_service/templates/scaffolds/layout.html.erb
 Completed in 34ms (View: 2, DB: 0) | 200 OK [http:///camelizer/invocation_submit]
+
+
+Processing CamelizerController#index (for 127.0.0.1 at 2010-08-25 14:57:56) [GET]
+
+ActionController::UnknownAction (No action responded to index. Actions: acts_as_web_service, after_invocation, api, before_invocation, camelize, invocation, invocation_method_params, invocation_submit, perform_invocation, perform_invocation_with_interception, perform_invocation_without_interception, web_service_dispatching_mode, web_service_dispatching_mode=, web_service_exception_reporting, web_service_exception_reporting=, web_service_inflect_type, web_service_inflect_type=, web_service_object, wsdl, wsdl_namespace, wsdl_namespace=, wsdl_service_name, and wsdl_service_name=):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing CamelizerController#invocation (for 127.0.0.1 at 2010-08-25 14:58:02) [GET]
+Rendering /Library/Ruby/Gems/1.8/gems/guilleiguaran-actionwebservice-2.3.8/lib/action_web_service/templates/scaffolds/layout.html.erb
+Completed in 70ms (View: 2, DB: 0) | 200 OK [http://localhost/camelizer/invocation]
+
+
+Processing CamelizerController#invocation_method_params (for 127.0.0.1 at 2010-08-25 14:58:04) [GET]
+  Parameters: {"method"=>"Camelize", "service"=>"camelizer"}
+Rendering /Library/Ruby/Gems/1.8/gems/guilleiguaran-actionwebservice-2.3.8/lib/action_web_service/templates/scaffolds/layout.html.erb
+Completed in 15ms (View: 1, DB: 0) | 200 OK [http://localhost/camelizer/invocation_method_params?method=Camelize&service=camelizer]
+
+
+Processing CamelizerController#invocation_submit (for 127.0.0.1 at 2010-08-25 14:58:12) [POST]
+  Parameters: {"commit"=>"Invoke", "service"=>"camelizer", "method"=>"Camelize", "authenticity_token"=>"eSudnVkHVDkwRRGWVL9r6Z/d4tKe/YeYZa7LKbhdejQ=", "protocol"=>"soap", "method_params"=>{"0"=>"oi"}}
+
+Web Service Request: Camelize(string=>"oi") Entrypoint: invocation_submit
+  <?xml version="1.0" encoding="utf-8" ?>
+  <env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:env="http://schemas.xmlsoap.org/soap/envelope/">
+    <env:Body>
+      <n1:Camelize xmlns:n1="urn:ActionWebService"
+          env:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+        <string xsi:type="xsd:string">oi</string>
+      </n1:Camelize>
+    </env:Body>
+  </env:Envelope>
+
+Web Service Response (0.000761): => "Oi"
+  <?xml version="1.0" encoding="UTF-8" ?>
+  <env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:env="http://schemas.xmlsoap.org/soap/envelope/">
+    <env:Body>
+      <n1:CamelizeResponse xmlns:n1="urn:ActionWebService"
+          env:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+        <return xsi:type="xsd:string">Oi</return>
+      </n1:CamelizeResponse>
+    </env:Body>
+  </env:Envelope>
+Sending data 
+Rendering /Library/Ruby/Gems/1.8/gems/guilleiguaran-actionwebservice-2.3.8/lib/action_web_service/templates/scaffolds/layout.html.erb
+Completed in 14ms (View: 1, DB: 0) | 200 OK [http:///camelizer/invocation_submit]
+
+
+Processing CamelizerController#invocation_submit (for 127.0.0.1 at 2010-08-25 14:58:37) [POST]
+  Parameters: {"commit"=>"Invoke", "service"=>"camelizer", "method"=>"Camelize", "authenticity_token"=>"eSudnVkHVDkwRRGWVL9r6Z/d4tKe/YeYZa7LKbhdejQ=", "protocol"=>"soap", "method_params"=>{"0"=>"oi_lanchinho"}}
+
+Web Service Request: Camelize(string=>"oi_lanchinho") Entrypoint: invocation_submit
+  <?xml version="1.0" encoding="utf-8" ?>
+  <env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:env="http://schemas.xmlsoap.org/soap/envelope/">
+    <env:Body>
+      <n1:Camelize xmlns:n1="urn:ActionWebService"
+          env:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+        <string xsi:type="xsd:string">oi_lanchinho</string>
+      </n1:Camelize>
+    </env:Body>
+  </env:Envelope>
+
+Web Service Response (0.000751): => "OiLanchinho"
+  <?xml version="1.0" encoding="UTF-8" ?>
+  <env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:env="http://schemas.xmlsoap.org/soap/envelope/">
+    <env:Body>
+      <n1:CamelizeResponse xmlns:n1="urn:ActionWebService"
+          env:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+        <return xsi:type="xsd:string">OiLanchinho</return>
+      </n1:CamelizeResponse>
+    </env:Body>
+  </env:Envelope>
+Sending data 
+Rendering /Library/Ruby/Gems/1.8/gems/guilleiguaran-actionwebservice-2.3.8/lib/action_web_service/templates/scaffolds/layout.html.erb
+Completed in 13ms (View: 1, DB: 0) | 200 OK [http:///camelizer/invocation_submit]
+
+
+Processing CamelizerController#wsdl (for 127.0.0.1 at 2010-09-08 18:43:32) [GET]
+Sending data 
+Completed in 3ms (View: 0, DB: 0) | 200 OK [http://localhost/camelizer/wsdl]

@@ -1527,3 +1527,52 @@ ActionWebService::Protocol::ProtocolError (Failed to parse SOAP request message)
   /usr/lib/ruby/gems/1.8rails (2.3.8) lib/commands/server.rb:111
 
 Completed in 100ms (View: 1, DB: 0) | 500 Internal Server Error [http://localhost/joiner/api]
+
+
+Processing JoinerController#invocation (for 127.0.0.1 at 2010-08-25 14:59:49) [GET]
+Rendering /Library/Ruby/Gems/1.8/gems/guilleiguaran-actionwebservice-2.3.8/lib/action_web_service/templates/scaffolds/layout.html.erb
+Completed in 11ms (View: 2, DB: 0) | 200 OK [http://localhost/joiner/invocation]
+
+
+Processing JoinerController#invocation_method_params (for 127.0.0.1 at 2010-08-25 14:59:50) [GET]
+  Parameters: {"method"=>"Join", "service"=>"joiner"}
+Rendering /Library/Ruby/Gems/1.8/gems/guilleiguaran-actionwebservice-2.3.8/lib/action_web_service/templates/scaffolds/layout.html.erb
+Completed in 12ms (View: 1, DB: 0) | 200 OK [http://localhost/joiner/invocation_method_params?method=Join&service=joiner]
+
+
+Processing JoinerController#invocation_submit (for 127.0.0.1 at 2010-08-25 14:59:59) [POST]
+  Parameters: {"commit"=>"Invoke", "service"=>"joiner", "method"=>"Join", "authenticity_token"=>"eSudnVkHVDkwRRGWVL9r6Z/d4tKe/YeYZa7LKbhdejQ=", "protocol"=>"soap", "method_params"=>{"0"=>"oi lanchinho"}}
+
+Web Service Request: Join(string=>"oi lanchinho") Entrypoint: invocation_submit
+  <?xml version="1.0" encoding="utf-8" ?>
+  <env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:env="http://schemas.xmlsoap.org/soap/envelope/">
+    <env:Body>
+      <n1:Join xmlns:n1="urn:ActionWebService"
+          env:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+        <string xsi:type="xsd:string">oi lanchinho</string>
+      </n1:Join>
+    </env:Body>
+  </env:Envelope>
+
+Web Service Response (0.000534): => "oi_lanchinho"
+  <?xml version="1.0" encoding="UTF-8" ?>
+  <env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:env="http://schemas.xmlsoap.org/soap/envelope/">
+    <env:Body>
+      <n1:JoinResponse xmlns:n1="urn:ActionWebService"
+          env:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+        <return xsi:type="xsd:string">oi_lanchinho</return>
+      </n1:JoinResponse>
+    </env:Body>
+  </env:Envelope>
+Sending data 
+Rendering /Library/Ruby/Gems/1.8/gems/guilleiguaran-actionwebservice-2.3.8/lib/action_web_service/templates/scaffolds/layout.html.erb
+Completed in 14ms (View: 0, DB: 0) | 200 OK [http:///joiner/invocation_submit]
+
+
+Processing JoinerController#wsdl (for 127.0.0.1 at 2010-09-08 18:42:51) [GET]
+Sending data 
+Completed in 11ms (View: 1, DB: 0) | 200 OK [http://localhost/joiner/wsdl]
