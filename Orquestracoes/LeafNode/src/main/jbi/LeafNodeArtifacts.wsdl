@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://localhost/LeafNode"
+	xmlns:plink="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+	xmlns:bpws="http://docs.oasis-open.org/wsbpel/2.0/varprop" name="LeafNodeArtifacts"
+	targetNamespace="http://localhost/LeafNode/Artifacts">
+
+	<plink:partnerLinkType name="LeafPartnerLinkType">
+		<plink:role name="LeafRole" portType="tns:LeafPortType" />
+	</plink:partnerLinkType>
+
+	<import location="LeafNodeDefinition.wsdl" namespace="http://localhost/LeafNode" />
+</definitions>
+

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<process
+    name="Node"
+    targetNamespace="http://localhost/Node/bpel"
+    xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:sxt="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Trace" 
+    xmlns:sxed="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Editor"
+    xmlns:parent="http://localhost/Node"
+    xmlns:artifacts="http://localhost/Node/Artifacts"
+    xmlns:leaf="http://localhost/LeafNode"
+    xmlns:leafartifacts="http://localhost/LeafNode/Artifacts" xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable">
+
+    <import namespace="http://localhost/Node" location="NodeDefinition.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+
+    <import namespace="http://localhost/Node/Artifacts" location="NodeArtifacts.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+
+    <import namespace="http://localhost/LeafNode" location="LeafNodeDefinition.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+
+    <import namespace="http://localhost/LeafNode/Artifacts" location="LeafNodeArtifacts.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+
+
+
+    <partnerLinks>
+        <partnerLink name="SonNode"  partnerLinkType="leafartifacts:LeafPartnerLinkType" partnerRole="LeafRole"/>
+        <partnerLink name="ParentNode"  partnerLinkType="artifacts:NodePartnerLinkType" myRole="NodeRole"/>
+    </partnerLinks>
+
+
+
+    <variables>
+        <variable name="out_1" xmlns:tns="http://localhost/LeafNode" messageType="leaf:LeafMessage"/>
+        <variable name="in_1" xmlns:tns="http://localhost/LeafNode" messageType="leaf:LeafMessage"/>
+        <variable name="end" xmlns:tns="http://localhost/Node" messageType="parent:NodeMessage"/>
+        <variable name="start" xmlns:tns="http://localhost/Node" messageType="parent:NodeMessage"/>
+    </variables>
+
+
+
+    <sequence>
+        <receive name="start" createInstance="yes" partnerLink="ParentNode" operation="NodeOperation" portType="parent:NodePortType" variable="start"/>
+        <assign name="Assign1">
+            <copy>
+                <from variable="start" part="Part"/>
+                <to variable="in_1" part="Part"/>
+            </copy>
+        </assign>
+        <invoke name="Invoke_1" partnerLink="SonNode" operation="LeafOperation" portType="leaf:LeafPortType" inputVariable="in_1" outputVariable="out_1"/>
+        <assign name="Assign2">
+            <copy>
+                <from variable="out_1" part="Part"/>
+                <to variable="end" part="Part"/>
+            </copy>
+        </assign>
+        <reply name="end" partnerLink="ParentNode" operation="NodeOperation" portType="parent:NodePortType" variable="end"/>
+    </sequence>
+</process>
