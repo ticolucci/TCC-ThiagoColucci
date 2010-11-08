@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/"
+xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://localhost/LeafNode#{id}"
+xmlns:bpws="http://docs.oasis-open.org/wsbpel/2.0/varprop" name="LeafNodeDefinition#{id}"
+targetNamespace="http://localhost/LeafNode#{id}">
+
+
+<types />
+
+
+
+<message name="Message">
+	<part name="Part" element="xsd:string" />
+</message>
+
+
+<portType name="LeafPortType#{id}">
+	<operation name="LeafOperation#{id}">
+		<input name="Input" message="tns:Message" />
+		<output name="Output" message="tns:Message" />
+	</operation>
+</portType>
+
+
+
+<binding name="LeafBinding#{id}" type="tns:LeafPortType#{id}">
+	<soap:binding transport="http://schemas.xmlsoap.org/soap/http"
+		style="document" />
+	<operation name="LeafOperation#{id}">
+		<input name="Input">
+			<soap:body use="literal" />
+		</input>
+		<output name="Output">
+			<soap:body use="literal" />
+		</output>
+	</operation>
+</binding>
+
+
+
+<service name="LeafService#{id}">
+	<port name="LeafPort#{id}" binding="tns:LeafBinding#{id}">
+		<soap:address location="LeafNodeEndpoint#{id}" />
+	</port>
+</service>
+</definitions>
