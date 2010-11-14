@@ -1,48 +1,59 @@
 class Node
   attr_accessor :info
-  attr_reader :parent
+  attr_reader :parent, :children
   
   def initialize parent
     @parent = parent
-    @sons = []
+    @children = []
+    @info = {}
   end
   
-  def generate_n_levels_of_sons(deepth, number_of_sons)
-    return if deepth == 0
+  def generate_n_levels_of_children(depth, number_of_children)
+    return if depth == 0
     
-    generate_sons(number_of_sons)
-    @sons.each do |son|
-      son.generate_n_levels_of_sons(deepth - 1, number_of_sons)
+    generate_children(number_of_children)
+    @children.each do |child|
+      child.generate_n_levels_of_children(depth - 1, number_of_children)
     end
   end
   
-  def generate_sons number
+  def generate_children number
     number.times do
-      @sons << Node.new(self)
+      @children << Node.new(self)
     end
   end
   
   def apply_for_all &func
-    @sons.each do |son|
-      func.call son
-      son.apply_for_all(&func)
+    @children.each do |child|
+      func.call child
+      child.apply_for_all(&func)
     end
   end
   
   def apply_for_all_parallel &func
-    @sons.each do |son|
+    @children.each do |child|
       Process.detach(fork do
-        func.call son
+        func.call child
       end)
-      son.apply_for_all_parallel(&func)
+      child.apply_for_all_parallel(&func)
     end
   end
   
   def is_leaf?
-    @sons.empty?
+    @children.empty?
   end
   
   def is_root?
     @parent.nil?
   end
+  
+  def to_s
+    if is_leaf?
+      "Leaf"
+    else
+      "Node"
+    end
+  end
+  
+  alias :id :object_id
 end

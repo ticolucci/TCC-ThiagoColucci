@@ -3,11 +3,11 @@ require "lib/node"
 class Graph
   attr_reader :size, :root
   
-  def initialize deepth, number_of_sons
+  def initialize depth, number_of_children
     @root = Node.new nil
-    @root.generate_n_levels_of_sons(deepth, number_of_sons)
+    @root.generate_n_levels_of_children(depth, number_of_children)
     
-    @size = (number_of_sons**(deepth+1))-1
+    @size = calculate_size number_of_children, depth
   end
   
   def each_node &func
@@ -21,4 +21,15 @@ class Graph
     end)
     @root.apply_for_all_parallel &func
   end
+  
+  private
+    def calculate_size number_of_children, depth
+      size = 1
+      exp = 1
+      depth.times do
+        exp *= number_of_children
+        size += exp
+      end
+      size
+    end
 end
