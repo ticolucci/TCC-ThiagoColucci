@@ -55,7 +55,7 @@ end
 
 print_instances_details ec2
 terminate_all ec2
-#example = {"reservationId"=>"r-6f3afa05", "groupSet"=>{"item"=>[{"groupId"=>"default"}]}, "requestId"=>"26739269-8458-4bf9-a316-232e22b68189", "instancesSet"=>{"item"=>[{"stateReason"=>{"code"=>"pending", "message"=>"pending"}, "keyName"=>"ticolucciKey", "blockDeviceMapping"=>nil, "productCodes"=>nil, "kernelId"=>"aki-407d9529", "launchTime"=>"2010-10-19T18:01:29.000Z", "amiLaunchIndex"=>"0", "imageId"=>"ami-3ac33653", "instanceType"=>"t1.micro", "reason"=>nil, "rootDeviceName"=>"/dev/sda1", "rootDeviceType"=>"ebs", "placement"=>{"availabilityZone"=>"us-east-1d"}, "instanceId"=>"i-a267aecf", "privateDnsName"=>nil, "dnsName"=>nil, "monitoring"=>{"state"=>"disabled"}, "instanceState"=>{"name"=>"pending", "code"=>"0"}}]}, "ownerId"=>"689249284517", "xmlns"=>"http://ec2.amazonaws.com/doc/2009-11-30/"}
+#example = {"reservationId"=>"r-6f3afa05", "groupSet"=>{"item"=>[{"groupId"=>"default"}]}, "requestId"=>"26739269-8458-4bf9-a316-232e22b68189", "instancesSet"=>{"item"=>[{"stateReachild"=>{"code"=>"pending", "message"=>"pending"}, "keyName"=>"ticolucciKey", "blockDeviceMapping"=>nil, "productCodes"=>nil, "kernelId"=>"aki-407d9529", "launchTime"=>"2010-10-19T18:01:29.000Z", "amiLaunchIndex"=>"0", "imageId"=>"ami-3ac33653", "instanceType"=>"t1.micro", "reachild"=>nil, "rootDeviceName"=>"/dev/sda1", "rootDeviceType"=>"ebs", "placement"=>{"availabilityZone"=>"us-east-1d"}, "instanceId"=>"i-a267aecf", "privateDnsName"=>nil, "dnsName"=>nil, "monitoring"=>{"state"=>"disabled"}, "instanceState"=>{"name"=>"pending", "code"=>"0"}}]}, "ownerId"=>"689249284517", "xmlns"=>"http://ec2.amazonaws.com/doc/2009-11-30/"}
 
 #instance_id = discover_instance_id example
 #puts "instance_id == #{instance_id}"

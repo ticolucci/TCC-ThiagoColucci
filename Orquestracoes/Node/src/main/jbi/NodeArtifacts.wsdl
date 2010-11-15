@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://localhost/Node" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" name="NodeArtifacts" targetNamespace="http://localhost/Node/Artifacts">
-  <plnk:partnerLinkType name="NodePartnerLinkType">
-    <plnk:role name="NodeRole" portType="tns:NodePortType" />
-  </plnk:partnerLinkType>
-  <import location="NodeDefinition.wsdl" namespace="http://localhost/Node" />
-</definitions>
-
