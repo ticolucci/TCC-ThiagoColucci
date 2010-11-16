@@ -1,0 +1,66 @@
+TCC Poster
+
+
+What are Web Services?
+
+Web Services are application components designed to enable interoperability of system over the Internet. These services are highly based on standards, using HTTP for the transport layer and XML serialization for communication.
+The uncoupling of application modules using Web Services is simple and clear, because they are self-contained and self-describing. Due to being based on HTTP, the communication is simplified by reducing efforts with firewalls and other common restraints.
+
+
+
+
+
+Why create Web Service Composition?
+
+With the development of the Internet, we can now use massive web applications (such as "Gmail," Google Docs "and" Amazon.com "). These applications decouple their tasks using Web Services (separating, for example, the login service from the e-mail service).
+Now that we have created several services, we need to compose them into higher level abstraction services for the application to use. In this context, emerged Orchestration and Choreography of Web services, techniques that use only descriptive languages and pre-existing services to create new composite services.
+
+
+
+
+
+Web Service Orchestration
+
+Orchestration of Web Services is a method of service composition that has a center node that knows the logic of the whole process.
+This node has the responsibility to control the process, choosing which services will be invoked, how messages are exchanged between these services and how to proceed with the possible exceptions and failures.
+The main language used is BPEL (Business Processes Execution Language), described only with XML markers. It has structures to invoke services, making exception handling and flow controllers (such as while's and if's).
+
+
+
+
+
+
+Web Services Choreography
+
+Choreography of Web Services is a method of service composition characterized by the fact that there is _not_ a central node that controls the hole process.
+Both nodes exchange messages in order to completes its role in the process. Thus we can have a greater number of nodes, because, without a concentrator, the process won't overload a single node.
+Nowadays, there's no mainstream language for modeling and enacting choreographies. All the work is done ad-hoc.
+
+
+
+
+
+
+Objectives of the Evaluation of Scalability
+
+* Find out what is the relationship between the type of composition chosen and its scalability (frequency of messages supported by the process);
+* Find out if the sizes of messages influences the response time of the composite system;
+* Create an instance of a large scale choreography to assist the future development of the project Baile.
+
+
+
+
+
+
+
+
+Topology of the Synthetic Compositions
+
+For the execution of the experiments, we created a generator of synthetic compositions. This generator is parameterized with the number of children in each node and the depth of the tree, which may represent either an orchestration, when analyzing only a node and its children, or as a Choreography, when we look at the tree as a whole.
+Each node is an instance in Amazon EC2 (Amazon Elastic Compute Cloud), this way the generator can be as flexible as we want.
+
+
+
+
+Example:
+Executing the generator with 3 children per node and depth of 3, the following structure would emerge:

@@ -7,64 +7,64 @@ module Petals
   def self.ping
     "export JAVA_HOME=/usr/lib/jvm/jre\\;#{Petals::HOME}/bin/ping.sh"
   end
-  
+
   def self.startup
     "export JAVA_HOME=/usr/lib/jvm/jre\\;#{Petals::HOME}/bin/startup.sh -D"
   end
-  
+
   def self.sa_ready node
     /Service Assembly 'sa-BPEL-#{node}Node#{node.id}-provide' started/
   end
-  
+
   def self.log_from date
     "cat #{Petals::HOME}/logs/petals#{date}.log"
   end
-  
+
   def self.create_topology_from graph
     top = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
     <tns:topology xmlns:tns=\"http://petals.ow2.org/topology\"
-    	xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
-    	xsi:schemaLocation=\"http://petals.ow2.org/topology petalsTopology.xsd\">
-    	<tns:domain mode=\"static\" name=\"PEtALS\">
-    		<tns:description>The static domain configuration</tns:description>
-    		<tns:sub-domain name=\"subdomain1\" mode=\"flooding\">
-    			<tns:description>description of the subdomain</tns:description>
-    			"
-    			
+    xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
+    xsi:schemaLocation=\"http://petals.ow2.org/topology petalsTopology.xsd\">
+    <tns:domain mode=\"static\" name=\"PEtALS\">
+    <tns:description>The static domain configuration</tns:description>
+    <tns:sub-domain name=\"subdomain1\" mode=\"flooding\">
+    <tns:description>description of the subdomain</tns:description>
+    "
+
     index = 0
     graph.each_node do |node|
       top << "
-			<tns:container name=\"#{index}\" type=\"peer\">
-				<tns:description>description of the container #{index}</tns:description>
-				<tns:host>#{node.info[:private_dns]}</tns:host>
-				<tns:user>petals</tns:user>
-				<tns:password>petals</tns:password>
-				<tns:webservice-service>
-					<tns:port>7600</tns:port>
-					<tns:prefix>petals/ws</tns:prefix>
-				</tns:webservice-service>
-				<tns:jmx-service>
-					<tns:rmi-port>7700</tns:rmi-port>
-				</tns:jmx-service>
-				<tns:transport-service>
-					<tns:tcp-port>7800</tns:tcp-port>
-				</tns:transport-service>
-				<tns:registry-service>
-					<tns:port>7900</tns:port>
-				</tns:registry-service>
-			</tns:container>
-			
-			"
-			index += 1
+      <tns:container name=\"#{index}\" type=\"peer\">
+      <tns:description>description of the container #{index}</tns:description>
+      <tns:host>#{node.info[:private_dns]}</tns:host>
+      <tns:user>petals</tns:user>
+      <tns:password>petals</tns:password>
+      <tns:webservice-service>
+      <tns:port>7600</tns:port>
+      <tns:prefix>petals/ws</tns:prefix>
+      </tns:webservice-service>
+      <tns:jmx-service>
+      <tns:rmi-port>7700</tns:rmi-port>
+      </tns:jmx-service>
+      <tns:transport-service>
+      <tns:tcp-port>7800</tns:tcp-port>
+      </tns:transport-service>
+      <tns:registry-service>
+      <tns:port>7900</tns:port>
+      </tns:registry-service>
+      </tns:container>
+
+      "
+      index += 1
     end
-    
+
     top << "		</tns:sub-domain>
-    	</tns:domain>
+    </tns:domain>
     </tns:topology>"
-    
+
     top
   end
-  
+
   def self.server_properties index
     "# -----------------------------------------------------------------------
     # PEtALS properties
@@ -75,10 +75,10 @@ module Petals
     petals.container.name=#{index}
 
     #This property set the maximum duration of the processing of a life-cycle operation on a JBI
-    # components and SAs (start, stop, ...). It prevents from hanging threads. 
+    # components and SAs (start, stop, ...). It prevents from hanging threads.
     petals.task.timeout=120000
 
-    #This property specifies the URL path to the PEtALS repository. PEtALS holds its JBI configuration 
+    #This property specifies the URL path to the PEtALS repository. PEtALS holds its JBI configuration
     # in this repository and can recover this configuration from it.
     #If not specified, the default repository is in $PETALS_HOME/repository.
     #petals.repository.path=file:///home/test/repository
@@ -89,7 +89,7 @@ module Petals
     # If not specified, the false value is selected by default.
     #petals.exchange.validation=true
 
-    # This property is used to isolate the ClassLoaders created for Shared Libraries and Components 
+    # This property is used to isolate the ClassLoaders created for Shared Libraries and Components
     # from the PEtALS container one.
     # It can be useful to avoid concurrent libraries loading issues.
     # If not specified, the false value is selected by default
@@ -119,11 +119,11 @@ module Petals
 
     # This property defines the number of attempt to send a message to an endpoint.
     # Several attempts can be done when there is transport failure during the convey of a message
-    # If not specified, 2 attempts is selected by default 
+    # If not specified, 2 attempts is selected by default
     #petals.router.send.attempt=2
 
     # This property defines the delay between the send attempts, in milliseconds.
-    # If not specified, 1 second is selected by default 
+    # If not specified, 1 second is selected by default
     #petals.router.send.delay=1000
 
 
@@ -184,6 +184,6 @@ module Petals
 
     #Synchro period (in s)
     registry.synchro.period=113
-"
+    "
   end
 end

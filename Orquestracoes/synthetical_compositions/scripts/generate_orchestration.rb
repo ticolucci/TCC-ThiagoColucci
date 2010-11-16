@@ -16,16 +16,47 @@ end
 print_usage() if ARGV.size < 2
 
 generator = Generator.new ARGV[0].to_i, ARGV[1].to_i
-root_endpoint, root_id = generator.instantiate_compositions
+root_host, root_port, root_service_path, root_id = generator.instantiate_compositions
 
-puts "\n\n\n\n<?xml version=\"1.0\" encoding=\"utf-8\" ?>
+puts "\n\n\nRoot Host:"
+puts root_host
+
+puts "\n\n\nRoot Port:"
+puts root_port
+
+puts "\n\n\nRoot Service Path:"
+puts root_service_path
+
+puts "\n\n\nRoot Id:"
+puts root_id
+
+puts "\n"*4
+puts "To use Send Message script:"
+puts "./scripts/send_messages.rb #{root_host} #{root_port} #{root_service_path} #{root_id} \\"
+puts "\n\n\n\n"
+
+puts "To use Ode's send soap script:"
+
+puts "\n\n<?xml version=\"1.0\" encoding=\"utf-8\" ?>
 <SOAP-ENV:Envelope xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\">
   <SOAP-ENV:Body>
     <ns1:NodeOperation#{root_id} xmlns:ns1=\"http://localhost/NodeNode#{root_id}\">
-        <Part>Oi passando por todo mundo!!!!!!!</Part>
+        <Part>Hello World!</Part>
     </ns1:NodeOperation#{root_id}>
   </SOAP-ENV:Body>
-</SOAP-ENV:Envelope>\n\n\n\n"
+</SOAP-ENV:Envelope>\n\n
+"
+puts "./bin/sendsoap http://#{root_host}:#{root_port}#{root_service_path} node_test_request.soap"
+
+
+#puts "\n\n\n\n<?xml version=\"1.0\" encoding=\"utf-8\" ?>
+#<SOAP-ENV:Envelope xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\">
+#  <SOAP-ENV:Body>
+#    <ns1:NodeOperation#{root_id} xmlns:ns1=\"http://localhost/NodeNode#{root_id}\">
+#        <Part>#\{msg\}</Part>
+#    </ns1:NodeOperation#{root_id}>
+#  </SOAP-ENV:Body>
+#</SOAP-ENV:Envelope>\n\n\n\n"
 
 
 puts "Press 'q' to quit"
