@@ -1,5 +1,5 @@
 #! /usr/bin/ruby
-require 'lib/generator'
+require './lib/generator'
 
 def print_usage
   puts "Usage:"

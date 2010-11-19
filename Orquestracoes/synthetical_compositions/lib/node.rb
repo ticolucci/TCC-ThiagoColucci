@@ -31,12 +31,12 @@ class Node
   end
 
   def apply_for_all_parallel &func
+    pids = []
     @children.each do |child|
-      Process.detach(fork do
-        func.call child
-      end)
+      pids << Thread.new {func.call child }
       child.apply_for_all_parallel(&func)
     end
+    pids.each {|pid| pid.join}
   end
 
   def is_leaf?
@@ -47,6 +47,7 @@ class Node
     @parent.nil?
   end
 
+  alias :old_to_s :to_s
   def to_s
     if is_leaf?
       "Leaf"
@@ -54,6 +55,8 @@ class Node
       "Node"
     end
   end
+
+  def inspect; old_to_s; end
 
   alias :id :object_id
 end

@@ -1,0 +1,55 @@
+\section{Concepts and Used Technologies}
+In this section we'll describe and explain the main technologies used in this work.
+
+\subsection{Web Service}
+Web Services are a means to enable the interoperability among application components over the Internet.  They are defined as a set of W3C standards, using HTTP for the transport layer and XML serialization for data interchange.
+
+They are  a fundamental component of a programming model called Service Oriented Architecture (SOA). In this model, services are self-describing and self-contained, leading to the development of distributed systems based on loosely-coupled distributed modules.
+
+\paragraph{Interoperability}
+When all major platforms could access the Web using Web browsers, different platforms could interact. For these platforms to work together, Web-applications were developed. Web-applications are simple applications that run on the web. These are built around the Web browser standards and can be used by any browser on any platform.
+
+\paragraph{Reusable application-components}
+There are things applications need very often. So why make these over and over again? Web services can offer application-components like: currency conversion, weather reports, or even language translation as services.
+
+\paragraph{Connect existing software}
+Web services can help to solve the interoperability problem by giving different applications a way to link their data. With Web services we can exchange data between different applications and different platforms. \citep{WST}
+
+\subsubsection{Used Technologies}
+XML provides a language which can be used between different platforms and programming languages, and still express complex messages and functions.
+
+The HTTP protocol is the most used Internet protocol, this way one does not get restrained with firewalls, for instance.
+
+Web Service Description Language (WSDL) is an XML format for describing network services as a set of endpoints operating on messages containing either document-oriented or procedure-oriented information. The operations and messages are described abstractly, and then bound to a concrete network protocol and message format to define an endpoint. Related concrete endpoints are combined into abstract endpoints (services). WSDL is extensible to allow description of endpoints and their messages regardless of what message formats or network protocols are used to communicate.
+
+\subsection{Orchestration}
+Orchestration describes how web services can interact with each other at the message level, including the business logic and execution order of the interactions. These interactions may span applications and/or organizations, and result in a long-lived, transactional, multi-step process model.
+
+Orchestration is not defined as a W3C standard. It's standardized by OASIS. The co-chair of the Web Service Choreography working group of W3C (in 2005), Steve Ross-Talbot, said that ``OASIS is a very different kind of organization. By contrast, it's much more vendor-led than the W3C. The W3C is responsible for all the core building blocks of the Web, for Web services and for the semantic Web. All the ancillary things you need to make Web services happen, such as management and orchestration, are in OASIS''. \citep{INTERVIEW}
+
+But the fact is that the industry is embracing orchestration as the way to specify, generate and control business process built upon web services. This was an initiative of IBM with Microsoft to develop a unified standard for Orchestration.
+
+Basically, one must first describes the orchestration through a XML document, then generate an executable process from this file, and finally execute the process. A good analogy would be a \emph{C} program, with only the main function (orchestration definition) that uses a lot of functions (operations) of included libraries (partner web services). The hole logic is embedded in this one description, the center node. 
+
+Historically (2002), three standards arose from the cooperation between companies, e.g. IBM, Microsoft, Sun, BEA, and others, interested on the development of the Web:
+
+\paragraph{BPEL4WS} 
+stands for ``Business Process Execution Language for Web Services'', the specification — called BPEL, for short — models the behavior of Web services in a business process interaction. It provides an XML-based grammar for describing the control logic required to coordinate Web services participating in a process flow. The WSDL interface defines the specific operations allowed, and BPEL defines how to sequence them.
+
+\paragraph{WSCI}
+is the ``Web Service Choreography Interface''. It defines a collaboration extension to WSDL, describing only the observable behavior between Web services. It does not address the definition of executables business process as BPEL does. We'll describe choreographies later.
+
+\paragraph{BPML} 
+the ``Business Process Management Language'' also incorporate WSCI support. BPML and WSCI share the same underlying process execution model, so developers can use WSCI to describe public interactions among business process and reserve BPML for developing private implementations.
+
+In the beginning of 2003, all the companies supporting BPML discontinued it's support, migrating to BPEL4WS. It became a standard by OASIS, whom renamed the standard to ``WS-BPEL'', the change was made to align with others Web Services standards of the organization. \citep{OASIS}
+
+Nowadays the main standard is still BPEL, with a lot of tools to write it's definition. But even though there is a lot of good tools for modeling the process (e.g. NetBeans, Eclipse, Petals studio, Orchestra, and many others), there aren't many good tools for it's deployment. We started using Apache's ODE to execute the process, then migrated to Orchestra, finally succeeded with Netbeans, but this last required a graphical environment to execute. So we finally discovered Petals ESB. 
+
+Petals ESB is an Open Source Enterprise Service Bus for large SOA architectures. \citep{PETALS} An ESB uses 
+
+
+
+
+
+Explicação do que são serviços web, como os implementamos, definições de orquestração, coreografias, computação nas nuvens e a ``Internet do Futuro''. Com isto o leitor compreenderá as demais seções sem dificuldades.

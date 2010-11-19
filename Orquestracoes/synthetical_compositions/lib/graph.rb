@@ -1,4 +1,4 @@
-require "lib/node"
+require "./lib/node"
 
 class Graph
   attr_reader :size, :root
@@ -16,10 +16,9 @@ class Graph
   end
 
   def each_node_parallel &func
-    Process.detach(fork do
-      func.call @root
-    end)
+    pid = Thread.new { func.call @root }
     @root.apply_for_all_parallel &func
+    pid.join
   end
 
   private

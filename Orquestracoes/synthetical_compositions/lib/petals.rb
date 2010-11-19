@@ -12,6 +12,10 @@ module Petals
     "export JAVA_HOME=/usr/lib/jvm/jre\\;#{Petals::HOME}/bin/startup.sh -D"
   end
 
+  def self.stop
+    "export JAVA_HOME=/usr/lib/jvm/jre\\;#{Petals::HOME}/bin/stop.sh"
+  end
+
   def self.sa_ready node
     /Service Assembly 'sa-BPEL-#{node}Node#{node.id}-provide' started/
   end

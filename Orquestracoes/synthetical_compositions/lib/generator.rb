@@ -1,26 +1,40 @@
-require 'lib/orchestration'
-require 'lib/graph'
+Dir["/Users/ticolucci/.rvm/gems/ruby-1.9.2-p0/gems/*"].each {|gem_dir| $: << "#{gem_dir}/lib/"}
+
+require './lib/orchestration'
+require './lib/graph'
 require 'rubygems'
 require 'AWS'
-require 'amazon_keys'
+require './amazon_keys'
 require 'fileutils'
 include FileUtils
-require 'lib/petals'
+require './lib/petals'
+require './ids'
+require 'thread'
+require './lib/color_text'
 
 class Generator
   def initialize number_of_children, depth
     puts "Generating graph of relations..."
     @graph = Graph.new depth, number_of_children
     puts "done\n\n\n"
+    @nodes_state = {}
+    @lock_states = Mutex.new
   end
 
   def instantiate_compositions
-    ids = create_vms @graph.size
+    ids = create_vms @graph.size #  IDS
     distribute_ids ids
+    
+    printer = start_printer
     collect_dns_names
-    set_up_topology
-    start_petals_in_each_node
-    populate_orchestrations
+    wait_ssh
+    set_date    
+    set_up_topology_and_properties
+
+    @graph.each_node_parallel do |node|
+      prepare_node_for_message node
+    end
+
     root_node = @graph.root
     root_host = root_node.info[:public_dns]
     root_port = 8084
@@ -31,6 +45,7 @@ class Generator
       puts "#{node.is_root? ? 'Root' : node}:\nhttp://#{node.info[:public_dns]}:8084/petals/services/#{node}Service#{node.id}\nid: #{node.id}"
     end
     puts "\n"*3
+    Thread.kill printer
     return root_host, root_port, root_service_path, root_node.id
   end
 
@@ -40,16 +55,68 @@ class Generator
     @graph.each_node do |node|
       ec2.terminate_instances :instance_id => node.info[:instance_id]
     end
+    rm_f "resources/topology.xml"
+    rm_f "resources/server.properties*"
     puts "done\n\n\n"
   end
 
   private
+  def start_printer
+    Thread.new do
+      loop {
+        @lock_states.synchronize do
+          puts "\n"*80
+
+          header = "#   State \\ Instance     " + @nodes_state.keys.join("    ") + "     #"
+          puts "\n"*5
+          puts "\t\t" + ("#" * header.size)
+          puts "\t\t" + header
+          puts "\t\t#       dns set           " + (@nodes_state.keys.collect{|k| ok_or_not_ok k, :dns }).join("    ") + "    #"
+          puts "\t\t#      ssh ready          " + (@nodes_state.keys.collect{|k| ok_or_not_ok k, :ssh }).join("    ") + "    #"
+          puts "\t\t#     topology sent       " + (@nodes_state.keys.collect{|k| ok_or_not_ok k, :topology }).join("    ") + "    #"
+          puts "\t\t#     petals state        " + (@nodes_state.keys.collect{|k| status_of_petals @nodes_state[k][:petals], k.size }).join("    ") + "    #"
+          puts "\t\t#  orchestration running  " + (@nodes_state.keys.collect{|k| ok_or_not_ok k, :orchestration }).join("    ") + "    #"
+          puts "\t\t" + ("#" * header.size)
+          puts "\n" *10
+          @nodes_state.keys.each do |k|
+            dns = @nodes_state[k][:dns]
+            if dns
+              puts "\t\t#{k} -> #{dns}" 
+            else
+              node = @nodes_state[k][:node]
+              puts "\t\t#{node} => #{node.inspect}"
+            end
+          end
+          puts "\n" *10
+        end        
+        sleep 1
+      }
+    end
+  end
+
+  def ok_or_not_ok key, field
+    s,l = (@nodes_state[key][field] ? [ColorText.green("Yes"),3] : [ColorText.red("No"),2])
+    s.center(s.size + key.size - l) 
+  end
+  
+  def status_of_petals petals, size
+    colorful, l = case petals
+    when "Stopped"
+      [ColorText.red("Stopped"), 7]
+    when "Running"
+      [ColorText.yellow("Running"), 7]
+    when "Ready"
+      [ColorText.green("Ready"), 5]
+    end
+    colorful.center(colorful.size + size - l)
+  end
+
   def create_vms size
     begin
       puts "Creating amazon virtual machines..."
       ec2 = AWS::EC2::Base.new(:access_key_id => ACCESS_KEY_ID, :secret_access_key => SECRET_ACCESS_KEY)
 
-      response = ec2.run_instances :image_id => AMI_ID, :min_count => size, :max_count => size, :key_name => KEY_NAME, :instance_type => "c1.medium", :security_group => "quick-start-1"
+      response = ec2.run_instances :image_id => AMI_ID, :min_count => size, :max_count => size, :key_name => KEY_NAME, :instance_type => "t1.micro", :security_group => "quick-start-1"
       ids = collect_instances_id response
       puts "done\n\n\n"
       ids
@@ -62,24 +129,119 @@ class Generator
     end
   end
 
-  def collect_instances_id response
-    response["instancesSet"]["item"].collect {|item| item["instanceId"]}
+  def distribute_ids ids
+    available_ids = ids.dup
+    @graph.each_node do |node|
+      id = available_ids.shift
+      node.info = {:instance_id => id}
+      @lock_states.synchronize do
+        @nodes_state[id] = {:dns => false, :topology => false, :petals => 'Stopped', :orchestration => false, :node => node, :ssh => false}
+      end
+    end
   end
 
   def collect_dns_names
-    puts "Setting dns_name for each node..."
     ec2 = AWS::EC2::Base.new(:access_key_id => ACCESS_KEY_ID, :secret_access_key => SECRET_ACCESS_KEY)
-    while ! instances_ready(ec2)
-      wait_3_more_secs "Instances not ready yet."
-    end
+    sleep 3 while ! instances_ready(ec2)
     reservation_items = ec2.describe_instances["reservationSet"]["item"]
-    @graph.each_node do |node|
+    @graph.each_node_parallel do |node|
       instance_id = node.info[:instance_id]
       instance = discover_instance instance_id, reservation_items
       node.info[:public_dns] = instance["dnsName"]
       node.info[:private_dns] = instance["privateDnsName"]
+      @lock_states.synchronize do
+        @nodes_state[node.info[:instance_id]][:dns] = instance["dnsName"]
+      end
     end
-    puts "done\n\n\n"
+  end
+
+  def wait_ssh
+    @graph.each_node_parallel do |node|
+      sleep 3 while execute_command_on(node, Petals.ping) !~ /Petals/
+      @nodes_state[node.info[:instance_id]][:ssh] = true
+    end
+  end
+
+  def set_date
+    @date = execute_command_on(@graph.root, "date '+%Y-%m-%d'", "2>/dev/null").strip
+  end
+
+  def set_up_topology_and_properties
+    topology = Petals.create_topology_from @graph
+    f = File.new "resources/topology.xml", 'w'
+    f.puts topology
+    f.close
+
+    index = 0
+    @graph.each_node do |node|
+      f = File.new "resources/server.properties#{node.id}", 'w'
+      f.puts Petals.server_properties index
+      f.close
+      index += 1
+    end
+  end
+
+
+  def prepare_node_for_message node
+    set_up_server node
+    start_petals node
+    populate_orchestration node
+  end
+
+
+  def set_up_server node
+    scp_to node.info[:public_dns], "resources/topology.xml", "#{Petals::HOME}/conf/topology.xml"
+    scp_to node.info[:public_dns], "resources/server.properties#{node.id}", "#{Petals::HOME}/conf/server.properties"
+    @lock_states.synchronize do
+      @nodes_state[node.info[:instance_id]][:topology] = true
+    end
+  end
+
+  def start_petals node
+    execute_command_on(node, Petals.stop)
+    sleep 3 while execute_command_on(node, Petals.ping) !~ Petals::STOPPED
+    execute_command_on(node, Petals.startup)
+    sleep 3 while execute_command_on(node, Petals.ping) !~ Petals::RUNNING
+    @lock_states.synchronize do
+      @nodes_state[node.info[:instance_id]][:petals] = 'Running'
+    end
+    sleep 3  while execute_command_on(node, Petals.log_from(@date)) !~ Petals::BPEL_STARTED
+    @lock_states.synchronize do
+      @nodes_state[node.info[:instance_id]][:petals] = 'Ready'
+    end
+  end
+
+  def populate_orchestration node
+    if node.is_leaf?
+      Orchestration.leaf_node node.id
+      scp_to node.info[:public_dns], "resources/leaf_node#{node.id}/sa-BPEL-LeafNode#{node.id}-provide.zip", "#{Petals::HOME}/install/"
+    else
+      Orchestration.node node.id, node.children
+      scp_to node.info[:public_dns], "resources/node#{node.id}/sa-BPEL-NodeNode#{node.id}-provide.zip", "#{Petals::HOME}/install/"
+    end
+
+    log = ""
+    while log !~ Petals.sa_ready(node)
+      log = execute_command_on(node, Petals.log_from(@date))
+      if log =~ /java.util.zip.ZipException: error in opening zip file/
+        puts "PAM!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+        @lock_states.synchronize do
+          @nodes_state[node.info[:instance_id]] = {:topology => false, :petals => 'Stopped'}
+        end
+        execute_command_on node, "rm -f #{Petals::HOME}/installed/sa-*"
+        populate_orchestration node
+      end
+      sleep 3
+    end
+    @lock_states.synchronize do
+      @nodes_state[node.info[:instance_id]][:orchestration] = true
+    end
+  end
+
+
+
+  def collect_instances_id response
+    response["instancesSet"]["item"].collect {|item| item["instanceId"]}
   end
 
   def discover_instance instance_id, reservation_items
@@ -97,90 +259,6 @@ class Generator
       end
     end
   end
-
-  def distribute_ids ids
-    available_ids = ids.dup
-    @graph.each_node do |node|
-      node.info = {:instance_id => available_ids.shift}
-    end
-
-  end
-
-  def wait_3_more_secs message
-    puts message
-    puts "Waiting for 3 secs..."
-    (1..3).to_a.reverse.each {|t| print "#{t},"; $stdout.flush(); sleep 1}
-    puts "retry"
-  end
-
-  def set_up_topology
-    puts "Setting topology in each node"
-    topology = Petals.create_topology_from @graph
-    f = File.new "resources/topology.xml", 'w'
-    f.puts topology
-    f.close
-
-    index = 0
-    @graph.each_node do |node|
-      server_properties = Petals.server_properties index
-      index += 1
-      f = File.new "resources/server.properties", 'w'
-      f.puts server_properties
-      f.close
-
-      wait_3_more_secs "SSH isn't ready for #{node}#{node.id}." while execute_command_on(node, Petals.ping) !~ Petals::STOPPED
-      scp_to node.info[:public_dns], "resources/topology.xml", "#{Petals::HOME}/conf/topology.xml"
-      scp_to node.info[:public_dns], "resources/server.properties", "#{Petals::HOME}/conf/server.properties"
-    end
-    rm "resources/topology.xml"
-    rm "resources/server.properties"
-    puts "\ndone\n\n\n"
-  end
-
-
-  def start_petals_in_each_node
-    puts "Starting server in each node"
-    @date = execute_command_on(@graph.root, "date '+%Y-%m-%d'", "2>/dev/null").strip
-    @graph.each_node_parallel do |node|
-      execute_command_on(node, Petals.startup)
-    end
-    @graph.each_node do |node|
-      wait_3_more_secs "Petals isn't started on #{node} #{node.info[:public_dns]}." while execute_command_on(node, Petals.ping) !~ Petals::RUNNING
-      puts ''
-      wait_3_more_secs "BPEL component isn't started on #{node} #{node.info[:public_dns]}." while execute_command_on(node, Petals.log_from(@date)) !~ Petals::BPEL_STARTED
-      puts "\n#{node} #{node.info[:public_dns]} is ready"
-    end
-    puts "\ndone\n\n\n"
-  end
-
-  def populate_orchestrations
-    puts "Populating each node with its orchestration"
-    @graph.each_node_parallel do |node|
-      if node.is_leaf?
-        Orchestration.leaf_node node.id
-        scp_to node.info[:public_dns], "resources/leaf_node#{node.id}/sa-BPEL-LeafNode#{node.id}-provide.zip", "#{Petals::HOME}/install/"
-        rm_rf "resources/leaf_node#{node.id}"
-      else
-        Orchestration.node node.id, node.children
-        scp_to node.info[:public_dns], "resources/node#{node.id}/sa-BPEL-NodeNode#{node.id}-provide.zip", "#{Petals::HOME}/install/"
-        rm_rf "resources/node#{node.id}"
-      end
-    end
-    @graph.each_node do |node|
-      log = ""
-      while log !~ Petals.sa_ready(node)
-        log = execute_command_on(node, Petals.log_from(@date))
-        if log =~ /java.util.zip.ZipException: error in opening zip file/
-          puts "Unfortunetly there was an error creating one of the service assembly... Restarting process in 3 secs"
-          exit 0
-        end
-
-        wait_3_more_secs "service assembly for #{node} #{node.info[:public_dns]} isn't started"
-      end
-    end
-    puts "done"
-  end
-
 
   def execute_command_on node, command, output_management="2>&1"
     `ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -i #{KEY_PATH} ec2-user@#{node.info[:public_dns]}  #{command}  #{output_management}`

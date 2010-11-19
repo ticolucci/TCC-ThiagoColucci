@@ -5,6 +5,7 @@ require 'net/http'
 require 'net/https'
 require 'benchmark'
 include Benchmark          # we need the CAPTION and FMTSTR constants
+require 'thread'
 
 def print_usage
   puts "Usage:"
@@ -46,22 +47,23 @@ def standard_deviation(population)
 end
 
 def make_post http, service_path, msg, headers 
-  executed = false
-  while not executed
-    begin
+  $lock.synchronize do
       http.post service_path, msg, headers
-      executed = true
-    rescue EOFError
-    rescue Errno::ECONNRESET
-    rescue IOError
-    rescue Errno::EPIPE
-    rescue NoMethodError
     end
-  end
+#      executed = true
+#    rescue EOFError
+#    rescue Errno::ECONNRESET
+#    rescue IOError
+#    rescue Errno::EPIPE
+#    rescue NoMethodError
+#    end
+#  end
 end
 
 
 print_usage() if ARGV.size < 7
+
+$lock = Mutex.new
 
 host = ARGV.shift
 port = ARGV.shift.to_i
@@ -99,23 +101,19 @@ http = Net::HTTP.new(host, port)
 http.use_ssl = false
 
 
-puts "0"
 
 resp, data = http.post(service_path, msg, headers)
-puts "1.0"
 
 if data != msg_expected
   puts "Composition failed on deploy.
   Message received:"
   puts data
 else
-  puts "1"
   
   str_len = "sending msg #{number_of_tries}".length
   std_dev_len = "> standard deviation:".length
   max_len = str_len > std_dev_len ? str_len : std_dev_len
   Benchmark.benchmark(" "*max_len + CAPTION, max_len, FMTSTR, "> total:", "> average:", "> variance:", "> standard deviation:") do |x|
-    puts "2"
     
     runs = []
     number_of_tries.times do |index|

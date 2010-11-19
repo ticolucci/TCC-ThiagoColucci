@@ -1,4 +1,4 @@
-Dir['files_for_orchestration/node/*.rb'].each { |file| require file}
+Dir['./files_for_orchestration/node/*.rb'].each { |file| require file}
 require 'fileutils'
 include FileUtils
 

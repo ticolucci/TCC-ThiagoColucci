@@ -2,7 +2,7 @@
 
 require 'rubygems'
 require 'AWS'
-require 'amazon_keys'
+require './amazon_keys'
 
 def discover_instance_id response
     response["instancesSet"]["item"].first["instanceId"]
