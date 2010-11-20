@@ -3,7 +3,7 @@ Dir["/Users/ticolucci/.rvm/gems/ruby-1.9.2-p0/gems/*"].each {|gem_dir| $: << "#{
 
 require 'rubygems'
 require 'AWS'
-require './amazon_keys'
+require './conf/amazon_keys'
 
 ec2 = AWS::EC2::Base.new(:access_key_id => ACCESS_KEY_ID, :secret_access_key => SECRET_ACCESS_KEY)
 

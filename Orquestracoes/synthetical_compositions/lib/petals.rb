@@ -4,6 +4,10 @@ module Petals
   RUNNING = /Petals RUNNING/
   BPEL_STARTED = /\[Petals.Container.Components.petals-se-bpel\]\s*Component started/
 
+
+
+
+
   def self.ping
     "export JAVA_HOME=/usr/lib/jvm/jre\\;#{Petals::HOME}/bin/ping.sh"
   end

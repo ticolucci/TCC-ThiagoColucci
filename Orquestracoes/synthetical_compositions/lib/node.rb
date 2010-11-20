@@ -10,6 +10,12 @@ class Node
     @info = {}
     @id = @@index
   end
+  
+  def collect_nodes
+    children.reduce(children) do |reduced, node|
+      reduced + node.collect_nodes
+    end
+  end
 
   def generate_n_levels_of_children(depth, number_of_children)
     return if depth == 0

@@ -20,6 +20,10 @@ class Graph
     @root.apply_for_all_parallel &func
     pid.join
   end
+  
+  def all_nodes
+    [@root] + @root.collect_nodes
+  end
 
   private
   def calculate_size number_of_children, depth
