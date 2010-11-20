@@ -1,16 +1,22 @@
-Dir["/Users/ticolucci/.rvm/gems/ruby-1.9.2-p0/gems/*"].each {|gem_dir| $: << "#{gem_dir}/lib/"}
-
-require './lib/orchestration'
-require './lib/graph'
+#gems
+Dir["/Users/ticolucci/.rvm/gems/ruby-1.9.2-p0/gems/*"].each {|gem_dir| $: << "#{gem_dir}/lib/"} #hardcoded patch for rvm...
 require 'rubygems'
 require 'AWS'
-require './amazon_keys'
+
+#builtins
+require 'thread'
 require 'fileutils'
 include FileUtils
+
+#libs
+require './lib/orchestration'
+require './lib/graph'
 require './lib/petals'
-require './ids'
-require 'thread'
 require './lib/color_text'
+
+#confs
+require './conf/amazon_keys'
+#require './conf/ids'
 
 class Generator
   def initialize number_of_children, depth
@@ -21,11 +27,11 @@ class Generator
     @lock_states = Mutex.new
   end
 
-  def instantiate_compositions
+  def instantiate_compositions print_states
     ids = create_vms @graph.size #  IDS
     distribute_ids ids
     
-    printer = start_printer
+    printer = print_states ? start_printer : Thread.new
     collect_dns_names
     wait_ssh
     set_date    
@@ -57,6 +63,8 @@ class Generator
     end
     rm_f "resources/topology.xml"
     rm_f "resources/server.properties*"
+    rm_f "resources/node*"
+    rm_f "resources/leaf*"
     puts "done\n\n\n"
   end
 
@@ -110,6 +118,9 @@ class Generator
     end
     colorful.center(colorful.size + size - l)
   end
+
+
+
 
   def create_vms size
     begin

@@ -1,11 +1,14 @@
 class Node
   attr_accessor :info
-  attr_reader :parent, :children
+  attr_reader :parent, :children, :id
+  @@index = 0
 
   def initialize parent
+    @@index += 1
     @parent = parent
     @children = []
     @info = {}
+    @id = @@index
   end
 
   def generate_n_levels_of_children(depth, number_of_children)
@@ -57,6 +60,4 @@ class Node
   end
 
   def inspect; old_to_s; end
-
-  alias :id :object_id
 end

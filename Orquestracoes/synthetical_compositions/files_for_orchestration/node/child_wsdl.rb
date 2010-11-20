@@ -45,9 +45,11 @@ module NodeCreation
     	<service name=\"#{child}Service#{child.id}\">
     		<port binding=\"tns:#{child}Binding#{child.id}\" name=\"#{child}Port#{child.id}\">
     			<soap:address
-    				location= \"http://#{child.info[:private_dns]}:8084/petals/services/#{child}Service#{child.id}\"/>
+    				location= \"#{child}Endpoint#{child.id}\"/>
     		</port>
     	</service>
     </definitions>"
+    
+    #\"http://#{child.info[:private_dns]}:8084/petals/services/#{child}Service#{child.id}\"
   end
 end
