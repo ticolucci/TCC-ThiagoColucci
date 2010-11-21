@@ -3,7 +3,10 @@
 <definitions xmlns="http://schemas.xmlsoap.org/wsdl/"
 xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
 xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://localhost/LeafNode#{id}"
-xmlns:bpws="http://docs.oasis-open.org/wsbpel/2.0/varprop" name="LeafNodeDefinition#{id}"
+xmlns:bpws="http://docs.oasis-open.org/wsbpel/2.0/varprop"
+xmlns:wsa="http://www.w3.org/2005/08/addressing" 
+xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl"
+ name="LeafNodeDefinition#{id}"
 targetNamespace="http://localhost/LeafNode#{id}">
 
 
@@ -29,10 +32,10 @@ targetNamespace="http://localhost/LeafNode#{id}">
 	<soap:binding transport="http://schemas.xmlsoap.org/soap/http"
 		style="document" />
 	<operation name="LeafOperation#{id}">
-		<input name="Input">
+		<input name="Input" wsaw:Action="http://localhost/LeafNode#{id}/ActionIn">
 			<soap:body use="literal" />
 		</input>
-		<output name="Output">
+		<output name="Output" wsaw:Action="http://localhost/LeafNode#{id}/ActionOut">
 			<soap:body use="literal" />
 		</output>
 	</operation>

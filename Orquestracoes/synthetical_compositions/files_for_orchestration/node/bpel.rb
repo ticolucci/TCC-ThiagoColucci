@@ -5,7 +5,8 @@ module NodeCreation
     <process name=\"NodeNode#{id}\" targetNamespace=\"http://localhost/NodeNode/bpel#{id}\"
     	xmlns=\"http://docs.oasis-open.org/wsbpel/2.0/process/executable\"
     	xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"
-    	xmlns:self=\"http://localhost/NodeNode#{id}\" xmlns:artifacts=\"http://localhost/NodeNode/Artifacts#{id}\" "
+    	xmlns:self=\"http://localhost/NodeNode#{id}\" xmlns:artifacts=\"http://localhost/NodeNode/Artifacts#{id}\" 
+      "
     	
     	children.each do |child|
     	  response << "xmlns:#{child.to_s.downcase}#{child.id}=\"http://localhost/#{child}Node#{child.id}\" "

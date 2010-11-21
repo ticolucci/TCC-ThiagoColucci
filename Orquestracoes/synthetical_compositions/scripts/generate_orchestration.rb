@@ -17,6 +17,7 @@ print_usage() if ARGV.size < 2
 
 generator = Generator.new ARGV[0].to_i, ARGV[1].to_i
 root_host, root_port, root_service_path, root_id = generator.instantiate_compositions true
+#root_host = "localhost"; root_port = 8084; root_service_path = '/petals/services/NodeService1'; root_id = 1
 
 puts "\n\n\nRoot Host:"
 puts root_host
@@ -49,26 +50,21 @@ puts "\n\n<?xml version=\"1.0\" encoding=\"utf-8\" ?>
 puts "./bin/sendsoap http://#{root_host}:#{root_port}#{root_service_path} node_test_request.soap"
 
 
-#puts "\n\n\n\n<?xml version=\"1.0\" encoding=\"utf-8\" ?>
-#<SOAP-ENV:Envelope xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\">
-#  <SOAP-ENV:Body>
-#    <ns1:NodeOperation#{root_id} xmlns:ns1=\"http://localhost/NodeNode#{root_id}\">
-#        <Part>#\{msg\}</Part>
-#    </ns1:NodeOperation#{root_id}>
-#  </SOAP-ENV:Body>
-#</SOAP-ENV:Envelope>\n\n\n\n"
 
-
-puts "Press 'q' to quit"
-continue = true
-continue while STDIN.getc.chr != 'q'
-
+puts "Hit 'CTRL+C' to quit"
+sleep
 
 generator.terminate_compositions
 
-#n1 = Node.new(nil)
-#n1.instance_eval "def id; 2;end"
-#n1.info[:public_dns] = "10.0.0.9"#"ec2-50-16-37-244.compute-1.amazonaws.com"
-#n1.info[:private_dns] = "10.0.0.9"#"ip-10-122-178-51.ec2.internal"
-#Orchestration.node 1, [n1]
-#Orchestration.leaf_node 2
+#@n0 = Node.new(nil)
+#9.times do |i|
+#  a = eval "@n#{i+1} = Node.new(@n#{i})"
+#  a.info[:public_dns] = "localhost"
+#  a.info[:private_dns] = "localhost"
+#end
+#
+#9.times do |i|
+#  Orchestration.node i, [eval("@n#{i+1}")]
+#end
+#
+#Orchestration.leaf_node 9

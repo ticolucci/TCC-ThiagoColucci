@@ -113,39 +113,6 @@ class Orchestration
     cd "../.."
 
 
-
-
-
-
-    #children.each do |child|
-    #  child_wsdl = NodeCreation.child_wsdl child
-    #  open_file_and_write "resources/node#{id}/#{child}Node#{child.id}.wsdl", child_wsdl
-    #  `zip -qXr9Djm resources/node#{id}/su-SOAP-#{child}Node#{child.id}-provide.zip resources/node#{id}/#{child}Node#{child.id}.wsdl 2>/dev/null`
-    #
-    #  make_META_INF id
-    #  jbi_child_import_su = NodeCreation.jbi_child_import_su child
-    #  open_file_and_write "resources/node#{id}/META-INF/jbi.xml", jbi_child_import_su
-    #
-    #  cd "resources/node#{id}/"
-    #  `zip -qXr9Dm su-SOAP-#{child}Node#{child.id}-provide.zip META-INF 2>/dev/null`
-    #  cd "../.."
-    #
-    #
-    #
-    #
-    #  `zip -qXr9Djm resources/node#{id}/sa-SOAP-#{child}Node#{child.id}-provide.zip resources/node#{id}/su-SOAP-#{child}Node#{child.id}-provide.zip 2>/dev/null`
-    #
-    #  make_META_INF id
-    #  jbi_child_import_sa = NodeCreation.jbi_child_import_sa child
-    #  open_file_and_write "resources/node#{id}/META-INF/jbi.xml", jbi_child_import_sa
-    #
-    #
-    #  cd "resources/node#{id}/"
-    #  `zip -qXr9Dm sa-SOAP-#{child}Node#{child.id}-provide.zip META-INF 2>/dev/null`
-    #  cd "../.."
-    #end
-
-
     rm_rf "resources/node#{id}/META-INF"
   end
 

@@ -25,7 +25,9 @@ class Generator
     puts "done\n\n\n"
     @servers_started = 0
     @lock_servers_started = Mutex.new
+    @lock_filesystem = Mutex.new
     @ssh = Ssh.new KEY_PATH
+    @petals = Petals.new KEY_PATH
   end
 
   def instantiate_compositions print_states
@@ -34,12 +36,13 @@ class Generator
     
     @printer = print_states ? Printer.start(@graph.all_nodes) : Thread.new
     Signal.trap(0) do
-      @printer.kill
-      puts "Exit signal caught..."
-      terminate_compositions
-      exit 0
-    end
-    
+      begin
+        @printer.kill
+        puts "Exit signal caught..."
+        terminate_compositions
+        exit 0
+      end
+    end 
     
     collect_dns_names
     wait_ssh
@@ -145,7 +148,7 @@ class Generator
 
   def wait_ssh
     @graph.each_node_parallel do |node|
-      sleep 3 while @ssh.execute_command_on(node, Petals.ping) !~ /Petals/
+      sleep 3 while @petals.ping(node) !~ /Petals/
       @printer[node, :ssh] = true
     end
   end
@@ -155,7 +158,7 @@ class Generator
   end
 
   def set_up_topology_and_properties
-    topology = Petals.create_topology_from @graph
+    topology = @petals.create_topology_from @graph
     f = File.new "resources/topology.xml", 'w'
     f.puts topology
     f.close
@@ -163,7 +166,7 @@ class Generator
     index = 0
     @graph.each_node do |node|
       f = File.new "resources/server.properties#{node.id}", 'w'
-      f.puts Petals.server_properties index
+      f.puts @petals.server_properties index
       f.close
       index += 1
     end
@@ -178,18 +181,16 @@ class Generator
 
 
   def set_up_server node
-    @ssh.scp_to node.info[:public_dns], "resources/topology.xml", "#{Petals::HOME}/conf/topology.xml"
-    @ssh.scp_to node.info[:public_dns], "resources/server.properties#{node.id}", "#{Petals::HOME}/conf/server.properties"
+    @printer[node, :topology] = false
+    @petals.send_server_properties node
+    @petals.send_topology node
     @printer[node, :topology] = true
   end
 
   def start_petals node
-    @ssh.execute_command_on(node, Petals.stop)
-    sleep 3 while @ssh.execute_command_on(node, Petals.ping) !~ Petals::STOPPED
-    @ssh.execute_command_on(node, Petals.startup)
-    sleep 3 while @ssh.execute_command_on(node, Petals.ping) !~ Petals::RUNNING
+    @petals.startup node
     @printer[node, :petals] = 'Running'
-    sleep 3 while @ssh.execute_command_on(node, Petals.log_from(@date)) !~ Petals::BPEL_STARTED
+    @petals.wait_bpel_to_start node, @date
     @printer[node, :petals] = 'Ready'
 
     @lock_servers_started.synchronize {@servers_started += 1}
@@ -201,22 +202,22 @@ class Generator
   end
 
   def populate_orchestration node
+    puts "populating: #{node}#{node.id}"
     if node.is_leaf?
-      Orchestration.leaf_node node.id
-      @ssh.scp_to node.info[:public_dns], "resources/leaf_node#{node.id}/sa-BPEL-LeafNode#{node.id}-provide.zip", "#{Petals::HOME}/install/"
+      @lock_filesystem.synchronize { Orchestration.leaf_node node.id }
+      @petals.install node, "resources/leaf_node#{node.id}/sa-BPEL-#{node}Node#{node.id}-provide.zip"
     else
-      Orchestration.node node.id, node.children
-      @ssh.scp_to node.info[:public_dns], "resources/node#{node.id}/sa-BPEL-NodeNode#{node.id}-provide.zip", "#{Petals::HOME}/install/"
+      @lock_filesystem.synchronize { Orchestration.node node.id, node.children }
+      @petals.install node, "resources/node#{node.id}/sa-BPEL-#{node}Node#{node.id}-provide.zip"
     end
+    puts "created #{node.id}"
 
     log = ""
-    while log !~ Petals.sa_ready(node)
-      log = @ssh.execute_command_on(node, Petals.log_from(@date))
+    while log !~ @petals.sa_ready(node)
+      log = @petals.log_from node, @date
       if log =~ /java.util.zip.ZipException: error in opening zip file/
-        @printer.reset node
-        @lock_servers_started.synchronize {@servers_started -= 1}
-        @ssh.execute_command_on node, "rm -f #{Petals::HOME}/installed/sa-*"
-        prepare_node_for_message node
+        puts log
+        exit 0
       end
       sleep 3
     end

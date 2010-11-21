@@ -1,34 +1,63 @@
-module Petals
+require './lib/ssh'
+
+class Petals
   HOME = "/home/ec2-user/petals-platform-3.1.1"
+
   STOPPED = /Petals STOPPED/
+  STOP_CMD = "export JAVA_HOME=/usr/lib/jvm/jre\\;#{HOME}/bin/stop.sh"
+
   RUNNING = /Petals RUNNING/
-  BPEL_STARTED = /\[Petals.Container.Components.petals-se-bpel\]\s*Component started/
+  START_CMD = "export JAVA_HOME=/usr/lib/jvm/jre\\;#{HOME}/bin/startup.sh -D"
+
+  PING_CMD = "export JAVA_HOME=/usr/lib/jvm/jre\\;#{HOME}/bin/ping.sh"
 
 
 
-
-
-  def self.ping
-    "export JAVA_HOME=/usr/lib/jvm/jre\\;#{Petals::HOME}/bin/ping.sh"
+  def initialize key_path
+    @ssh = Ssh.new key_path
   end
 
-  def self.startup
-    "export JAVA_HOME=/usr/lib/jvm/jre\\;#{Petals::HOME}/bin/startup.sh -D"
+
+
+  def ping node
+    @ssh.execute_command_on(node, PING_CMD)
   end
 
-  def self.stop
-    "export JAVA_HOME=/usr/lib/jvm/jre\\;#{Petals::HOME}/bin/stop.sh"
+  def startup node
+    @ssh.execute_command_on node, START_CMD
+    sleep 3 while ping(node) !~ RUNNING
   end
 
-  def self.sa_ready node
+  def stop node
+    @ssh.execute_command_on(node, STOP_CMD)
+    sleep 3 while ping(node) !~ STOPPED
+  end
+
+  def sa_ready node
     /Service Assembly 'sa-BPEL-#{node}Node#{node.id}-provide' started/
   end
 
-  def self.log_from date
-    "cat #{Petals::HOME}/logs/petals#{date}.log"
+  def log_from node, date
+    @ssh.execute_command_on node, "cat #{HOME}/logs/petals#{date}.log"
+  end
+  
+  def send_topology node
+    @ssh.scp_to node.info[:public_dns], "resources/topology.xml", "#{HOME}/conf/topology.xml"
+  end
+  
+  def send_server_properties node
+    @ssh.scp_to node.info[:public_dns], "resources/server.properties#{node.id}", "#{HOME}/conf/server.properties"
+  end
+  
+  def wait_bpel_to_start node, date
+    sleep 3 while log_from(node, date) !~  /\[Petals.Container.Components.petals-se-bpel\]\s*Component started/
+  end
+  
+  def install node, path
+    @ssh.scp_to node.info[:public_dns], path, "#{HOME}/install"
   end
 
-  def self.create_topology_from graph
+  def create_topology_from graph
     top = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
     <tns:topology xmlns:tns=\"http://petals.ow2.org/topology\"
     xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
@@ -73,7 +102,7 @@ module Petals
     top
   end
 
-  def self.server_properties index
+  def server_properties index
     "# -----------------------------------------------------------------------
     # PEtALS properties
     # -----------------------------------------------------------------------
@@ -105,7 +134,7 @@ module Petals
 
     # This property is used to unactivate the autoloader service.
     #It can be useful in production environment to unactivate this service.
-    petals.autoloader=true
+    #petals.autoloader=false
 
     # Alternate topology configuration file URL. This value must be a valid URL like :
     #  - http://localhost:8080/petals/topology.xml
@@ -128,11 +157,11 @@ module Petals
     # This property defines the number of attempt to send a message to an endpoint.
     # Several attempts can be done when there is transport failure during the convey of a message
     # If not specified, 2 attempts is selected by default
-    #petals.router.send.attempt=2
+    petals.router.send.attempt=5
 
     # This property defines the delay between the send attempts, in milliseconds.
     # If not specified, 1 second is selected by default
-    #petals.router.send.delay=1000
+    petals.router.send.delay=500
 
 
     #Set the following properties in order to establish SSL connections.
@@ -156,19 +185,19 @@ module Petals
     #Transporter configuration
     #This property defines the number of message that can be received via TCP at the same time.
     # If not specified, '10' receivers is selected by default
-    #petals.transport.tcp.receivers=10
+    petals.transport.tcp.receivers=100000
 
     #This property defines the number of message that can be send via TCP at the same time, per component.
-    #petals.transport.tcp.senders=10
+    petals.transport.tcp.senders=100000
     # If not specified, '10' senders is selected by default
 
     #This property defines the timeout to establish a connection, for a sender, in millisecond.
     # If not specified, 5000 milliseconds is selected by default
-    #petals.transport.tcp.connection.timeout=5000
+    petals.transport.tcp.connection.timeout=30000
 
     #This property defines the timeout to send a TCP packet, for a sender, in millisecond.
     # If not specified, 5000 milliseconds is selected by default
-    #petals.transport.tcp.send.timeout=5000
+    petals.transport.tcp.send.timeout=30000
 
     #This property defines the delay before running the 'sender' eviction thread, in millisecond.
     # If not specified, 1 minute is selected by default
@@ -180,15 +209,15 @@ module Petals
 
     #This property defines the duration of temporary persisted data, such as Message Exchange, in millisecond.
     # If not specified, 1 hour is selected by default
-    #petals.persistence.duration=3600000
+    petals.persistence.duration=60000
 
     #Topology update period (in s)
-    topology.update.period=101
+    topology.update.period=60
 
     # Registry configuration
 
     #Registry transporter timeout (in ms)
-    registry.transport.timeout=5000
+    registry.transport.timeout=30000
 
     #Synchro period (in s)
     registry.synchro.period=113
