@@ -1,1 +1,12 @@
 TCC de Thiago Rodrigues Colucci, para o curso de Bacharelado em Ciências da Computação no IME-USP.
+
+
+To generate orquestrations, create a file named "amazon_keys.rb" in "synthetical_compositions/conf"
+
+with this content:
+
+ACCESS_KEY_ID = 'key id'
+SECRET_ACCESS_KEY = 'key pass'
+KEY_NAME = "key name[.pem]"
+KEY_PATH= "/path/to/your/secret/key.pem"
+AMI_ID = "ami-f849bd91"

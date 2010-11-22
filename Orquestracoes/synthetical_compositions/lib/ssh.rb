@@ -1,6 +1,8 @@
+require 'thread'
 class Ssh
   def initialize key_path
     @key_path = key_path
+    @lock_connection = Mutex.new
   end
   
   def execute_command_on node, command, output_management="2>&1"
@@ -8,6 +10,8 @@ class Ssh
   end
 
   def scp_to node, source, target
-    `scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -i #{KEY_PATH} #{source} ec2-user@#{node}:#{target} 2>/dev/null 1>/dev/null`
+    @lock_connection.synchronize do
+      `scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -i #{KEY_PATH} #{source} ec2-user@#{node}:#{target} 2>/dev/null 1>/dev/null`
+    end
   end 
 end

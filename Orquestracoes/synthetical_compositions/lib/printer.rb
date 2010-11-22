@@ -30,15 +30,10 @@ class Printer
           puts "\t\t" + header
           
           puts "\t\t#"                          + (" " *(header.size - 2))      +     "#"
-          puts "\t\t#"                          + (" " *(header.size - 2))      +     "#"
           puts "\t\t#       dns set           " + collect_state(:dns)           + "    #"
-          puts "\t\t#"                          + (" " *(header.size - 2))      +     "#"
           puts "\t\t#      ssh ready          " + collect_state(:ssh)           + "    #"
-          puts "\t\t#"                          + (" " *(header.size - 2))      +     "#"
           puts "\t\t#     topology sent       " + collect_state(:topology)      + "    #"
-          puts "\t\t#"                          + (" " *(header.size - 2))      +     "#"
           puts "\t\t#     petals state        " + collect_state(:petals)        + "    #"
-          puts "\t\t#"                          + (" " *(header.size - 2))      +     "#"
           puts "\t\t#  orchestration running  " + collect_state(:orchestration) + "    #"
           puts "\t\t" + ("#" * header.size)
           puts "\n" *10
@@ -99,7 +94,7 @@ class Printer
   end
   
   def micro_printer
-    t = 0.1
+    t = 0.15
     Thread.new do
       loop do
         @lock_screen.synchronize {puts "\e[2;5H\n" + ("|" * 40) + "\n\e[60;0H\n"}

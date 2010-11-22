@@ -130,7 +130,7 @@ class Petals
     # from the PEtALS container one.
     # It can be useful to avoid concurrent libraries loading issues.
     # If not specified, the false value is selected by default
-    petals.classloaders.isolated=true
+    #petals.classloaders.isolated=true
 
     # This property is used to unactivate the autoloader service.
     #It can be useful in production environment to unactivate this service.
@@ -212,7 +212,7 @@ class Petals
     petals.persistence.duration=60000
 
     #Topology update period (in s)
-    topology.update.period=60
+    topology.update.period=5
 
     # Registry configuration
 

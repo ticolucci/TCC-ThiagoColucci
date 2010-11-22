@@ -24,7 +24,7 @@ module NodeCreation
     			<petalsCDK:wsdl>#{child}Node#{child.id}.wsdl</petalsCDK:wsdl>
 
     			<!-- Component specific elements -->
-    			<soap:address>http://#{child.info[:public_dns]}:8084/petals/services/#{child}Service#{child.id}</soap:address>
+    			<soap:address>http://#{child.info[:private_dns]}:8084/petals/services/#{child}Service#{child.id}</soap:address>
     			<soap:soap-version>1.1</soap:soap-version>
     			<soap:chunked-mode>false</soap:chunked-mode>
     			<soap:cleanup-transport>true</soap:cleanup-transport>

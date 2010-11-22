@@ -31,11 +31,12 @@ targetNamespace="http://localhost/LeafNode#{id}">
 <binding name="LeafBinding#{id}" type="tns:LeafPortType#{id}">
 	<soap:binding transport="http://schemas.xmlsoap.org/soap/http"
 		style="document" />
-	<operation name="LeafOperation#{id}">
-		<input name="Input" wsaw:Action="http://localhost/LeafNode#{id}/ActionIn">
+	<operation name="LeafOperation#{id}">	
+    <soap:operation soapAction="" style="document"/>
+		<input name="Input">
 			<soap:body use="literal" />
 		</input>
-		<output name="Output" wsaw:Action="http://localhost/LeafNode#{id}/ActionOut">
+		<output name="Output">
 			<soap:body use="literal" />
 		</output>
 	</operation>

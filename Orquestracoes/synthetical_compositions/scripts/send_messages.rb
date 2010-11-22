@@ -48,20 +48,12 @@ end
 
 def make_post http, service_path, msg, headers 
   $lock.synchronize do
-      http.post service_path, msg, headers
-    end
-#      executed = true
-#    rescue EOFError
-#    rescue Errno::ECONNRESET
-#    rescue IOError
-#    rescue Errno::EPIPE
-#    rescue NoMethodError
-#    end
-#  end
+    http.post service_path, msg, headers
+  end
 end
 
 
-print_usage() if ARGV.size < 7
+print_usage() if ARGV.size < 8
 
 $lock = Mutex.new
 
@@ -85,13 +77,13 @@ headers = {
 
 msg_content = "a"*message_size
 msg = "<?xml version=\"1.0\" encoding=\"utf-8\" ?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\">
-  <SOAP-ENV:Body>
+<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" soap:encodingStyle=\"http://www.w3.org/2001/12/soap-encoding\">
+  <soap:Body>
     <ns1:NodeOperation#{node_id} xmlns:ns1=\"http://localhost/NodeNode#{node_id}\">
         <Part>#{msg_content}</Part>
     </ns1:NodeOperation#{node_id}>
-  </SOAP-ENV:Body>
-</SOAP-ENV:Envelope>
+  </soap:Body>
+</soap:Envelope>
 "
 
 msg_expected = "<?xml version='1.0' encoding='UTF-8'?><soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"><soapenv:Body><self:Message xmlns:self=\"http://localhost/NodeNode#{node_id}\">#{msg_content}</self:Message></soapenv:Body></soapenv:Envelope>"

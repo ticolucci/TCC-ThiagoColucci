@@ -202,7 +202,6 @@ class Generator
   end
 
   def populate_orchestration node
-    puts "populating: #{node}#{node.id}"
     if node.is_leaf?
       @lock_filesystem.synchronize { Orchestration.leaf_node node.id }
       @petals.install node, "resources/leaf_node#{node.id}/sa-BPEL-#{node}Node#{node.id}-provide.zip"
@@ -210,7 +209,6 @@ class Generator
       @lock_filesystem.synchronize { Orchestration.node node.id, node.children }
       @petals.install node, "resources/node#{node.id}/sa-BPEL-#{node}Node#{node.id}-provide.zip"
     end
-    puts "created #{node.id}"
 
     log = ""
     while log !~ @petals.sa_ready(node)
