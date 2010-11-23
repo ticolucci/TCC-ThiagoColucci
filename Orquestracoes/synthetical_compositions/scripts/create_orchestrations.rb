@@ -3,7 +3,7 @@ require './lib/generator'
 root_host = "localhost"; root_port = 8084; root_service_path = '/petals/services/NodeService1'; root_id = 1
 
 puts "To use Send Message script:"
-puts "./scripts/send_messages.rb #{root_host} #{root_port} #{root_service_path} #{root_id} \\"
+puts "./scripts/send_messages.rb #{root_host} #{root_port} #{root_service_path} \\"
 puts "\n\n\n\n"
 
 puts "To use Ode's send soap script:"
@@ -19,17 +19,21 @@ puts "\n\n<?xml version=\"1.0\" encoding=\"utf-8\" ?>
 "
 puts "./bin/sendsoap http://#{root_host}:#{root_port}#{root_service_path} node_test_request.soap"
 
-n = ARGV.shift.to_i
+children = ARGV.shift.to_i
+depth = ARGV.shift.to_i
 
-@n1 = Node.new(nil)
-(1...n).each do |i|
-  a = eval "@n#{i+1} = Node.new(@n#{i})"
-  a.info[:public_dns] = "localhost"
-  a.info[:private_dns] = "localhost"
+graph = Graph.new depth, children
+
+graph.each_node do |node|
+  node.info[:public_dns] = "localhost"
+  node.info[:private_dns] = "localhost"
 end
 
-(1...n).each do |i|
-  Orchestration.node i, [eval("@n#{i+1}")]
-end
 
-Orchestration.leaf_node n
+graph.each_node do |node|
+  if node.is_leaf?
+    Orchestration.leaf_node node.id
+  else
+    Orchestration.node node.id, node.children
+  end
+end

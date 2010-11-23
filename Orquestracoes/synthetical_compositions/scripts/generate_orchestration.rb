@@ -33,7 +33,7 @@ puts root_id
 
 puts "\n"*4
 puts "To use Send Message script:"
-puts "./scripts/send_messages.rb #{root_host} #{root_port} #{root_service_path} #{root_id} \\"
+puts "./scripts/send_messages.rb #{root_host} #{root_port} #{root_service_path} \\"
 puts "\n\n\n\n"
 
 puts "To use Ode's send soap script:"

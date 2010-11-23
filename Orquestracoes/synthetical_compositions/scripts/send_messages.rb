@@ -66,6 +66,7 @@ number_of_tries = ARGV.shift.to_i
 msg_content = "a"*message_size
 
 Savon::Request.log = false
+lock = Mutex.new
 
 
 client = Savon::Client.new "http://#{host}:#{port}#{service_path}?wsdl"
@@ -79,7 +80,11 @@ number_of_tries.times do |index|
   runs << Benchmark.realtime do
     pids = []
     number_of_threads.times do
-      pids << Thread.new {client.node_operation1 {|soap| soap.body = {:part => msg_content}}}
+      pids << Thread.new do 
+        lock.synchronize {
+          client.node_operation1 {|soap| soap.body = {:part => msg_content}}
+        }
+      end
       sleep period
     end
     pids.each {|pid| pid.join}
