@@ -25,7 +25,7 @@ When it's finished, the generator outputs the host of the process (\emph{Public 
 
 \subsection{Message Sender}
 
-In order to evaluate the responses of the synthetical compositions, we needed another Ruby script that sends messages of $S$ sizes, with a frequency of $F$ messages per seconds, during $T$ seconds.
+In order to evaluate the responses of the synthetical compositions, we needed another Ruby script that sends messages of $S$ sizes and with a frequency of $F$ messages per seconds.
 
 Given the fact that the connection with the Cloud is very unstable, we added a fourth parameter to define how many times the batch of messages will be sent, so when there's a lot of traffic on the Net, any extraordinary case will not be representative on the overall mean. An example of execution can be found at Figure \ref{send-msg-output}
 
@@ -33,6 +33,6 @@ Given the fact that the connection with the Cloud is very unstable, we added a f
 \begin{figure}[htb]
 	\centering
 	\includegraphics[width=0.8\textwidth]{images/send-msg-output}
-	\caption{Example output from running the send message script with $S = 1$, $F = 1$, $T = 1$, $BatchSize = 10$}
+	\caption{Example output from running the send message script with $S = 1$, $F = 1$, $BatchSize = 10$}
 	\label{send-msg-output}
 \end{figure}

@@ -159,6 +159,7 @@ class Generator
 
   def set_up_topology_and_properties
     topology = @petals.create_topology_from @graph
+    mkdir_p "resources"
     f = File.new "resources/topology.xml", 'w'
     f.puts topology
     f.close

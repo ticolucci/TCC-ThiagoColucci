@@ -2,14 +2,16 @@ require './lib/ssh'
 
 class Petals
   HOME = "/home/ec2-user/petals-platform-3.1.1"
+  JAVA_SETTINGS="export JAVA_HOME=/usr/lib/jvm/jre\\;"
+#        export JAVA_OPTS=\"-Xmx1024m -XX:MaxPermSize=256m\"\\;
 
   STOPPED = /Petals STOPPED/
-  STOP_CMD = "export JAVA_HOME=/usr/lib/jvm/jre\\;#{HOME}/bin/stop.sh"
+  STOP_CMD = "#{JAVA_SETTINGS}\\;#{HOME}/bin/stop.sh"
 
   RUNNING = /Petals RUNNING/
-  START_CMD = "export JAVA_HOME=/usr/lib/jvm/jre\\;#{HOME}/bin/startup.sh -D"
+  START_CMD = "#{JAVA_SETTINGS}#{HOME}/bin/startup.sh -D"
 
-  PING_CMD = "export JAVA_HOME=/usr/lib/jvm/jre\\;#{HOME}/bin/ping.sh"
+  PING_CMD = "#{JAVA_SETTINGS}#{HOME}/bin/ping.sh"
 
 
 

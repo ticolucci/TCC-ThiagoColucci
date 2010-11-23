@@ -132,11 +132,11 @@ module Orchestration
   
   def zip zip_file, *args
     list = args.join " "
-    `zip -qXrDm #{zip_file} #{list} 2>/dev/null`
+    `zip -qr0m #{zip_file} #{list} 2>/dev/null`
   end
   
   def zip_j zip_file, *args
     list = args.join " "
-    `zip -qXrDmj #{zip_file} #{list} 2>/dev/null`
+    `zip -qr0mj #{zip_file} #{list} 2>/dev/null`
   end
 end
