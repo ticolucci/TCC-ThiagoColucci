@@ -6,7 +6,7 @@ class Printer
     @lock_screen = Mutex.new
     @nodes = {}
     nodes.each do |node|
-      @nodes[node.info[:instance_id]] = {:dns => false, :topology => false, :petals => 'Stopped', :orchestration => false, :node => node, :ssh => false}
+      @nodes[node.id] = {:topology => false, :petals => 'Stopped', :orchestration => false, :node => node}
     end
   end
   
@@ -24,14 +24,12 @@ class Printer
         @lock_screen.synchronize do
           puts "\e[H"
 
-          header = "#   State \\ Instance     " + @nodes.keys.join("    ") + "     #"
+          header = "#   State \\ Instance         aguia" + @nodes.keys.join("            aguia") + "     #"
           puts "\n"*5
           puts "\t\t" + ("#" * header.size)
           puts "\t\t" + header
           
           puts "\t\t#"                          + (" " *(header.size - 2))      +     "#"
-          puts "\t\t#       dns set           " + collect_state(:dns)           + "    #"
-          puts "\t\t#      ssh ready          " + collect_state(:ssh)           + "    #"
           puts "\t\t#     topology sent       " + collect_state(:topology)      + "    #"
           puts "\t\t#     petals state        " + collect_state(:petals)        + "    #"
           puts "\t\t#  orchestration running  " + collect_state(:orchestration) + "    #"
@@ -47,7 +45,7 @@ class Printer
             end
           end
           puts "\n"*3
-          puts "\e[60;0H\n"
+          puts "\e[40;0H\n"
         end
             
         sleep 1
@@ -56,9 +54,10 @@ class Printer
   end
   
   def collect_state name
+    l = "aguia".size
     states = @nodes.keys.collect do |k|
       if name == :petals
-         status_of_petals @nodes[k][:petals], k.size
+         status_of_petals @nodes[k][:petals], k.size+l
       else 
         ok_or_not_ok k, name
       end
@@ -67,8 +66,9 @@ class Printer
   end
 
   def ok_or_not_ok key, field
+    la = "aguia".size
     s,l = (@nodes[key][field] ? [ColorText.green("Yes"),3] : [ColorText.red("No"),2])
-    s.center(s.size + key.size - l) 
+    s.center(s.size + la + key.size - l) 
   end
   
   def status_of_petals petals, size
@@ -84,7 +84,7 @@ class Printer
   end
   
   def []= node, state_id, new_state
-    @lock_screen.synchronize {@nodes[node.info[:instance_id]][state_id] = new_state}
+    @lock_screen.synchronize {@nodes[node.id][state_id] = new_state}
   end
   
   def kill
@@ -97,13 +97,13 @@ class Printer
     t = 0.15
     Thread.new do
       loop do
-        @lock_screen.synchronize {puts "\e[2;5H\n" + ("|" * 40) + "\n\e[60;0H\n"}
+        @lock_screen.synchronize {puts "\e[2;5H\n" + ("|" * 40) + "\n\e[40;0H\n"}
         sleep t
-        @lock_screen.synchronize {puts "\e[2;5H\n" + ("/" * 40) + "\n\e[60;0H\n"}
+        @lock_screen.synchronize {puts "\e[2;5H\n" + ("/" * 40) + "\n\e[40;0H\n"}
         sleep t
-        @lock_screen.synchronize {puts "\e[2;5H\n" + ("-" * 40) + "\n\e[60;0H\n"}
+        @lock_screen.synchronize {puts "\e[2;5H\n" + ("-" * 40) + "\n\e[40;0H\n"}
         sleep t
-        @lock_screen.synchronize {puts "\e[2;5H\n" + ("\\" * 40) + "\n\e[60;0H\n"}
+        @lock_screen.synchronize {puts "\e[2;5H\n" + ("\\" * 40) + "\n\e[40;0H\n"}
         sleep t
       end
     end

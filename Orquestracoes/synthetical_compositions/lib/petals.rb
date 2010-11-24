@@ -1,54 +1,69 @@
 require './lib/ssh'
 
 class Petals
-  HOME = "/home/ec2-user/petals-platform-3.1.1"
-  JAVA_SETTINGS="export JAVA_HOME=/usr/lib/jvm/jre\\;"
-#        export JAVA_OPTS=\"-Xmx1024m -XX:MaxPermSize=256m\"\\;
-
+  JAVA_HOME = "/usr/lib/jvm/java-6-openjdk"
+  JAVA_SETTINGS="export JAVA_HOME=#{JAVA_HOME}\\;"
   STOPPED = /Petals STOPPED/
-  STOP_CMD = "#{JAVA_SETTINGS}\\;#{HOME}/bin/stop.sh"
-
   RUNNING = /Petals RUNNING/
-  START_CMD = "#{JAVA_SETTINGS}#{HOME}/bin/startup.sh -D"
-
-  PING_CMD = "#{JAVA_SETTINGS}#{HOME}/bin/ping.sh"
+  REVOADA = "aguia1.ime.usp.br"
 
 
-
-  def initialize key_path
-    @ssh = Ssh.new key_path
+  def initialize
+    @ssh = Ssh.new
   end
 
+  
+  def home id; "/home/ticolucci/a#{id}/petals-platform-3.1.1"; end
+  
+  def stop_cmd id; "#{JAVA_SETTINGS}#{home id}/bin/stop.sh"; end
 
+  def start_cmd id; "#{JAVA_SETTINGS}#{home id}/bin/startup.sh -D"; end
+
+  def ping_cmd id;  "#{JAVA_SETTINGS}#{home id}/bin/ping.sh"; end
+
+
+  def execute_remote_cmd id, cmd
+    @ssh.execute_command_on(REVOADA, "ssh aguia#{id} \"#{cmd}\"")
+  end
 
   def ping node
-    @ssh.execute_command_on(node, PING_CMD)
+    execute_remote_cmd node.id, ping_cmd(node.id)
   end
 
   def startup node
-    @ssh.execute_command_on node, START_CMD
+    execute_remote_cmd node.id, start_cmd(node.id)
     sleep 3 while ping(node) !~ RUNNING
   end
 
   def stop node
-    @ssh.execute_command_on(node, STOP_CMD)
+    execute_remote_cmd node.id, stop_cmd(node.id)
     sleep 3 while ping(node) !~ STOPPED
+  end
+  
+  def uninstall node
+    date = "#{Time.now.year}-#{Time.now.month}-#{Time.now.day}"
+    execute_remote_cmd node, "rm #{home node.id}/installed/*#{node.id}*"
+    sleep 3 while log_from(node, date) !~ /#{node.id}.*undeployed/
+  end
+
+  def log_from node, date
+    execute_remote_cmd node.id, "cat #{home node.id}/logs/petals#{date}.log"
+  end
+  
+  def clear_log node, date
+    execute_remote_cmd node.id, "echo '' > #{home node.id}/logs/petals#{date}.log"
   end
 
   def sa_ready node
     /Service Assembly 'sa-BPEL-#{node}Node#{node.id}-provide' started/
   end
-
-  def log_from node, date
-    @ssh.execute_command_on node, "cat #{HOME}/logs/petals#{date}.log"
-  end
   
   def send_topology node
-    @ssh.scp_to node.info[:public_dns], "resources/topology.xml", "#{HOME}/conf/topology.xml"
+    @ssh.scp_to REVOADA, "resources/topology.xml", "#{home node.id}/conf/topology.xml"
   end
   
   def send_server_properties node
-    @ssh.scp_to node.info[:public_dns], "resources/server.properties#{node.id}", "#{HOME}/conf/server.properties"
+    @ssh.scp_to REVOADA, "resources/server.properties#{node.id}", "#{home node.id}/conf/server.properties"
   end
   
   def wait_bpel_to_start node, date
@@ -56,8 +71,9 @@ class Petals
   end
   
   def install node, path
-    @ssh.scp_to node.info[:public_dns], path, "#{HOME}/install"
+    @ssh.scp_to REVOADA, path, "a#{node.id}/#{HOME}/install"
   end
+
 
   def create_topology_from graph
     top = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
@@ -75,7 +91,7 @@ class Petals
       top << "
       <tns:container name=\"#{index}\" type=\"peer\">
       <tns:description>description of the container #{index}</tns:description>
-      <tns:host>#{node.info[:private_dns]}</tns:host>
+      <tns:host>#{node.info[:ip]}</tns:host>
       <tns:user>petals</tns:user>
       <tns:password>petals</tns:password>
       <tns:webservice-service>
