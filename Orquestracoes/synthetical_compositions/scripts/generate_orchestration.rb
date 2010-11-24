@@ -16,7 +16,7 @@ end
 print_usage() if ARGV.size < 2
 
 generator = Generator.new ARGV[0].to_i, ARGV[1].to_i
-root_host, root_port, root_service_path = generator.instantiate_compositions false
+root_host, root_port, root_service_path = generator.instantiate_compositions
 
 puts "\n\n\nRoot Host:"
 puts root_host

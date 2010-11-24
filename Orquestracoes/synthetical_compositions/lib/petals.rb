@@ -40,9 +40,8 @@ class Petals
     sleep 3 while ping(node) !~ STOPPED
   end
   
-  def uninstall node
-    date = "#{Time.now.year}-#{Time.now.month}-#{Time.now.day}"
-    execute_remote_cmd node, "rm #{home node.id}/installed/sa-BPEL-*#{node.id}*.zip"
+  def uninstall node, date
+    execute_remote_cmd node, "rm #{home node.id}/installed/sa-*#{node.id}*.zip"
     sleep 3 while log_from(node, date) !~ /sa-BPEL-.*#{node.id}.*undeployed/
   end
 
@@ -72,7 +71,7 @@ class Petals
   
   def install date, node, path
     @ssh.scp_to REVOADA, path, "#{home node.id}/install"
-    sleep 3 while log_from(date) !~ sa_ready(node)
+    sleep 3 while log_from(node, date) !~ sa_ready(node)
   end
 
 

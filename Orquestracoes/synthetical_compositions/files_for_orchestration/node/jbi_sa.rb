@@ -13,21 +13,21 @@ module NodeCreation
 			<jbi:description></jbi:description>
 		</jbi:identification>
 "
-    children.each do |child|
-      response <<"
-		<jbi:service-unit>
-			<jbi:identification>
-				<jbi:name>su-SOAP-#{child}Service#{child.id}-provide</jbi:name>
-				<jbi:description></jbi:description>
-			</jbi:identification>
-
-			<jbi:target>
-				<jbi:artifacts-zip>su-SOAP-#{child}Service#{child.id}-provide.zip</jbi:artifacts-zip>
-				<jbi:component-name>petals-bc-soap</jbi:component-name>
-			</jbi:target>
-		</jbi:service-unit>
-"
-    end
+#    children.each do |child|
+#      response <<"
+#		<jbi:service-unit>
+#			<jbi:identification>
+#				<jbi:name>su-SOAP-#{child}Service#{child.id}-provide</jbi:name>
+#				<jbi:description></jbi:description>
+#			</jbi:identification>
+#
+#			<jbi:target>
+#				<jbi:artifacts-zip>su-SOAP-#{child}Service#{child.id}-provide.zip</jbi:artifacts-zip>
+#				<jbi:component-name>petals-bc-soap</jbi:component-name>
+#			</jbi:target>
+#		</jbi:service-unit>
+#"
+#    end
     response << "
 		<!-- New service-unit -->
 		<jbi:service-unit>

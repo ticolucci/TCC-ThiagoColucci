@@ -27,10 +27,10 @@ class Generator
     @date = "#{Time.now.year}-#{Time.now.month}-#{Time.now.day}"
   end
 
-  def instantiate_compositions print_states
+  def instantiate_compositions must_print = true
     distribute_ids
     
-    @printer = print_states ? Printer.start(@graph.all_nodes) : Thread.new
+    @printer = Printer.start @graph.all_nodes, must_print
     Signal.trap(0) do
       begin
         @printer.kill
@@ -59,11 +59,12 @@ class Generator
   def terminate_compositions
     puts "Terminating compositions..."
     @graph.each_node do |node|
-      @petals.uninstall node
+      puts "uninstalling #{node.id}"
+      @petals.uninstall node, @dates
+      puts "clearing #{node.id}"
       @petals.clear_log node, @date
     end
-    rm_f "resources/topology.xml"
-    Dir["resources/server.properties*"].each {|f| rm_f f} 
+    puts "removing resources"
     rm_rf "resources/node*"
     rm_rf "resources/leaf*"
     puts "done\n\n\n"

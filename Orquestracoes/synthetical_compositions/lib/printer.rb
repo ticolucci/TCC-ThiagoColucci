@@ -10,9 +10,9 @@ class Printer
     end
   end
   
-  def self.start nodes
+  def self.start nodes, must_print
     p = Printer.new nodes
-    p.start
+    p.start if must_print
     p
   end
   
@@ -28,8 +28,8 @@ class Printer
           puts "\n"*5
           puts "\t\t" + ("#" * header.size)
           puts "\t\t" + header
-          
           puts "\t\t#"                          + (" " *(header.size - 2))      +     "#"
+          
           puts "\t\t#  orchestration running  " + collect_state(:orchestration) + "    #"
           puts "\t\t" + ("#" * header.size)
           puts "\n" *10

@@ -70,20 +70,6 @@ module Orchestration
       child_wsdl = NodeCreation.child_wsdl child
       open_file_and_write "resources/node#{id}/#{child}Node#{child.id}.wsdl", child_wsdl
       zip_j "resources/node#{id}/su-BPEL-NodeNode#{id}-provide.zip", "resources/node#{id}/#{child}Node#{child.id}.wsdl"
-
-
-      open_file_and_write "resources/node#{id}/#{child}Node#{child.id}.wsdl", child_wsdl
-      zip_j "resources/node#{id}/su-SOAP-#{child}Service#{child.id}-provide.zip", "resources/node#{id}/#{child}Node#{child.id}.wsdl"
-
-      make_META_INF id
-      child_jbi = NodeCreation.jbi_child_import_su child
-      open_file_and_write "resources/node#{id}/META-INF/jbi.xml", child_jbi
-
-      cd "resources/node#{id}/"
-      zip "su-SOAP-#{child}Service#{child.id}-provide.zip", "META-INF"
-      cd "../.."
-
-      zip_j "resources/node#{id}/sa-BPEL-NodeNode#{id}-provide.zip", "resources/node#{id}/su-SOAP-#{child}Service#{child.id}-provide.zip"
     end
 
     make_META_INF id
