@@ -64,12 +64,14 @@ number_of_tries = ARGV.shift.to_i
 
 
 msg_content = "a"*message_size
-
+body = proc  {|soap| soap.body = {:part => msg_content}}
 Savon::Request.log = false
 lock = Mutex.new
 
 
 client = Savon::Client.new "http://#{host}:#{port}#{service_path}?wsdl"
+action = client.wsdl.soap_actions.first
+  
 str_len = "sending msg #{number_of_tries}".length
 std_dev_len = "> standard deviation: ".length + 2
 max_len = str_len > std_dev_len ? str_len : std_dev_len
@@ -82,7 +84,7 @@ number_of_tries.times do |index|
     number_of_threads.times do
       pids << Thread.new do 
         lock.synchronize {
-          client.node_operation1 {|soap| soap.body = {:part => msg_content}}
+          client.send action &body
         }
       end
       sleep period
