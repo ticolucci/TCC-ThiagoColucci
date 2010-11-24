@@ -23,11 +23,8 @@ class Generator
     puts "Generating graph of relations..."
     @graph = Graph.new depth, number_of_children
     puts "done\n\n\n"
-    @servers_started = 0
-    @lock_servers_started = Mutex.new
-    @lock_filesystem = Mutex.new
     @petals = Petals.new
-    set_date
+    @date = "#{Time.now.year}-#{Time.now.month}-#{Time.now.day}"
   end
 
   def instantiate_compositions print_states
@@ -43,10 +40,9 @@ class Generator
       end
     end 
 
-    set_up_topology_and_properties
 
-    @graph.each_node_parallel do |node|
-      prepare_node_for_message node
+    @graph.each_node do |node|
+      populate_orchestration node
     end
   
     @printer.kill
@@ -56,7 +52,7 @@ class Generator
   
     root_host = "192.168.65.1"
     root_port = 8084
-    root_service_path = "/petals/services/#{root_node}Service#{root_node.id}"
+    root_service_path = "/petals/services/NodeService1"
     return root_host, root_port, root_service_path
   end
 
@@ -64,7 +60,6 @@ class Generator
     puts "Terminating compositions..."
     @graph.each_node do |node|
       @petals.uninstall node
-      @petals.stop node
       @petals.clear_log node, @date
     end
     rm_f "resources/topology.xml"
@@ -86,75 +81,13 @@ class Generator
 
   
 
-
-
-  def set_date
-    now = Time.now
-    @date = "#{now.year}-#{now.month}-#{now.day}"
-  end
-
-  def set_up_topology_and_properties
-    topology = @petals.create_topology_from @graph
-    mkdir_p "resources"
-    f = File.new "resources/topology.xml", 'w'
-    f.puts topology
-    f.close
-
-    index = 0
-    @graph.each_node do |node|
-      f = File.new "resources/server.properties#{node.id}", 'w'
-      f.puts @petals.server_properties index
-      f.close
-      index += 1
-    end
-  end
-
-
-  def prepare_node_for_message node
-    set_up_server node
-    start_petals node
-    populate_orchestration node
-  end
-
-
-  def set_up_server node
-    @printer[node, :topology] = false
-    @petals.send_server_properties node
-    @petals.send_topology node
-    @printer[node, :topology] = true
-  end
-
-  def start_petals node
-    @petals.startup node
-    @printer[node, :petals] = 'Running'
-    @petals.wait_bpel_to_start node, @date
-    @printer[node, :petals] = 'Ready'
-
-    @lock_servers_started.synchronize {@servers_started += 1}
-    wait_other_servers
-  end
-
-  def wait_other_servers
-    sleep 1 while @servers_started < @graph.size
-  end
-
   def populate_orchestration node
     if node.is_leaf?
-      @lock_filesystem.synchronize { Orchestration.leaf_node node.id }
+      Orchestration.leaf_node node.id
       @petals.install node, "resources/leaf_node#{node.id}/sa-BPEL-#{node}Node#{node.id}-provide.zip"
     else
-      @lock_filesystem.synchronize { Orchestration.node node.id, node.children }
+      Orchestration.node node.id, node.children
       @petals.install node, "resources/node#{node.id}/sa-BPEL-#{node}Node#{node.id}-provide.zip"
-    end
-
-    log = ""
-    while log !~ @petals.sa_ready(node)
-      log = @petals.log_from node, @date
-      if log =~ /java.util.zip.ZipException: error in opening zip file/
-        puts log
-        exit 0
-      end
-      sleep 3
     end
     @printer[node, :orchestration] = true
   end

@@ -16,7 +16,7 @@ end
 print_usage() if ARGV.size < 2
 
 generator = Generator.new ARGV[0].to_i, ARGV[1].to_i
-root_host, root_port, root_service_path = generator.instantiate_compositions true
+root_host, root_port, root_service_path = generator.instantiate_compositions false
 
 puts "\n\n\nRoot Host:"
 puts root_host
@@ -30,7 +30,7 @@ puts root_service_path
 
 puts "\n"*4
 puts "To use Send Message script:"
-puts "./scripts/send_messages.rb #{root_host} #{root_port} #{root_service_path} \\"
+puts "ruby ./scripts/send_messages.rb #{root_host} #{root_port} #{root_service_path} \\"
 puts "\n\n\n\n"
 
 

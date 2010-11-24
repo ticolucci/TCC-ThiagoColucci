@@ -42,8 +42,8 @@ class Petals
   
   def uninstall node
     date = "#{Time.now.year}-#{Time.now.month}-#{Time.now.day}"
-    execute_remote_cmd node, "rm #{home node.id}/installed/*#{node.id}*"
-    sleep 3 while log_from(node, date) !~ /#{node.id}.*undeployed/
+    execute_remote_cmd node, "rm #{home node.id}/installed/sa-BPEL-*#{node.id}*.zip"
+    sleep 3 while log_from(node, date) !~ /sa-BPEL-.*#{node.id}.*undeployed/
   end
 
   def log_from node, date
@@ -71,7 +71,7 @@ class Petals
   end
   
   def install node, path
-    @ssh.scp_to REVOADA, path, "a#{node.id}/#{HOME}/install"
+    @ssh.scp_to REVOADA, path, "#{home node.id}/install"
   end
 
 

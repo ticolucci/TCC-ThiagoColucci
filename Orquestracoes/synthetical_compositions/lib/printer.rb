@@ -6,7 +6,7 @@ class Printer
     @lock_screen = Mutex.new
     @nodes = {}
     nodes.each do |node|
-      @nodes[node.id] = {:topology => false, :petals => 'Stopped', :orchestration => false, :node => node}
+      @nodes[node.id] = {:orchestration => false, :node => node}
     end
   end
   
@@ -30,21 +30,9 @@ class Printer
           puts "\t\t" + header
           
           puts "\t\t#"                          + (" " *(header.size - 2))      +     "#"
-          puts "\t\t#     topology sent       " + collect_state(:topology)      + "    #"
-          puts "\t\t#     petals state        " + collect_state(:petals)        + "    #"
           puts "\t\t#  orchestration running  " + collect_state(:orchestration) + "    #"
           puts "\t\t" + ("#" * header.size)
           puts "\n" *10
-          @nodes.keys.each do |k|
-            dns = @nodes[k][:dns]
-            if dns
-              puts "\t\t#{k} -> #{dns}" 
-            else
-              node = @nodes[k][:node]
-              puts "\t\t#{node} => #{node.inspect}"
-            end
-          end
-          puts "\n"*3
           puts "\e[40;0H\n"
         end
             
@@ -69,18 +57,6 @@ class Printer
     la = "aguia".size
     s,l = (@nodes[key][field] ? [ColorText.green("Yes"),3] : [ColorText.red("No"),2])
     s.center(s.size + la + key.size - l) 
-  end
-  
-  def status_of_petals petals, size
-    colorful, l = case petals
-    when "Stopped"
-      [ColorText.red("Stopped"), 7]
-    when "Running"
-      [ColorText.yellow("Running"), 7]
-    when "Ready"
-      [ColorText.green("Ready"), 5]
-    end
-    colorful.center(colorful.size + size - l)
   end
   
   def []= node, state_id, new_state
