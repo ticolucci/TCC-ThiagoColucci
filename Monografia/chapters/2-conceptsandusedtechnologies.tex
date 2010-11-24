@@ -62,7 +62,7 @@ the ``Business Process Management Language'' also incorporate WSCI support. BPML
 
 In the beginning of 2003, all the companies supporting BPML discontinued it's support, migrating to BPEL4WS. It became a standard by OASIS, whom renamed the standard to ``WS-BPEL'', the change was made to align with others Web Services standards of the organization. \citep{OASIS}
 
-Nowadays the main standard is still BPEL, with a lot of tools to write it's definition. But even though there is a lot of good tools for modeling the process (e.g. NetBeans, Eclipse, Petals studio, Orchestra, and many others), there aren't many good tools for it's deployment. We started using Apache's ODE to execute the process, then migrated to Orchestra, finally succeeded with Netbeans, but this last required a graphical environment to execute. So we finally discovered PEtALS ESB. 
+Nowadays the main standard is still BPEL, with a lot of tools to write it's definition. But even though there is a lot of good tools for modeling the process (e.g. NetBeans, Eclipse, Petals studio, Orchestra, and many others), there aren't many good tools for it's deployment. In this project, we started using Apache's ODE to execute the process, then migrated to Orchestra, succeeded by Netbeans, but this last required a graphical environment to execute, so we finally end up using PEtALS ESB. 
 
 \subsubsection{Tools}
 
@@ -70,7 +70,7 @@ Nowadays the main standard is still BPEL, with a lot of tools to write it's defi
 is one of the most popular Java IDE in the market. It's plugin architecture allows it to become an IDE for anything. With BPEL Designer plugin, Eclipse enhance the ability to display and edit BPEL workflows with a graphical UI.
 
 \paragraph{NetBeans}
-as Eclipse, netbeans is originally a Java IDE founded at plugins. The enterprise version 6.5 brought a bundle to use with Web Services and Orchestration. This was another graphical designer for BPEL, but the code it produced was readable and editable to human beens, so we used this to generate the base orchestration to the generator
+as Eclipse, netbeans is originally a Java IDE founded at plugins. The enterprise version 6.5 brought a bundle to use with Web Services and Orchestration. This was another graphical designer for BPEL, but the code it produced was readable and editable to human beens, so we used this to generate the base orchestration to the generator. NetBeans has also a module to execute the process, but it required, as mentioned before, a GUI.
 
 \paragraph{Apache ODE}
 is a WS-BPEL compliant web services orchestration engine. It organizes web services calls following a process description written in BPEL. Another way to describe it would be a web service capable workflow engine. This engine is the most used open source orchestration engine for orchestration available, but apache's license isn't compatible with GPL, so we preferred to search other tool before using it.
@@ -79,7 +79,7 @@ is a WS-BPEL compliant web services orchestration engine. It organizes web servi
 is another open source BPEL engine. It's license is LGPL, compatible with ours, but we couldn't find an easy way to deploy the services there.
 
 \paragraph{PEtALS ESB}
-is an Open Source Enterprise Service Bus for large SOA architectures. \citep{PEtALS} An ESB is a tool that integrates existing services or applications, exposed to the Bus as a service, using standard service languages resulting in greater adaptability and automation. PEtALS ESB also has a module for executing BPEL. This way we were able to create synthetical services in each node of the Bus and execute the composition on Amazon Elastic Compute Cloud (Amazon EC2).
+is an Open Source Enterprise Service Bus for large SOA architectures. \citep{PEtALS} An ESB is a tool that integrates existing services or applications, exposed to the Bus as a service, using standard service languages resulting in greater adaptability and automation. PEtALS ESB also has a module for executing BPEL. This way we would be able to create synthetical services in each node of the Bus and execute the composition on Amazon Elastic Compute Cloud (Amazon EC2).
 
 
 
@@ -116,3 +116,6 @@ Choreographies and Orchestration can relate to each other as represented in Figu
 
 \subsection{Cloud Computing}
 More recently, a new generation of middleware systems and hardware infrastructures were developed to cope with other kinds of applications requiring large processing power. In this case, the motivation was end-user applications such as email, office suites, calendars, and many other e-commerce, social networks, and Web 2.0-style applications used daily by hundreds of millions of users. Large Internet-based companies such as Amazon and Google used virtualization technologies to develop the basis for what was later called Cloud Computing \citep{ZCB10}. Google App Engine provides an execution environment for Web applications that can then be executed in the hardware infrastructure provided by Google; developers can write applications in Java or Python and use standard APIs for storage and communication.  The Amazon Elastic Compute Cloud or EC2 \citep{EC2} provides a virtual computing environment in which developers can instantiate multiple virtual machines booting, from scratch, standard operating systems such as GNU/Linux or Windows. These sets of machines can then run any application developed for these operating systems. When necessary, the developer can also create an image from a current instance of his virtual machines set and then create new instances with the given image, shortening the configuration time for these new machines.
+
+Cloud computing became a buzzword by the fact that it brings an easiness for deployment and scalability never seen before. With Amazon's service, one can ensure that the number of Amazon EC2 instances he is using scales up seamlessly during demand spikes to maintain performance, and scales down automatically during demand lulls to minimize costs, using pre-defined rules based upon CPU, RAM and Network usage. Also, it is trivial to, for example, build scripts to scale the server up at a certain time and later scale it down over the dawn, when there might be less people accessing the service.
+
