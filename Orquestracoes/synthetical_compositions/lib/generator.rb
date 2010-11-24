@@ -84,10 +84,10 @@ class Generator
   def populate_orchestration node
     if node.is_leaf?
       Orchestration.leaf_node node.id
-      @petals.install node, "resources/leaf_node#{node.id}/sa-BPEL-#{node}Node#{node.id}-provide.zip"
+      @petals.install @date, node, "resources/leaf_node#{node.id}/sa-BPEL-#{node}Node#{node.id}-provide.zip"
     else
       Orchestration.node node.id, node.children
-      @petals.install node, "resources/node#{node.id}/sa-BPEL-#{node}Node#{node.id}-provide.zip"
+      @petals.install @date, node, "resources/node#{node.id}/sa-BPEL-#{node}Node#{node.id}-provide.zip"
     end
     @printer[node, :orchestration] = true
   end

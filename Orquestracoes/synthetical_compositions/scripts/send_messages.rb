@@ -84,7 +84,7 @@ number_of_tries.times do |index|
     number_of_threads.times do
       pids << Thread.new do 
         lock.synchronize {
-          client.send action &body
+          client.send action, &body
         }
       end
       sleep period

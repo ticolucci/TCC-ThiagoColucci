@@ -70,8 +70,9 @@ class Petals
     sleep 3 while log_from(node, date) !~  /\[Petals.Container.Components.petals-se-bpel\]\s*Component started/
   end
   
-  def install node, path
+  def install date, node, path
     @ssh.scp_to REVOADA, path, "#{home node.id}/install"
+    sleep 3 while log_from(date) !~ sa_ready(node)
   end
 
 
