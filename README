@@ -9,4 +9,4 @@ ACCESS_KEY_ID = 'key id'
 SECRET_ACCESS_KEY = 'key pass'
 KEY_NAME = "key name[.pem]"
 KEY_PATH= "/path/to/your/secret/key.pem"
-AMI_ID = "ami-f849bd91"
+AMI_ID = "ami-1f47b076"
