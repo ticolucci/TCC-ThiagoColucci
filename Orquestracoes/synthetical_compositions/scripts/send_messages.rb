@@ -1,6 +1,8 @@
 #! /usr/bin/ruby
 
-
+$: << '/home/ticolucci/.rvm/gems/ruby-1.9.2-p0'
+$: << '/home/ticolucci/.rvm/gems/ruby-1.9.2-p0/gems'
+$: << '/home/ticolucci/.rvm/gems/ruby-1.9.2-p0/gems/savon-0.7.9'
 require 'net/http'
 require 'net/https'
 require 'benchmark'

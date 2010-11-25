@@ -24,7 +24,7 @@ class Printer
         @lock_screen.synchronize do
           puts "\e[H"
 
-          header = "#   State \\ Instance         aguia" + @nodes.keys.join("            aguia") + "     #"
+          header = "#   State \\ Instance         aguia" + @nodes.keys.join("           aguia") + "     #"
           puts "\n"*5
           puts "\t\t" + ("#" * header.size)
           puts "\t\t" + header

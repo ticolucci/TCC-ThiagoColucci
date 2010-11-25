@@ -24,7 +24,8 @@ class Generator
     @graph = Graph.new depth, number_of_children
     puts "done\n\n\n"
     @petals = Petals.new
-    @date = "#{Time.now.year}-#{Time.now.month}-#{Time.now.day}"
+    Ssh.new.execute_command_on(Petals::REVOADA, 'ls a1/petals-platform-3.1.1/logs/') =~ /petals(\d\d\d\d-\d\d-\d\d).log/
+    @date = $1.to_s
   end
 
   def instantiate_compositions must_print = true
@@ -61,7 +62,7 @@ class Generator
     @graph.each_node do |node|
       puts "uninstalling #{node.id}"
       @petals.uninstall node, @dates
-      puts "clearing #{node.id}"
+      puts "clearing log of #{node.id}"
       @petals.clear_log node, @date
     end
     puts "removing resources"
