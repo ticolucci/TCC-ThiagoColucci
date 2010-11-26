@@ -8,6 +8,7 @@ The project targets to evaluate the scalability of the two kind of compositions 
 	\caption{Example of a composition with 3 children per node and depth of 2. With it's flow of messages}
 	\label{synthetical-example}
 \end{figure}
+\newpage
 
 This tree is a choreography of orchestrated services: each node and it's children are the orchestration and the entire process is a choreography.
 
@@ -19,7 +20,6 @@ Later, we needed an automate way to deploy all those services on different machi
 After spending some time to make the code more readable, we decided to develop the deploy of the process in the instances of EC2. But NetBeans, used until this point to run the process generated, was not able to run properly from the command-line shell, which is the only native interface with EC2 instances. After some research upon open source engines, we discovered PEtALS ESB, which has the simplest install and setup process among all the servers studied; this was the most essential feature to build the automated process.
 
 Currently, the script generates the tree, instantiates virtual machines on Amazon EC2, creates the compositions, configures each instance to become a node of the PEtALS Bus, starts the PEtALS server in each node, and deploys the services on the ESB. This process is parallelized for each node, and the steps of the process can be followed in the shell's standard output, as shown in Figure \ref{generation-output}.
-
 
 \begin{figure}[htb]
 	\centering
@@ -34,7 +34,15 @@ When it is finished, the generator outputs the host of the process (\emph{Public
 
 To evaluate the responses of the synthetical compositions, we needed another Ruby script to send messages of sizes $s$ and with a frequency of $f$ messages per second.
 
-Given the fact that the connection with the Cloud is very unstable, we added a fourth parameter to define how many times the batch of messages will be sent, so when there is a lot of traffic on the network, any extraordinary case will not be representative on the overall mean. An example of execution is shown in Figure \ref{send-msg-output}.
+Given the fact that the connection with the Cloud is very unstable, we added a third parameter to define how many times the batch of messages will be sent, so when there is a lot of traffic on the network, any extraordinary case will not be representative on the overall average. During execution, the script shows four numbers for each batch of messages sent, they represent (in order they appear):
+\begin{itemize} 
+	\item[user] is the time spent (in seconds) with the execution of actions of the script, for example calling a class method
+	\item[system] is the time spent (in seconds) with system calls, for example creating a \emph{fork}
+	\item[total] is the sum of \emph{user} and \emph{system} times
+	\item[real] is how long passed (in seconds) from the task begins until its end
+\end{itemize}
+
+An example of it's execution is shown in Figure \ref{send-msg-output}.
 
 
 \begin{figure}[htb]
