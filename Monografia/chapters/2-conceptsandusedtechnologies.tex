@@ -1,13 +1,14 @@
 \section{Used Technologies}
+\label{used-technologies}
 In this section we will describe and explain the main technologies used in this work.
 
 \subsection{Web Service}
 Web Services are a means to enable the interoperability among application components over the Internet.  They are defined as a set of W3C standards, normally using HTTP for the transport layer and XML serialization for data interchange.
 
-They are  a fundamental component of a programming model called Service Oriented Architecture (SOA). In this model, services are self-describing and self-contained, leading to the development of distributed systems based on loosely-coupled distributed modules.
+They are  a fundamental components of a programming model called Service Oriented Architecture (SOA). In this model, services are self-describing and self-contained, leading to the development of distributed systems based on loosely-coupled distributed modules.
 
 \paragraph{Interoperability.}
-Since web services are not executed on client's side, they can be used to couple web applications that will not depend on client's platform as well.
+Web services are not executed on client's side, so they are platform independent; they use XML for the data interchange, which is language independent; last but not the least, they use open standards, easing the integration with others components.
 
 \paragraph{Reusable application-components.}
 There are things applications need very often. So why make these over and over again? Web services can offer application-components like: currency conversion, weather reports, or even language translation as services.  [\citet{WST}]
@@ -21,10 +22,10 @@ Web services can help to solve the interoperability problem between legacy and n
 is a set of rules for encoding documents in machine-readable form. It is defined in the XML 1.0 Specification produced by the W3C, and several other related specifications. It provides a language that can be used across different platforms and programming languages, and still express complex messages and functions.
 
 \paragraph{Hypertext Transfer Protocol (HTTP)} 
-is an application-level protocol for distributed, collaborative, hypermedia information systems. It is a generic, stateless, protocol which can be used for many tasks beyond its use for hypertext, such as name servers and distributed object management systems, through extension of its request methods, error codes and headers [47]. A feature of HTTP is the typing and negotiation of data representation, allowing systems to be built independently of the data being transferred. [\citet{HTTP}]
+is an application-level protocol for distributed, collaborative, hypermedia information systems. It is a generic, stateless, protocol which can be used for many tasks beyond its use for hypertext, such as name servers and distributed object management systems, through extension of its request methods, error codes and headers. A feature of HTTP is the typing and negotiation of data representation, allowing systems to be built independently of the data being transferred. [\citet{HTTP}]
 
 \paragraph{Web Service Description Language (WSDL)}
-is an XML format for describing network services as a set of endpoints operating on messages containing either document-oriented or procedure-oriented information. The operations and messages are described abstractly, and then bound to a concrete network protocol and message format to define an endpoint. Related concrete endpoints are combined into abstract endpoints (services). WSDL is extensible to allow the description of endpoints and their messages regardless of what message formats or network protocols are used to communicate. [\citet{WSDL}]
+is an XML format for describing services as a set of endpoints operating on messages containing either document-oriented or procedure-oriented information. The operations and messages are described abstractly, and then bound to a concrete network protocol and message format to define an endpoint. Related concrete endpoints are combined into abstract endpoints (services). WSDL is extensible to allow the description of endpoints and their messages regardless of what message formats or network protocols are used to communicate. [\citet{WSDL}]
 
 \paragraph{Simple Object Access Protocol (SOAP)}
 is a lightweight protocol for exchange of information in a decentralized, distributed environment. It is an XML based protocol that consists of three parts: an envelope that defines a framework for describing what is in a message and how to process it, a set of encoding rules for expressing instances of application-defined datatypes, and a convention for representing remote procedure calls and responses. SOAP can potentially be used in combination with a variety of other protocols; however, the only bindings in it's definition describe how to use SOAP in combination with HTTP and HTTP Extension Framework. It does not itself define any application semantics such as a programming model or implementation specific semantics; rather it defines a simple mechanism for expressing application semantics by providing a modular packaging model and encoding mechanisms for encoding data within modules. This allows SOAP to be used in a large variety of systems ranging from messaging systems to RPC.[\citet{SOAP}]
@@ -48,7 +49,7 @@ stands for ``Business Process Execution Language for Web Services''; this specif
 
 \begin{figure}[htb]
   \centering
-  \includegraphics[width=0.9\textwidth]{images/BPELstructure}
+  \includegraphics[width=\textwidth]{images/BPELstructure}
   \caption{BPEL structure [\citet{WSOC}]}
   \label{BPELstructure}
 \end{figure}
@@ -69,7 +70,7 @@ Nowadays the main standard is still BPEL, since it's definition, a lot of graphi
 is the Rich Client Platform behind one of the most popular Java IDE in the market, the JDT. It's plugin architecture allows it to become an IDE for anything. With the BPEL Designer plugin, Eclipse enhances the ability to display and edit BPEL workflows with a graphical UI.
 
 \paragraph{NetBeans.}
-Like Eclipse, netbeans is originally a Java IDE supporting plugins. The enterprise version 6.5 brought a bundle to support the development of Web Services and Orchestrations. This was another graphical designer for BPEL, but the code it produced was readable and editable by human beings, so we used this to generate the base orchestration to the generator. NetBeans has also a module to execute the process, but it required, as mentioned before, a GUI.
+Like Eclipse, netbeans is originally a Java IDE supporting plugins. The Enterprise Edition version 6.5 brought a bundle to support the development of Web Services and Orchestrations. This was another graphical designer for BPEL, but the code it produced was readable and editable by human beings, so we used this to generate the base orchestration to the generator. NetBeans has also a module to execute the process, but it required, as mentioned before, a GUI.
 
 \paragraph{Apache ODE}
 is a WS-BPEL-compliant web services orchestration engine. It organizes web service calls following a process description written in BPEL. Another way to describe it would be a web service-capable workflow engine. This engine is the most used open source engine for orchestration available, but apache's license is not compatible with GPL, so we preferred to search other tool before using it.
@@ -111,7 +112,7 @@ A graphical view of the relationship described by Peltz is represented in Figure
 
 \begin{figure}[htb]
 	\centering
-	\includegraphics[width=0.9\textwidth]{images/relation-orchestrationXchoreography}
+	\includegraphics[width=\textwidth]{images/relation-orchestrationXchoreography}
 	\caption{Relationship between Orchestrations and Choreographies [\citet{WSOC}]}
 	\label{relation-orchestrationXchoreography}
 \end{figure}
