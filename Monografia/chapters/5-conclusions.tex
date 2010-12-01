@@ -1,1 +1,17 @@
 \section{Conclusions}
+
+
+At the end of the development phase, as mentioned before, we concluded that, with the test suite the TDD would have created, some of the refactorings would have been easier to do and we could have avoided a lot of small defects, such as forgetting to include a line in the server property file after one big refactor. But creating the orchestrations from scretch was probably the most difficult part of the development of this work. If we had a test framework and development methodology for the orchestrations development, we probably would not have spent the time we did trying to deploy simple orchestrations. Such a framework does not exists yet, this is another goal of the CHOReOS project.
+
+
+
+
+After we finished the statistical analysis of the experiments, we concluded this:
+\begin{enumerate}
+	\item All three topologies scales linearly according to the frequency it is submitted. For example, fixing the messages size to 1Mb, when we submitted the balanced tree to a frequency of 10 messages per second, it took an average of 186.98 seconds for the response; with a frequency of 100 messages per second the system took about 10 times more to respond (1876.71 seconds)
+	\item All three topologies are more influenced by the size of messages than by the frequency. The case with the biggest difference was the ``Horizontal Tree'', where the size influences $45.51\%$ of the total \emph{variation}, while the frequency influence is only $27.73\%$.
+	\item In theory, if there was any significant difference between the average response times, it would be that the ``Vertical Tree'' should be slightly fast than the ``Horizontal Tree'', with ``Balanced Tree'' as the mean case. This difference would occur because of possibles overheads on PEtALS services orchestration interpretation and also because of the JVM's JIT Compiler, that would optimize the ``Nodes'', but not the ``Leaves'' (because the ``Node'' service is still active while waiting for its children reply, while the ``Leaf'' has to be raised from Memory every time it receives a message). The tests confirmed the suspects that the ``Vertical Tree'' was slightly faster than the ``Horizontal Tree'', but what we did not expect was that the ``Balanced Tree'' had the fastest execution of all. The only explanation feasible is that occurred some interference on the Network on \emph{every} run, because not only were the time smaller, but the standard deviation was also the smallest of all. This case will be deeply studied later.
+\end{enumerate}
+
+
+The future of this work will be to create new test cases, with more nodes, different topologies, and invoke of children in parallel. We will also study more the ``Balanced Tree'' case, creating more experiments with more values for each parameter of ``send_messages'' script. Also, the software developed will be decoupled to become a framework for synthetical compositions; this way one will be able to create new sets of orchestration just rewriting a BPEL file, the generator will later prepare the environment for the process execution, then create and deploy the new topology on the cloud. With the framework, the understanding of the ``Internet of the Future'' scalability will be much easier.
