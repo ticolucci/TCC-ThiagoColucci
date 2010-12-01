@@ -1,0 +1,60 @@
+                                 Balanced Tree
+
+Size       1 kB                          Size       1 kB
+Frequency  10                            Frequency  100
+		                    Real Time                                Real Time
+> total:                  90.11 s      > total:                   900.68 s
+> average:                 9.01 s      > average:                  90.06 s
+> variance:                0.11 s      > variance:                  0.78 s
+> standard deviation:      0.34 s      > standard deviation:        0.88 s
+
+
+Size       1 MB                          Size       1 MB
+Frequency  10                            Frequency  100
+                        Real Time                                Real Time
+> total:                1869.89 s      > total:                 18767.14 s
+> average:               186.98 s      > average:                1876.71 s
+> variance:                1.49 s      > variance:                  4.55 s
+> standard deviation:      1.22 s      > standard deviation:        2.13 s
+
+
+----------------------------------------------------------------------------
+                                Vertical Tree
+
+Size       1 kB                          Size       1 kB
+Frequency  10                            Frequency  100
+                        Real Time                                Real Time
+> total:                 133.23 s      > total:                  1139.50 s
+> average:                13.32 s      > average:                 113.95 s
+> variance:                7.95 s      > variance:                 28.81 s
+> standard deviation:      2.81 s      > standard deviation:        5.36 s
+                                         
+                                         
+Size       1 MB                          Size       1 MB
+Frequency  10                            Frequency  100
+                        Real Time                                Real Time
+> total:                2763.81 s      > total:                 20225.51 s
+> average:               276.38 s      > average:                2022.55 s
+> variance:              117.00 s      > variance:              17599.66 s
+> standard deviation:     10.81 s      > standard deviation:      132.66 s
+
+
+----------------------------------------------------------------------------
+                                 Horizontal Tree
+
+Size       1 kB                          Size       1 kB
+Frequency  10                            Frequency  100
+                        Real Time                                Real Time
+> total:                 180.03 s      > total:                  1921.15 s
+> average:                18.00 s      > average:                 192.11 s
+> variance:                0.20 s      > variance:                 17.03 s
+> standard deviation:      0.45 s      > standard deviation:        4.12 s
+                                         
+                                         
+Size       1 MB                          Size       1 MB
+Frequency  10                            Frequency  100
+                        Real Time                                Real Time
+> total:                 2500.01 s      > total:                21990.79 s
+> average:                250.00 s      > average:               2199.07 s
+> variance:                11.83 s      > variance:             86787.51 s
+> standard deviation:       3.43 s      > standard deviation:     294.59 s

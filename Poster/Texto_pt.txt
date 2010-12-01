@@ -1,0 +1,55 @@
+Poster TCC
+
+
+O que são Serviços Web
+
+Serviços Web são sistemas de software projetados para possibilitar a interoperabilidade de máquinas através da Internet. Estes serviços são altamente fundados em padrões, utilizando HTTP para a camada de transporte e XML para a serialização de menssagens.
+Por serem uma aplicação completa, o desacoplamento de módulos de aplicações fica mais simples e claro. Devido a se basearem em HTTP, a comunicação fica simplificada por diminuir os esforços com firewalls e outros impecílios comuns a RPC (por exemplo).
+
+
+
+
+
+Por quê fazer Composição de Serviços Web?
+
+Com o desenvolvimento da Internet, podemos hoje usar massivamente aplicações web (como o "Gmail", "Google Docs" e "Amazon.com"). Estas aplicações  desacoplam suas partes através do uso de Serviços Web (separando, por exemplo, o serviço de login do serviço de e-mail).
+Agora que temos vários serviços criados, precisamos compô-los em serviços de mais alto nível de abstração para no final termos a aplicação. Neste contexto, surgiram a Orquestração e a Coreografia de Serviços Web, técnicas que utilizam apenas linguagens descritivas e serviços pré-existentes para criar os novos serviços compostos.
+
+
+
+
+
+Objetivos da Avaliação de Escalabilidade
+
+* Descobrir qual a relação entre o tipo de composição escolhida e sua escalabilidade (frequência de mensagens suportada pelo processo) quando subemtidas;
+* Descobrir se os tamanhos das mensagens influencia no tempo de resposta do sistema composto;
+* Criar um exemplo de coreografia de larga escala para auxiliar o futuro desenvolvimento do projeto Baile.
+
+
+
+
+
+Orquestração de Serviço Web
+
+Orquestração de Serviços Web é um método de composição de serviços que possui um nó principal que conhece a lógica do processo inteiro. 
+Este nó possui a responsabilidade de executar o processo, controlando quais serviços serão chamados, como as mensagens serão trocadas entre os serviços e como proseguir com as possíveis falhas e exceções.
+A linguagem de orquestração mais usada é a BPEL (Business Processes Execution Language), descrita apenas com marcadores XML, possui estruturas para invocar serviços, fazer tratamento de exceções e controladores de fluxo (como while's e if's).
+
+
+
+
+
+
+Coreografias de Serviços Web
+
+Coreografia de Serviços Web é um método de composição de serviços caracterizado pelo fato de não haver um nó central que controlará o processo.
+As menssagens são trocadas entre os nós do processo para que cada um complete sua função. Deste modo podemos ter um maior número de nós, pois sem um centralizador não teremos sobrecarga em apenas um ponto do processo.
+
+
+
+
+
+Topologia das Composições Sintéticas
+
+Para a execução dos experimentos, criamos um gerador de composições sintéticas. Este gerador está parametrizado no número de filhos em cada nó e na profundidade da árvore, que pode representar tanto uma Orquestração, quando analisamos um nó e seus filhos, quanto uma Coreografia, quando olhamos a árvore como um todo.
+Cada nó é uma instância na Amazon EC2 (Amazon Elastic Compute Cloud), desta forma o gerador pode ser tão flexível quanto quisermos.

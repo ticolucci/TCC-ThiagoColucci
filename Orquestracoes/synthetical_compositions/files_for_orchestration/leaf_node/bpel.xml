@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<process name="LeafNode#{id}"
+targetNamespace="http://localhost/LeafNode/bpel#{id}"
+xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:bpws="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+xmlns:parent="http://localhost/LeafNode#{id}"
+xmlns:artifacts="http://localhost/LeafNode/Artifacts#{id}">
+
+<import namespace="http://localhost/LeafNode#{id}" location="LeafNodeDefinition#{id}.wsdl"
+	importType="http://schemas.xmlsoap.org/wsdl/" />
+
+<import namespace="http://localhost/LeafNode/Artifacts#{id}"
+	location="LeafNodeArtifacts#{id}.wsdl" importType="http://schemas.xmlsoap.org/wsdl/" />
+
+<partnerLinks>
+	<partnerLink name="ParentsNode" partnerLinkType="artifacts:LeafPartnerLinkType#{id}"
+		myRole="LeafRole#{id}"/>
+</partnerLinks>
+
+<variables>
+	<variable name="outputVar" messageType="parent:Message"/>
+
+	<variable name="inputVar" messageType="parent:Message"/>
+</variables>
+
+<sequence>
+
+	<receive name="start" partnerLink="ParentsNode" createInstance="yes" operation="LeafOperation#{id}" portType="parent:LeafPortType#{id}" variable="inputVar"/>
+
+	<assign name="Assign">
+	 <copy>
+	  <from variable="inputVar"/>
+	  <to variable="outputVar"/>
+	 </copy>
+	</assign>
+
+	<reply name="end" partnerLink="ParentsNode" operation="LeafOperation#{id}" portType="parent:LeafPortType#{id}" variable="outputVar"/>
+</sequence>
+</process>

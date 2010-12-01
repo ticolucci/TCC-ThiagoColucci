@@ -1,8 +1,0 @@
-﻿<?xml version='1.0' encoding='utf-8'?>
-<dd:process xmlns:dd="http://www.apache.org/ode/schemas/dd/2007/03" xmlns:diag="http://example.com/Root" xmlns:RootProcess="http://example.com/Root/RootProcess" xmlns:tns="http://localhost:8080/bpms-console" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:this="http://example.com/Root/Son" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="this:Son" fileName="Root-Son.bpel">
-  <dd:property name="PATH">Root</dd:property>
-  <dd:property name="SVG">Root.svg</dd:property>
-  <dd:provide partnerLink="sonAndRootProcessForPortTypeOrchestrationBenchmarkingPlkVar">
-    <dd:service name="this:SonAndRootProcessForPortTypeOrchestrationBenchmarkingPlkService" port="Son_for_RootProcessPort"></dd:service>
-  </dd:provide>
-</dd:process>
