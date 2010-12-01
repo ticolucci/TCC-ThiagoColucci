@@ -54,7 +54,7 @@
 % Opções de listing usados para o código fonte
 % Ref: http://en.wikibooks.org/wiki/LaTeX/Packages/Listings
 \lstset{ %
-language=Java,                  % choose the language of the code
+language=Ruby,                  % choose the language of the code
 basicstyle=\footnotesize,       % the size of the fonts that are used for the code
 showspaces=false,               % show spaces adding particular underscores
 showstringspaces=false,         % underline spaces within strings
@@ -72,7 +72,12 @@ extendedchars=true,
 xleftmargin=10pt,
 xrightmargin=10pt,
 framexleftmargin=5pt,
-framexrightmargin=5pt
+framexrightmargin=5pt,
+classoffset=0,
+emph={@graph},	emphstyle=\color{SeaGreen}, 
+emph={[2]each_node},emphstyle={[2]\color{red}},
+emph={[3]each_node_parallel},emphstyle={[3]\color{red}},
+morekeywords={node},keywordstyle=\color{blue}
 }
 
 
