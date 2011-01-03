@@ -24,8 +24,11 @@ class Generator
     @graph = Graph.new depth, number_of_children
     puts "done\n\n\n"
     @petals = Petals.new
-    Ssh.new.execute_command_on(Petals::REVOADA, 'ls a1/petals-platform-3.1.1/logs/') =~ /petals(\d\d\d\d-\d\d-\d\d).log/
-    @date = $1.to_s
+    @dates = []
+    (1..7).each do |i|
+      Ssh.new.execute_command_on(Petals::REVOADA, "ls a#{i}/petals-platform-3.1.1/logs/") =~ /petals(\d\d\d\d-\d\d-\d\d).log/
+      @dates[i] = $1.to_s
+    end
   end
 
   def instantiate_compositions must_print = true
@@ -61,9 +64,9 @@ class Generator
     puts "Terminating compositions..."
     @graph.each_node do |node|
       puts "uninstalling #{node.id}"
-      @petals.uninstall node, @dates
+      @petals.uninstall node, @dates[node.id]
       puts "clearing log of #{node.id}"
-      @petals.clear_log node, @date
+      @petals.clear_log node, @dates[node.id]
     end
     puts "removing resources"
     rm_rf "resources/node*"
@@ -86,10 +89,10 @@ class Generator
   def populate_orchestration node
     if node.is_leaf?
       Orchestration.leaf_node node.id
-      @petals.install @date, node, "resources/leaf_node#{node.id}/sa-BPEL-#{node}Node#{node.id}-provide.zip"
+      @petals.install @dates[node.id], node, "resources/leaf_node#{node.id}/sa-BPEL-#{node}Node#{node.id}-provide.zip"
     else
       Orchestration.node node.id, node.children
-      @petals.install @date, node, "resources/node#{node.id}/sa-BPEL-#{node}Node#{node.id}-provide.zip"
+      @petals.install @dates[node.id], node, "resources/node#{node.id}/sa-BPEL-#{node}Node#{node.id}-provide.zip"
     end
     @printer[node, :orchestration] = true
   end

@@ -18,7 +18,8 @@ module NodeCreation
     	targetNamespace=\"http://localhost/#{child}Node#{child.id}\">
     	
     	
-    	<types />
+    	<types/>
+      
     	
     	<message name=\"Message\">
     		<part name=\"Part\" element=\"xsd:string\"/>

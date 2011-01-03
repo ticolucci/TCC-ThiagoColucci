@@ -1,30 +1,22 @@
 #! /usr/bin/ruby
-
-$: << '/home/ticolucci/.rvm/gems/ruby-1.9.2-p0'
-$: << '/home/ticolucci/.rvm/gems/ruby-1.9.2-p0/gems'
-$: << '/home/ticolucci/.rvm/gems/ruby-1.9.2-p0/gems/savon-0.7.9'
-require 'net/http'
-require 'net/https'
-require 'benchmark'
-include Benchmark          # we need the CAPTION and FMTSTR constants
+# 
+# $: << '/home/ticolucci/.rvm/gems/ruby-1.9.2-p0'
+# $: << '/home/ticolucci/.rvm/gems/ruby-1.9.2-p0/gems'
+# $: << '/home/ticolucci/.rvm/gems/ruby-1.9.2-p0/gems/savon-0.7.9'
 require 'thread'
 
-require 'rubygems'
-require 'savon'
 
 def print_usage
   puts "Usage:"
-  puts "\t$ ruby send_messages HOST PORT SERVICE_PATH NODE_ID MESSSAGE_SIZE FREQUENCY TIME NUMBER_OF_TRIES"
+  puts "\t$ ruby send_messages HOST PORT SERVICE_PATH MESSSAGE_SIZE FREQUENCY EXPERIMENT_DURATION"
   puts "\n\n"
   puts "Where:"
   puts "\t HOST is where the service is hosted"
   puts "\t PORT is the port to the service"
   puts "\t SERVICE_PATH is where the path to the service from the host"
-  puts "\t NODE_ID is the id of the Root Node of the composition"
   puts "\t MESSSAGE_SIZE is the size of each message [bytes]"
   puts "\t FREQUENCY is the frequency to send the messages [1/sec]"
-  puts "\t TIME is for how long each test will last [sec]"
-  puts "\t NUMBER_OF_TRIES is how many times we will run the test"
+  puts "\t EXPERIMENT_DURATION is how many times we will run the test"
   
   exit 1
 end
@@ -52,6 +44,22 @@ def standard_deviation(population)
   #Tms.new(Math.sqrt(var.utime), Math.sqrt(var.stime), Math.sqrt(var.cutime), Math.sqrt(var.cstime), Math.sqrt(var.real))
 end
 
+def send_msg endpoint, msg
+  msg_filename = "/tmp/msg_#{(rand * 100_000_000_000_000_000).to_i}"
+  f = File.new msg_filename, "w"
+  f.puts msg
+  f.close
+  r = `ruby ./sc/scripts/send_a_message.rb #{endpoint} #{msg_filename}`
+  a = r.split
+  time = a.shift.to_f
+  a.shift #separator
+  response = a.join "\n"
+  [time, response]
+end
+
+
+
+
 print_usage() if ARGV.size < 6
 
 host = ARGV.shift
@@ -60,48 +68,47 @@ service_path = ARGV.shift
 message_size = ARGV.shift.to_i
 frequency = ARGV.shift.to_i
 period = 1.0/frequency
-number_of_threads = frequency
-number_of_tries = ARGV.shift.to_i
+experiment_duration = ARGV.shift.to_i
 
-
-
-msg_content = "a"*message_size
-body = proc  {|soap| soap.body = {:part => msg_content}}
-Savon::Request.log = false
 lock = Mutex.new
 
+msg = "a"*message_size
+endpoint = "http://#{host}:#{port}#{service_path}"
 
-client = Savon::Client.new "http://#{host}:#{port}#{service_path}?wsdl"
-action = client.wsdl.soap_actions.first
-  
-str_len = "sending msg #{number_of_tries}".length
+str_len = "sending msg 1000000000000000".length
 std_dev_len = "> standard deviation: ".length + 2
 max_len = str_len > std_dev_len ? str_len : std_dev_len
 
 puts " "*max_len + "Real Time"
+run, default_response = send_msg endpoint, msg
 runs = []
-number_of_tries.times do |index|
-  runs << Benchmark.realtime do
-    pids = []
-    number_of_threads.times do
-      pids << Thread.new do 
-        lock.synchronize {
-          client.send action, &body
-        }
-      end
-      sleep period
-    end
-    pids.each {|pid| pid.join}
+threads = []
+my_period = 0
+sleeps = []
+(experiment_duration/period).to_i.times do |i|
+  sleeps << my_period
+  my_period += period
+end
+
+sleeps.each do |sleep_time|
+  threads << Thread.new do\
+    sleep sleep_time
+    
+    run,response = send_msg endpoint, msg
+    
+    throw ("Got:"+response+"          Expected:"+default_response) if default_response != response
+    
+    lock.synchronize {runs << run}
   end
 end
 
+threads.each {|t| t.join}
+
 
 total = runs.reduce(0.0) {|i,j| i+j}
-avg = total/number_of_tries
-var = variance(runs)
+avg = total/sleeps.size
 std_dev = standard_deviation(runs)
 
 puts "> total:              #{"%11.5f" % total} s"
 puts "> average:            #{"%11.5f" % avg} s"
-puts "> variance:           #{"%11.5f" % var} s"
 puts "> standard deviation: #{"%11.5f" % std_dev} s"

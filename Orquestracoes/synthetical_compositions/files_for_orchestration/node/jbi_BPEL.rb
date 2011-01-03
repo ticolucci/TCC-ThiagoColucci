@@ -23,7 +23,7 @@ module NodeCreation
 
     			<!-- Component specific elements -->
     			<bpel:bpel>NodeNode#{id}.bpel</bpel:bpel>
-    			<bpel:poolsize>2</bpel:poolsize>
+    			<bpel:poolsize>30</bpel:poolsize>
 
     		</jbi:provides>
 

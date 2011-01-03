@@ -10,9 +10,7 @@ xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl"
 targetNamespace="http://localhost/LeafNode#{id}">
 
 
-<types />
-
-
+<types/>
 
 <message name="Message">
 	<part name="Part" element="xsd:string" />

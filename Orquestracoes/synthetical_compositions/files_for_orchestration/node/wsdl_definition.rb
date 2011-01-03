@@ -12,13 +12,12 @@ module NodeCreation
     	xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"
     	xmlns:wsa=\"http://www.w3.org/2005/08/addressing\" 
     	xmlns:wsaw=\"http://www.w3.org/2006/05/addressing/wsdl\"
-    	xmlns:tns=\"http://localhost/NodeNode#{id}\" 
+    	xmlns:tns=\"http://localhost/NodeNode#{id}\"
     	
     	name=\"NodeNodeDefinition#{id}\" 
     	targetNamespace=\"http://localhost/NodeNode#{id}\">
 
-
-    	<types />
+    	<types/>
 
     	<message name=\"Message\">
     		<part name=\"Part\" element=\"xsd:string\" />
