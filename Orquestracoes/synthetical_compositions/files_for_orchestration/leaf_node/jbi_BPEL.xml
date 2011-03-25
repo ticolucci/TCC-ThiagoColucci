@@ -21,7 +21,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
 		<!-- Component specific elements -->
 		<bpel:bpel>LeafNode#{id}.bpel</bpel:bpel>
-		<bpel:poolsize>30</bpel:poolsize>
+		<bpel:poolsize>8</bpel:poolsize>
 
 	</jbi:provides>
 

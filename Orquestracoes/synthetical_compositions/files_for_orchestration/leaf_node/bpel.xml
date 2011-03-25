@@ -29,8 +29,8 @@ xmlns:artifacts="http://localhost/LeafNode/Artifacts#{id}">
 
 	<assign name="Assign">
 	 <copy>
-	  <from variable="inputVar"/>
-	  <to variable="outputVar"/>
+	  <from>  <![CDATA[$inputVar]]> </from>
+		<to><![CDATA[$outputVar]]></to>
 	 </copy>
 	</assign>
 
